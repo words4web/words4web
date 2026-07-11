@@ -7,7 +7,7 @@ import {
   useSpring,
 } from "framer-motion";
 import { workData } from "../data/workData";
-import { WorkItem } from "../types/work";
+import type { WorkItem } from "../types/work";
 import { Section } from "./Section";
 
 function ProjectCard({ project, index }: { project: WorkItem; index: number }) {

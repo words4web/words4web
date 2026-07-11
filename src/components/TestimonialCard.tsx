@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { TestimonialCardProps } from "../types/testimonial";
+import type { TestimonialCardProps } from "../types/testimonial";
 
 export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (

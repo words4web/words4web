@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { MotionValue } from "framer-motion";
+import type { ReactNode } from "react";
+import type { MotionValue } from "framer-motion";
 
 export interface SectionProps {
   id?: string;

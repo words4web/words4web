@@ -36,6 +36,53 @@
       transform: translate(-50%, -50%) rotate(0deg);
     }
   }
+
+  --animate-liquid-flow: liquid-flow 15s linear infinite;
+  --animate-pulse-glow: pulse-glow 8s ease-in-out infinite;
+
+  @keyframes liquid-flow {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  --animate-image-breathe: image-breathe 16s ease-in-out infinite;
+  --animate-hue-loop: hue-loop 15s linear infinite;
+
+  @keyframes image-breathe {
+    0%,
+    100% {
+      transform: scale(1.03);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes hue-loop {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  --animate-impulse: impulse 4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+
+  @keyframes impulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(5.5);
+      opacity: 0;
+    }
+  }
 }
 
 @layer base {

@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { motion } from "framer-motion";
-import { SectionProps } from "../types/section";
+import type { SectionProps } from "../types/section";
 
 export const Section = forwardRef<HTMLDivElement, SectionProps>(
   (

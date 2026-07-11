@@ -1,5 +1,5 @@
 import React from "react";
-import { AboutContent } from "../types/about";
+import type { AboutContent } from "../types/about";
 
 export const aboutData: AboutContent = {
   badge: "Best Digital Marketing Agency",

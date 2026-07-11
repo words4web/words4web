@@ -1,0 +1,31 @@
+---
+import "../index.css";
+
+interface Props {
+	title?: string;
+}
+
+const { title = "Words4Web | Best Digital Marketing Agency" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="At Words4Web, we turn your brand's potential into real, measurable growth. High-end web development, SEO, and digital marketing services." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/logo/logo_purple.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<script is:inline>
+			// Inline script to prevent theme flickering on page load
+			const stored = localStorage.getItem("words4web-theme");
+			const theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+			document.documentElement.classList.remove("light", "dark");
+			document.documentElement.classList.add(theme);
+		</script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
