@@ -32,30 +32,43 @@ export function About() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isImageInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8 }}
-            className="relative flex flex-col items-center">
+            className="relative flex flex-col items-center group cursor-pointer">
+            {/* Outer Ambient Glow ring that breathes and intensifies on hover */}
+            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-[#7b2cbf]/30 to-[#e0aaff]/30 opacity-40 blur-2xl group-hover:opacity-80 group-hover:scale-110 transition-all duration-700 pointer-events-none" />
+
             {/* Glowing Tracing Border Around CEO Photo */}
-            <div className="relative w-48 h-48 rounded-full p-[4px] overflow-hidden shadow-[0_0_40px_rgba(123,44,191,0.5)]">
-              {/* Rotating Arc */}
+            <div className="relative w-48 h-48 rounded-full p-[4px] overflow-hidden shadow-[0_0_40px_var(--trace-glow)] group-hover:shadow-[0_0_60px_var(--trace-glow)] border border-[var(--trace-border)] transition-all duration-500">
+              {/* Outer Rotating Arc (Clockwise) */}
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
                 <div
                   className="absolute top-1/2 left-1/2 w-[300%] h-[300%] animate-border-trace"
                   style={{
                     background:
-                      "conic-gradient(from 0deg, transparent 0deg, transparent 330deg, #9d4edd 345deg, #ffffff 355deg, #9d4edd 360deg)",
+                      "conic-gradient(from 0deg, transparent 0deg, transparent 240deg, var(--trace-color-1) 280deg, var(--trace-color-2) 320deg, var(--trace-color-3) 360deg)",
+                  }}
+                />
+              </div>
+              {/* Inner Rotating Arc (Counter-Clockwise) */}
+              <div className="absolute inset-[3px] overflow-hidden rounded-full pointer-events-none z-5">
+                <div
+                  className="absolute top-1/2 left-1/2 w-[300%] h-[300%] animate-border-trace-reverse"
+                  style={{
+                    background:
+                      "conic-gradient(from 0deg, transparent 0deg, transparent 200deg, var(--trace-color-3) 250deg, var(--trace-color-2) 300deg, var(--trace-color-1) 360deg)",
                   }}
                 />
               </div>
               {/* Inner photo */}
-              <div className="w-full h-full rounded-full bg-[#0c0c0e] flex items-center justify-center relative z-10">
+              <div className="w-full h-full rounded-full bg-[var(--background)] flex items-center justify-center relative z-10 overflow-hidden p-[2px]">
                 <img
                   src="/assets/ceo.webp"
                   alt={aboutData.ceoName}
-                  className="w-full h-full object-cover rounded-full"
+                  className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
               </div>
             </div>
 
-            <h4 className="font-display text-lg font-bold text-white mt-4 tracking-tight">
+            <h4 className="font-display text-lg font-bold text-[var(--text-primary)] mt-4 tracking-tight">
               {aboutData.ceoName}
             </h4>
           </motion.div>
@@ -66,7 +79,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full max-w-[380px] p-6 rounded-2xl glass-panel relative overflow-hidden border border-white/5 flex gap-4 bg-white/[0.01]">
+            className="w-full max-w-[380px] p-6 rounded-2xl glass-panel relative overflow-hidden border border-black/5 dark:border-white/5 flex gap-4 bg-black/[0.01] dark:bg-white/[0.01]">
             <div className="text-[#9d4edd] shrink-0">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -101,7 +114,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="p-6 rounded-2xl glass-panel relative overflow-hidden border border-white/5 bg-white/[0.01] flex flex-col gap-5 shadow-lg">
+            className="p-6 rounded-2xl glass-panel relative overflow-hidden border border-black/5 dark:border-white/5 bg-black/[0.01] dark:bg-white/[0.01] flex flex-col gap-5 shadow-lg">
             {/* CTA Action button */}
             <div className="flex justify-start">
               <a href="#contact">
@@ -116,7 +129,7 @@ export function About() {
             </div>
 
             <div className="text-left">
-              <h4 className="font-display text-base font-bold text-white mb-2">
+              <h4 className="font-display text-base font-bold text-[var(--text-primary)] mb-2">
                 {aboutData.standoutHeading}
               </h4>
               <div className="flex items-start gap-2.5">
