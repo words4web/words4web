@@ -47,6 +47,9 @@ export function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      setScrolled(window.scrollY > 50);
+    }
     return scrollY.onChange((latest) => {
       setScrolled(latest > 50);
     });
@@ -55,8 +58,8 @@ export function Navbar() {
   return (
     <motion.nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 md:px-12 py-4",
-        scrolled ? "py-2 glass-panel" : "bg-transparent",
+        "fixed top-0 left-0 right-0 z-50 transition-[padding,background-color,border-color] duration-500 px-6 md:px-12 py-4",
+        scrolled ? "py-2 navbar-glass" : "bg-transparent",
       )}
       style={{ border: "none" }}
       initial={{ y: -100 }}
@@ -68,7 +71,7 @@ export function Navbar() {
             src="/logo/logo_purple.png"
             alt="words4web logo"
             style={{ height: "96px", width: "auto" }}
-            className="object-contain"
+            className="object-contain logo-glow"
           />
         </div>
 
@@ -110,14 +113,14 @@ export function Navbar() {
                       initial="hidden"
                       animate="visible"
                       exit="exit"
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-72 glass-panel rounded-2xl p-4 flex flex-col gap-1.5 shadow-2xl z-50 text-left"
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-72 dropdown-glass rounded-2xl p-4 flex flex-col gap-1.5 shadow-2xl z-50 text-left"
                       style={{ border: "none" }}>
                       {item.children!.map((child) => (
                         <motion.a
                           variants={itemVariants}
                           key={child.label}
                           href={child.href}
-                          className="px-4 py-2.5 rounded-xl hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] hover:translate-x-1.5 duration-200 transition-all text-xs font-semibold whitespace-nowrap block">
+                          className="px-4 py-2.5 rounded-xl hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] hover:translate-x-1.5 duration-200 transition-all text-sm font-semibold whitespace-nowrap block">
                           {child.label}
                         </motion.a>
                       ))}
@@ -130,11 +133,12 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <button
+          <MagneticButton
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="w-10 h-10 rounded-full glass-panel flex items-center justify-center interactive hover:scale-110 transition-transform">
+            variant="glass"
+            className="w-10 h-10 p-0 rounded-full flex items-center justify-center">
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
+          </MagneticButton>
           <MagneticButton
             variant="primary"
             className="hidden md:block py-2.5 px-6 text-sm">

@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { servicesData } from "../data/servicesData";
 import { Section } from "./Section";
 import { FlipCard } from "./FlipCard";
+import { MagneticButton } from "./MagneticButton";
 
 export function Services() {
   const ref = useRef(null);
@@ -79,18 +80,12 @@ export function Services() {
       {/* CTA Bottom Button */}
       <div className="mt-20 flex justify-center">
         <a href="#work">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative overflow-hidden rounded-full px-10 py-5 glass-panel font-medium interactive text-base flex items-center gap-2">
-            <span className="relative z-10 text-[var(--text-primary)] transition-colors group-hover:text-white">
-              See Our Works
-            </span>
-            <span className="relative z-10 group-hover:text-white transition-colors group-hover:translate-x-1 duration-300">
-              →
-            </span>
-            <div className="absolute inset-0 bg-[var(--primary)] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />
-          </motion.button>
+          <MagneticButton
+            variant="primary"
+            className="px-10 py-5 text-base flex items-center gap-2">
+            <span>See Our Works</span>
+            <span className="group-hover:translate-x-1 duration-300">→</span>
+          </MagneticButton>
         </a>
       </div>
     </Section>

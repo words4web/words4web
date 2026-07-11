@@ -143,6 +143,60 @@
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
 }
 
+.navbar-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  transition:
+    background-color 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.dark .navbar-glass {
+  background: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dropdown-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+.dark .dropdown-glass {
+  background: rgba(
+    10,
+    10,
+    10,
+    0.92
+  ) !important; /* Almost solid black for maximum contrast */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.logo-glow {
+  animation: logo-glow-wave 3.5s ease-in-out infinite;
+}
+
+@keyframes logo-glow-wave {
+  0%,
+  100% {
+    filter: drop-shadow(-20px 0 12px rgba(157, 78, 221, 0.75))
+      drop-shadow(0 0 8px rgba(157, 78, 221, 0.35));
+  }
+  50% {
+    filter: drop-shadow(20px 0 12px rgba(157, 78, 221, 0.75))
+      drop-shadow(0 0 8px rgba(157, 78, 221, 0.35));
+  }
+}
+
 .text-gradient {
   background-clip: text;
   -webkit-background-clip: text;
@@ -159,4 +213,82 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(135deg, var(--primary) 0%, #7b2cbf 100%);
+}
+
+/* Neon border overlay — only visible in dark mode */
+/* Racing neon border beam — card on a track effect */
+@property --neon-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.neon-border-overlay {
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 5px;
+  background: conic-gradient(
+    from var(--neon-angle),
+    transparent 0%,
+    transparent 75%,
+    rgba(123, 44, 191, 0.25) 80%,
+    rgba(157, 78, 221, 0.6) 85%,
+    rgba(216, 180, 254, 1) 89%,
+    white 91%,
+    rgba(216, 180, 254, 1) 93%,
+    rgba(157, 78, 221, 0.6) 96%,
+    rgba(123, 44, 191, 0.25) 99%,
+    transparent 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: neon-border-race 4s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.dark .neon-border-overlay {
+  background: conic-gradient(
+    from var(--neon-angle),
+    transparent 0%,
+    transparent 75%,
+    rgba(123, 44, 191, 0.35) 80%,
+    rgba(157, 78, 221, 0.75) 85%,
+    rgba(216, 180, 254, 1) 89%,
+    white 91%,
+    rgba(216, 180, 254, 1) 93%,
+    rgba(157, 78, 221, 0.75) 96%,
+    rgba(123, 44, 191, 0.35) 99%,
+    transparent 100%
+  );
+}
+
+@keyframes neon-border-race {
+  from {
+    --neon-angle: 0deg;
+  }
+  to {
+    --neon-angle: 360deg;
+  }
+}
+
+.scroll-track {
+  stroke: rgba(123, 44, 191, 0.15);
+}
+
+.dark .scroll-track {
+  stroke: rgba(
+    168,
+    85,
+    247,
+    0.35
+  ); /* Brighter in dark mode for better visibility */
 }

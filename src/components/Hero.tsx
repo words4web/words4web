@@ -1,87 +1,106 @@
-import { useRef, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Environment } from "@react-three/drei";
-import * as THREE from "three";
+import { useRef, useState, useEffect } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Environment } from "@react-three/drei";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
-
-function ParticleSphere({ theme }: { theme: "light" | "dark" }) {
-  const count = 3000;
-  const mesh = useRef<THREE.Points>(null);
-
-  const particlesPosition = useMemo(() => {
-    const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      const r = 2; // radius
-      const theta = 2 * Math.PI * Math.random();
-      const phi = Math.acos(2 * Math.random() - 1);
-      const x = r * Math.sin(phi) * Math.cos(theta);
-      const y = r * Math.sin(phi) * Math.sin(theta);
-      const z = r * Math.cos(phi);
-      positions[i * 3] = x;
-      positions[i * 3 + 1] = y;
-      positions[i * 3 + 2] = z;
-    }
-    return positions;
-  }, [count]);
-
-  useFrame((state) => {
-    if (mesh.current) {
-      mesh.current.rotation.y = state.clock.getElapsedTime() * 0.05;
-      mesh.current.rotation.x = state.clock.getElapsedTime() * 0.02;
-    }
-  });
-
-  const particleColor = theme === "dark" ? "#ffffff" : "#7b2cbf";
-
-  return (
-    <points ref={mesh}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[particlesPosition, 3]}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.018}
-        color={particleColor}
-        transparent
-        opacity={0.8}
-        sizeAttenuation
-        depthWrite={false}
-        blending={THREE.AdditiveBlending}
-      />
-    </points>
-  );
-}
-
-const FloatingCard = ({
-  title,
-  delay,
-  className,
-}: {
-  title: string;
-  delay: number;
-  className: string;
-}) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50, scale: 0.9 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 1, delay, type: "spring" }}
-      className={`absolute z-10 glass-panel px-6 py-4 rounded-2xl flex items-center gap-3 interactive ${className}`}
-      data-cursor="Explore">
-      <div className="w-2 h-2 rounded-full bg-[var(--primary)]" />
-      <span className="font-medium text-sm whitespace-nowrap">{title}</span>
-    </motion.div>
-  );
-};
+import { heroCardsData } from "../data/heroCardsData";
+import { ParticleSphere } from "./ParticleSphere";
+import { FloatingCard } from "./FloatingCard";
+import type { ShootingStar } from "../types/hero";
 
 export function Hero() {
   const { theme } = useTheme();
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [glowingCards, setGlowingCards] = useState<Record<number, boolean>>({});
+  const [stars, setStars] = useState<ShootingStar[]>([]);
+
+  // Fisher-Yates shuffled target index queue ref
+  const targetQueueRef = useRef<number[]>([]);
+
+  useEffect(() => {
+    const triggerShootingStar = () => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      // Refill the queue if empty
+      if (targetQueueRef.current.length === 0) {
+        const indexes = Array.from(
+          { length: heroCardsData.length },
+          (_, i) => i,
+        );
+        // Shuffle indexes
+        for (let i = indexes.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
+        }
+        targetQueueRef.current = indexes;
+      }
+
+      // Pop the next target index from the shuffled queue
+      const targetIndex = targetQueueRef.current.pop()!;
+      const targetCard = cardRefs.current[targetIndex];
+
+      if (targetCard) {
+        const containerRect = container.getBoundingClientRect();
+        const cardRect = targetCard.getBoundingClientRect();
+
+        // Calculate card center coordinates relative to the container
+        const endX = cardRect.left - containerRect.left + cardRect.width / 2;
+        const endY = cardRect.top - containerRect.top + cardRect.height / 2;
+
+        // If card is on the left half of the screen, shoot from top-right.
+        // If card is on the right half of the screen, shoot from top-left.
+        const isLeftCard = endX < containerRect.width / 2;
+        const startX = isLeftCard ? containerRect.width + 100 : -100;
+        const startY = -100;
+
+        // Calculate travel angle using trigonometry
+        const dx = endX - startX;
+        const dy = endY - startY;
+        const tailAngle = (Math.atan2(dy, dx) * 180) / Math.PI;
+
+        setStars((prev) => [
+          ...prev,
+          {
+            startX,
+            startY,
+            endX,
+            endY,
+            tailAngle,
+            id: Date.now() + Math.random(), // Unique ID key
+          },
+        ]);
+
+        // Set card glowing state right when the star hits (takes 1.5 seconds to travel)
+        const hitTimeout = setTimeout(() => {
+          setGlowingCards((prev) => ({ ...prev, [targetIndex]: true }));
+          // Card remains glowing for 2 seconds
+          const glowTimeout = setTimeout(() => {
+            setGlowingCards((prev) => ({ ...prev, [targetIndex]: false }));
+          }, 2000);
+
+          return () => clearTimeout(glowTimeout);
+        }, 1500);
+
+        return () => clearTimeout(hitTimeout);
+      }
+    };
+
+    // Trigger every 5 seconds
+    const interval = setInterval(triggerShootingStar, 5000);
+    // Trigger initial run after 3 seconds so user sees it quickly on load
+    const initialTimeout = setTimeout(triggerShootingStar, 3000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(initialTimeout);
+    };
+  }, []);
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
@@ -97,44 +116,69 @@ export function Hero() {
         </Canvas>
       </motion.div>
 
-      {/* Floating UI Cards */}
-      <div className="absolute inset-0 pointer-events-none z-10 w-full">
+      {/* Floating UI Cards & Shooting Star overlay */}
+      <div
+        ref={containerRef}
+        className="absolute inset-0 pointer-events-none z-10 w-full overflow-hidden">
         <div className="relative w-full h-full">
-          <FloatingCard
-            title="Amazon Marketing Services"
-            delay={0.2}
-            className="top-[22%] left-[5%] md:left-[15%]"
-          />
-          <FloatingCard
-            title="Mobile App Development"
-            delay={0.4}
-            className="top-[60%] left-[2%] md:left-[10%]"
-          />
-          <FloatingCard
-            title="Web Designing"
-            delay={0.6}
-            className="top-[15%] right-[5%] md:right-[15%]"
-          />
-          <FloatingCard
-            title="Social Media Optimization"
-            delay={0.8}
-            className="top-[52%] right-[2%] md:right-[10%]"
-          />
-          <FloatingCard
-            title="Graphic Designing"
-            delay={1.0}
-            className="bottom-[18%] left-[25%]"
-          />
-          <FloatingCard
-            title="SEO Services"
-            delay={1.1}
-            className="bottom-[28%] right-[20%]"
-          />
-          <FloatingCard
-            title="Content Writing"
-            delay={1.2}
-            className="bottom-[8%] right-[40%]"
-          />
+          {heroCardsData.map((card, idx) => (
+            <FloatingCard
+              key={idx}
+              title={card.title}
+              delay={card.delay}
+              className={card.className}
+              isGlowing={!!glowingCards[idx]}
+              cardRef={(el) => {
+                cardRefs.current[idx] = el;
+              }}
+            />
+          ))}
+
+          {/* Animated Shooting Stars */}
+          {stars.map((s) => (
+            <motion.div
+              key={s.id}
+              initial={{
+                x: s.startX,
+                y: s.startY,
+                opacity: 0,
+                scale: 0.1,
+              }}
+              animate={{
+                x: s.endX,
+                y: s.endY,
+                opacity: [0, 1, 1, 0],
+                scale: [0.1, 1.2, 1.2, 0.1],
+              }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              onAnimationComplete={() => {
+                setStars((prev) => prev.filter((item) => item.id !== s.id));
+              }}
+              className="absolute z-20 w-10 h-10 flex items-center justify-center pointer-events-none"
+              style={{
+                translateX: "-50%",
+                translateY: "-50%",
+              }}>
+              {/* Outer massive purple glow envelope */}
+              <div className="absolute inset-0 rounded-full bg-[var(--primary)] opacity-40 blur-md scale-150" />
+
+              {/* Sparkle Star Head - Diamond shape */}
+              <div className="w-3.5 h-3.5 bg-white rotate-[45deg] shadow-[0_0_15px_6px_#fff,0_0_35px_12px_rgba(157,78,221,0.8)] relative z-10" />
+
+              {/* Sparkle Star Flare Cross lines */}
+              <div className="absolute w-8 h-[1.5px] bg-white opacity-85 blur-[0.5px]" />
+              <div className="absolute h-8 w-[1.5px] bg-white opacity-85 blur-[0.5px]" />
+
+              {/* Long glowing tail dynamically aligned opposite to the direction of travel */}
+              <div
+                className="absolute right-1/2 w-52 h-[8px] bg-gradient-to-l from-white via-[var(--primary)] to-transparent origin-right blur-[1.5px] opacity-90"
+                style={{
+                  clipPath: "polygon(0 35%, 100% 0, 100% 100%, 0 65%)",
+                  transform: `rotate(${s.tailAngle}deg)`,
+                }}
+              />
+            </motion.div>
+          ))}
         </div>
       </div>
 
@@ -179,24 +223,6 @@ export function Hero() {
           </span>
         </motion.p>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}>
-        <span className="text-xs uppercase tracking-widest font-medium text-[var(--text-secondary)]">
-          Scroll to explore
-        </span>
-        <div className="w-[1px] h-12 bg-[var(--border)] overflow-hidden">
-          <motion.div
-            className="w-full h-1/2 bg-[var(--primary)]"
-            animate={{ y: ["-100%", "200%"] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }

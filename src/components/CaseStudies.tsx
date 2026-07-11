@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -9,8 +9,21 @@ import {
 import { workData } from "../data/workData";
 import type { WorkItem } from "../types/work";
 import { Section } from "./Section";
+import { MagneticButton } from "./MagneticButton";
 
-function ProjectCard({ project, index }: { project: WorkItem; index: number }) {
+function ProjectCard({
+  project,
+  index,
+  hoveredIdx,
+  onHoverStart,
+  onHoverEnd,
+}: {
+  project: WorkItem;
+  index: number;
+  hoveredIdx: number | null;
+  onHoverStart: (idx: number) => void;
+  onHoverEnd: () => void;
+}) {
   const [isHovered, setIsHovered] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -19,9 +32,22 @@ function ProjectCard({ project, index }: { project: WorkItem; index: number }) {
   const mouseXSpring = useSpring(x, { stiffness: 120, damping: 20 });
   const mouseYSpring = useSpring(y, { stiffness: 120, damping: 20 });
 
+  // Sibling lean spring — smooth spring-driven tilt for cards that aren't hovered
+  const leanY = useMotionValue(0);
+  const leanYSpring = useSpring(leanY, { stiffness: 60, damping: 14 });
+
   // Map values to tilt rotations (-12 to 12 degrees)
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [12, -12]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-12, 12]);
+
+  // Drive the lean spring whenever the hovered card changes
+  useEffect(() => {
+    if (hoveredIdx === null || hoveredIdx === index) {
+      leanY.set(0);
+    } else {
+      leanY.set(index < hoveredIdx ? 22 : -22);
+    }
+  }, [hoveredIdx, index, leanY]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -37,12 +63,16 @@ function ProjectCard({ project, index }: { project: WorkItem; index: number }) {
 
   const handleMouseEnter = () => {
     setIsHovered(true);
+    onHoverStart(index);
   };
 
   const handleMouseLeave = () => {
+    // Seed the lean spring from the current rotateY so there's no snap on exit
+    leanY.set(rotateY.get());
     x.set(0);
     y.set(0);
     setIsHovered(false);
+    onHoverEnd();
   };
 
   return (
@@ -60,43 +90,51 @@ function ProjectCard({ project, index }: { project: WorkItem; index: number }) {
         onMouseLeave={handleMouseLeave}
         style={{
           rotateX,
-          rotateY,
+          rotateY: isHovered ? rotateY : leanYSpring,
           transformStyle: "preserve-3d",
           boxShadow: isHovered
             ? "0 20px 45px -10px rgba(123, 44, 191, 0.25)"
             : "0 15px 35px -10px rgba(0, 0, 0, 0.5)",
-          borderColor: isHovered
-            ? "rgba(123, 44, 191, 0.4)"
-            : "rgba(255, 255, 255, 0.08)",
-          transition:
-            "box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out",
+          transition: "box-shadow 0.5s ease-in-out",
         }}
-        className="w-full rounded-3xl overflow-hidden glass-panel border select-none bg-[var(--background-secondary)]">
-        {/* Address bar/header */}
-        <div className="h-8 w-full bg-[var(--background-secondary)] px-4 flex items-center gap-2 border-b border-[var(--border)]">
-          <div className="flex gap-1.5 shrink-0">
-            <div className="w-2 h-2 rounded-full bg-[#ff5f56]" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+        className="w-full rounded-3xl relative select-none">
+        {/* Neon border — outside overflow-hidden so it renders OUTSIDE the card */}
+        <div className="neon-border-overlay rounded-3xl" />
+        {/* Inner card with overflow clipping */}
+        <div
+          className="w-full rounded-3xl overflow-hidden glass-panel border bg-[var(--background-secondary)]"
+          style={{
+            borderColor: isHovered
+              ? "rgba(123, 44, 191, 0.4)"
+              : "rgba(255, 255, 255, 0.08)",
+            transition: "border-color 0.5s ease-in-out",
+          }}>
+          {/* Address bar/header */}
+          <div className="h-8 w-full bg-[var(--background-secondary)] px-4 flex items-center gap-2 border-b border-[var(--border)]">
+            <div className="flex gap-1.5 shrink-0">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+            </div>
+            <div className="mx-auto w-40 h-4 rounded bg-[var(--background)]/80 flex items-center justify-center text-[8px] text-[var(--text-secondary)] font-mono truncate px-2">
+              words4web.com/showcase
+            </div>
           </div>
-          <div className="mx-auto w-40 h-4 rounded bg-[var(--background)]/80 flex items-center justify-center text-[8px] text-[var(--text-secondary)] font-mono truncate px-2">
-            words4web.com/showcase
-          </div>
-        </div>
 
-        {/* Screenshot Viewport Container */}
-        <div className="relative w-full h-[450px] overflow-hidden bg-black/10">
-          <img
-            src={project.image}
-            alt={project.title}
-            style={{
-              transform: isHovered
-                ? "translateY(calc(-100% + 450px))"
-                : "translateY(0)",
-              transition: "transform 6s ease-in-out",
-            }}
-            className="w-full h-auto object-top select-none"
-          />
+          {/* Screenshot Viewport Container */}
+          <div className="relative w-full h-[620px] overflow-hidden bg-black/10">
+            <img
+              src={project.image}
+              alt={project.title}
+              style={{
+                transform: isHovered
+                  ? "translateY(calc(-100% + 620px))"
+                  : "translateY(0)",
+                transition: "transform 10s ease-in-out",
+              }}
+              className="w-full h-auto object-top select-none"
+            />
+          </div>
         </div>
       </motion.div>
 
@@ -122,6 +160,18 @@ export function CaseStudies() {
     target: containerRef,
     offset: ["start end", "end start"],
   });
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  // Debounce timer — prevents flicker when cursor crosses the gap between cards
+  const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleHoverStart = (idx: number) => {
+    if (leaveTimer.current) clearTimeout(leaveTimer.current);
+    setHoveredIdx(idx);
+  };
+
+  const handleHoverEnd = () => {
+    leaveTimer.current = setTimeout(() => setHoveredIdx(null), 120);
+  };
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
@@ -141,25 +191,26 @@ export function CaseStudies() {
       {/* 3-Column Portfolio Mockup Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {workData.map((project, idx) => (
-          <ProjectCard key={idx} project={project} index={idx} />
+          <ProjectCard
+            key={idx}
+            project={project}
+            index={idx}
+            hoveredIdx={hoveredIdx}
+            onHoverStart={handleHoverStart}
+            onHoverEnd={handleHoverEnd}
+          />
         ))}
       </div>
 
       {/* Bottom CTA Action */}
       <div className="mt-20 flex justify-center">
         <a href="#contact">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative overflow-hidden rounded-full px-10 py-5 glass-panel font-medium interactive text-base flex items-center gap-2">
-            <span className="relative z-10 text-[var(--text-primary)] transition-colors group-hover:text-white">
-              See Our Works
-            </span>
-            <span className="relative z-10 group-hover:text-white transition-colors group-hover:translate-x-1 duration-300">
-              →
-            </span>
-            <div className="absolute inset-0 bg-[var(--primary)] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />
-          </motion.button>
+          <MagneticButton
+            variant="primary"
+            className="px-10 py-5 text-base flex items-center gap-2">
+            <span>See Our Works</span>
+            <span className="group-hover:translate-x-1 duration-300">→</span>
+          </MagneticButton>
         </a>
       </div>
     </Section>

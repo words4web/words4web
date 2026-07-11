@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Section } from "./Section";
 import { aboutData, metricsIcons, glowColors } from "../data/aboutData";
 import { Counter } from "./Counter";
+import { MagneticButton } from "./MagneticButton";
 
 export function About() {
   const imageRef = useRef(null);
@@ -118,13 +119,10 @@ export function About() {
             {/* CTA Action button */}
             <div className="flex justify-start">
               <a href="#contact">
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="group relative overflow-hidden rounded-xl px-6 py-2.5 bg-gradient-to-r from-[#7b2cbf] to-[#9d4edd] font-bold interactive text-xs flex items-center gap-2 text-white shadow-[0_0_15px_rgba(123,44,191,0.25)]">
+                <MagneticButton className="rounded-xl px-6 py-2.5 bg-gradient-to-r from-[#7b2cbf] to-[#9d4edd] font-bold text-xs flex items-center gap-2 text-white shadow-[0_0_15px_rgba(123,44,191,0.25)] border-none">
                   <span>Contact Now!</span>
                   <span>→</span>
-                </motion.button>
+                </MagneticButton>
               </a>
             </div>
 
