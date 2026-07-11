@@ -1,0 +1,31 @@
+# Project Coding Guidelines & Best Practices
+
+As the AI coding assistant, you must automatically adhere to these guidelines for all tasks in this repository.
+
+## 1. Commands & Execution
+
+- **No Build/Lint Runs**: Do not execute production build commands (`npm run build`, `pnpm build`) or manual lint/typecheck steps unless explicitly requested by the user. Rely on IDE diagnostics and clean coding practices.
+
+## 2. Type Management (TypeScript)
+
+- **Strict Separation of Types**: Always declare TypeScript interfaces, types, and schemas inside the `src/types/` directory.
+- **No Inline Types**: Do not declare types or interfaces directly inside component files, page files, or utility files. Always export them from `src/types/` and import them where needed.
+- **Explicit Typings**: Avoid using `any`. Use strict type safety, optional fields where relevant, and keep props typed explicitly.
+- **Optional Chaining**: Always leverage optional chaining (`?.`) when accessing potentially undefined properties, complex nested fields, or optional objects to avoid runtime crashes.
+
+## 3. Component Architecture & Reusability
+
+- **Dry Principle & Common Components**: Proactively identify repeating UI elements (headers, badges, buttons, cards, modals) and refactor them into shared, reusable components under `src/components/`.
+- **Avoid Massive Files**: Keep component files focused and concise (under 200–250 lines of code). If a component starts growing too large, split it into smaller sub-components or child components within the same directory or a sub-folder.
+- **Single Responsibility**: Each component should do one thing well.
+
+## 4. Separation of Data and Constants
+
+- **No Inline Mock Data/Large Constants**: Keep components clean of hardcoded configurations, static texts, or mock datasets.
+- **Modular Data Folders**: Put all static configs, navigation routes, mock details, and constant values in modular files inside `src/data/` or `src/utils/` and import them.
+
+## 5. React 19 & Framer Motion Best Practices
+
+- **Use Modern Hooks**: Leverage React 19 APIs correctly (e.g., proper ref forwarding, form actions where applicable).
+- **Performance-Conscious Animation**: Ensure Framer Motion animations use hardware-accelerated properties (like `transform` via `x`, `y`, `scale`, `rotate` and `opacity`) instead of trigger-heavy properties (like height, width, top, left) to avoid page layout shifts and repaint overhead.
+- **Ref Forwarding**: When creating wrapper components or layout boundaries, ensure `forwardRef` is properly implemented to facilitate intersection observers (like Framer Motion's `whileInView`) and smooth scroll anchors.
