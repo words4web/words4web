@@ -7,18 +7,20 @@ function AnimatedInput({
   type = "text",
   required = false,
   name,
+  value,
+  onChange,
 }: {
   label: string;
   type?: string;
   required?: boolean;
   name: string;
+  value: string;
+  onChange: (val: string) => void;
 }) {
   const [isFocused, setIsFocused] = useState(false);
-  const [value, setValue] = useState("");
 
   return (
     <div className="relative w-full border-b border-[var(--text-secondary)]/15 py-2 mt-4 text-left">
-      {/* Floating Label */}
       <motion.label
         initial={{ y: 0, scale: 1 }}
         animate={{
@@ -34,19 +36,17 @@ function AnimatedInput({
         {label} {required && <span className="text-red-500">*</span>}
       </motion.label>
 
-      {/* Input Field */}
       <input
         type={type}
         name={name}
         required={required}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         className="w-full bg-transparent text-[var(--text-primary)] border-none outline-none py-1 text-base font-light focus:ring-0 focus:outline-none"
       />
 
-      {/* Expanding Bottom Highlight Line */}
       <motion.div
         initial={{ width: 0, left: "50%" }}
         animate={{
@@ -64,17 +64,19 @@ function AnimatedTextarea({
   label,
   required = false,
   name,
+  value,
+  onChange,
 }: {
   label: string;
   required?: boolean;
   name: string;
+  value: string;
+  onChange: (val: string) => void;
 }) {
   const [isFocused, setIsFocused] = useState(false);
-  const [value, setValue] = useState("");
 
   return (
     <div className="relative w-full border-b border-[var(--text-secondary)]/15 py-2 mt-6 text-left">
-      {/* Floating Label */}
       <motion.label
         initial={{ y: 0, scale: 1 }}
         animate={{
@@ -90,19 +92,17 @@ function AnimatedTextarea({
         {label} {required && <span className="text-red-500">*</span>}
       </motion.label>
 
-      {/* Textarea Field */}
       <textarea
         name={name}
         required={required}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         rows={4}
         className="w-full bg-transparent text-[var(--text-primary)] border-none outline-none py-1 text-base font-light focus:ring-0 resize-none focus:outline-none"
       />
 
-      {/* Expanding Bottom Highlight Line */}
       <motion.div
         initial={{ width: 0, left: "50%" }}
         animate={{
@@ -118,10 +118,27 @@ function AnimatedTextarea({
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    service: "Website Development",
+    details: "",
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        service: "Website Development",
+        details: "",
+      });
+    }, 4000);
   };
 
   return (
@@ -145,13 +162,12 @@ export function Contact() {
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight">
-              Get in <span className="text-gradient">Touch</span>
+              Let's Talk About{" "}
+              <span className="text-gradient">Your Business</span>
             </h2>
-            <p className="mt-6 text-lg md:text-xl text-[var(--text-secondary)] font-light leading-relaxed max-w-3xl">
-              We’d love to connect with you! Whether you have a question, need a
-              custom quote, or want to brainstorm your next big project, our
-              team is here to provide expert guidance and tailored solutions.
-              Let’s bring your vision to life!
+            <p className="mt-6 text-lg text-[var(--text-secondary)] font-light leading-relaxed max-w-3xl">
+              Tell us what you're looking for and our team will get back to you
+              within 24 hours — no spam, no pressure.
             </p>
           </div>
 
@@ -159,7 +175,7 @@ export function Contact() {
           <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative border border-[var(--text-secondary)]/10 group">
             <img
               src="/contact/representative.jpg"
-              alt="Smiling female customer support representative wearing a headset, sitting in a modern office workspace with computers in the background for contact"
+              alt="Smiling support representative"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
@@ -181,20 +197,16 @@ export function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}>
-                <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-[var(--text-primary)] mb-8 text-left leading-tight">
-                  Need expert guidance? Let’s discuss your project and turn your
-                  vision into reality.
-                </h3>
-
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <AnimatedInput
-                      label="First Name"
-                      name="firstName"
-                      required
-                    />
-                    <AnimatedInput label="Last Name" name="lastName" required />
-                  </div>
+                  <AnimatedInput
+                    label="Full Name"
+                    name="fullName"
+                    required
+                    value={formData.fullName}
+                    onChange={(val) =>
+                      setFormData((prev) => ({ ...prev, fullName: val }))
+                    }
+                  />
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <AnimatedInput
@@ -202,19 +214,68 @@ export function Contact() {
                       type="email"
                       name="email"
                       required
+                      value={formData.email}
+                      onChange={(val) =>
+                        setFormData((prev) => ({ ...prev, email: val }))
+                      }
                     />
                     <AnimatedInput
-                      label="Phone"
+                      label="Phone Number"
                       type="tel"
                       name="phone"
                       required
+                      value={formData.phone}
+                      onChange={(val) =>
+                        setFormData((prev) => ({ ...prev, phone: val }))
+                      }
                     />
                   </div>
 
+                  <div className="relative w-full border-b border-[var(--text-secondary)]/15 py-2 mt-4 text-left">
+                    <label className="block text-xs text-[var(--text-secondary)]/50 font-light mb-1.5">
+                      Service(s) you need
+                    </label>
+                    <select
+                      name="service"
+                      value={formData.service}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          service: e.target.value,
+                        }))
+                      }
+                      className="w-full bg-transparent text-[var(--text-primary)] border-none outline-none py-1 text-base font-light focus:ring-0 focus:outline-none [&>option]:bg-[#120826] [&>option]:text-white">
+                      <option value="Website Development">
+                        Website Development
+                      </option>
+                      <option value="Mobile App Development">
+                        Mobile App Development
+                      </option>
+                      <option value="SEO">SEO</option>
+                      <option value="Social Media Management">
+                        Social Media Management
+                      </option>
+                      <option value="Graphic Designing">
+                        Graphic Designing
+                      </option>
+                      <option value="E-Commerce Marketing">
+                        E-Commerce Marketing
+                      </option>
+                      <option value="Paid Ads Management">
+                        Paid Ads Management
+                      </option>
+                      <option value="Not Sure Yet">Not Sure Yet</option>
+                    </select>
+                  </div>
+
                   <AnimatedTextarea
-                    label="Write your message here"
-                    name="message"
+                    label="Project Details"
+                    name="details"
                     required
+                    value={formData.details}
+                    onChange={(val) =>
+                      setFormData((prev) => ({ ...prev, details: val }))
+                    }
                   />
 
                   {/* Submit Button */}
@@ -223,14 +284,8 @@ export function Contact() {
                       type="submit"
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
-                      className="group relative overflow-hidden rounded-full px-8 py-4 glass-panel font-medium interactive text-sm flex items-center gap-2 border border-[var(--text-secondary)]/20">
-                      <span className="relative z-10 text-[var(--text-primary)] transition-colors group-hover:text-white">
-                        Submit Now
-                      </span>
-                      <span className="relative z-10 group-hover:text-white transition-colors group-hover:translate-x-1 duration-300">
-                        →
-                      </span>
-                      <div className="absolute inset-0 bg-[var(--primary)] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />
+                      className="group relative overflow-hidden rounded-xl px-8 py-4 bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-xs text-white shadow-[0_0_15px_rgba(123,44,191,0.2)] border-none flex items-center gap-2">
+                      <span className="relative z-10">Submit →</span>
                     </motion.button>
                   </div>
                 </form>
@@ -242,7 +297,6 @@ export function Contact() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 className="flex flex-col items-center justify-center py-16 gap-6 text-center">
-                {/* Glowing Checkmark */}
                 <div className="w-20 h-20 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)] flex items-center justify-center relative">
                   <motion.div
                     className="absolute inset-0 rounded-full bg-[var(--primary)]/20 blur-md"
@@ -264,24 +318,35 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-display text-3xl font-bold tracking-tight text-[var(--text-primary)] mb-3">
-                    Message Sent!
+                    Thank you!
                   </h3>
                   <p className="text-[var(--text-secondary)] font-light max-w-sm">
-                    Thank you for connecting. Our team is already reviewing your
-                    details and will get back to you shortly.
+                    We will get back to you within 24 hours.
                   </p>
                 </div>
-                <motion.button
-                  onClick={() => setSubmitted(false)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-6 px-6 py-2.5 rounded-full border border-[var(--text-secondary)]/20 hover:border-[var(--primary)]/40 text-xs font-semibold text-[var(--text-secondary)] transition-all duration-300 hover:text-white">
-                  Send Another Message
-                </motion.button>
               </motion.div>
             )}
           </AnimatePresence>
         </motion.div>
+      </div>
+
+      {/* Trust Strip */}
+      <div className="w-full max-w-5xl mx-auto mt-16 px-4 py-5 rounded-2xl glass-panel border border-white/5 bg-black/10 dark:bg-white/[0.01] flex flex-wrap justify-around items-center gap-4 text-center">
+        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
+          <span className="text-[var(--primary)] mr-1">150+</span> Brands Served
+        </div>
+        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] hidden md:block" />
+        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
+          <span className="text-[var(--primary)] mr-1">8</span> Services, 1 Team
+        </div>
+        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] hidden md:block" />
+        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
+          Response Within 24 Hours
+        </div>
+        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] hidden md:block" />
+        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
+          No Obligation Quote
+        </div>
       </div>
     </Section>
   );

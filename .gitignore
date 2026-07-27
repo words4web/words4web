@@ -55,3 +55,4 @@ vite.config.ts.timestamp-*
 # Caches
 .eslintcache
 .cache/
+docs

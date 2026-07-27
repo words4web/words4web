@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useInView } from "framer-motion";
-import type { CounterProps } from "../types/about";
+import type { CounterProps } from "../types/counter";
 
 export function Counter({
   value,

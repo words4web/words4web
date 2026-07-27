@@ -37,20 +37,24 @@ export function FlipCard({
         setIsFlipped(false);
         setHoveredIdx(null);
       }}
-      onClick={() => setIsFlipped(!isFlipped)}>
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
       <motion.div
         className="w-full h-full"
         animate={{ scale }}
-        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}>
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      >
         <motion.div
           className="relative w-full h-full select-none"
           style={{ transformStyle: "preserve-3d" }}
           animate={animateProps}
-          transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}>
+          transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+        >
           {/* Front Side Wrapper with Glass Reflection Sweep */}
           <div
             className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden glass-panel border border-black/5 dark:border-white/5 transition-all duration-300"
-            style={{ backfaceVisibility: "hidden" }}>
+            style={{ backfaceVisibility: "hidden" }}
+          >
             {/* Background Image (Slow Breathing Zoom) */}
             <div className="absolute inset-0 z-0">
               <img
@@ -66,7 +70,7 @@ export function FlipCard({
             {/* Dual Impulse Diagonal Waves (top-left to bottom-right) */}
             <div className="absolute inset-0 z-12 overflow-hidden pointer-events-none">
               <div className="absolute top-0 left-0 w-48 h-48 rounded-full border-2 border-white/25 dark:border-[var(--primary)]/25 bg-white/5 dark:bg-[var(--primary)]/5 animate-impulse" />
-              <div 
+              <div
                 className="absolute top-0 left-0 w-48 h-48 rounded-full border-2 border-white/25 dark:border-[var(--primary)]/25 bg-white/5 dark:bg-[var(--primary)]/5 animate-impulse"
                 style={{ animationDelay: "2s" }}
               />
@@ -89,7 +93,8 @@ export function FlipCard({
             style={{
               backfaceVisibility: "hidden",
               transform: getBackTransform(),
-            }}>
+            }}
+          >
             <div className="flex flex-col gap-4 text-left">
               <span className="text-[var(--primary)] font-display text-xs uppercase tracking-widest font-semibold">
                 Words4Web Brand Solution

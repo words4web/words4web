@@ -29,7 +29,8 @@ export function ScrollProgress() {
         viewBox="0 0 40 1000"
         preserveAspectRatio="none"
         className="h-full w-10"
-        style={{ overflow: "visible" }}>
+        style={{ overflow: "visible" }}
+      >
         <defs>
           <linearGradient id="waveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="#c084fc" />

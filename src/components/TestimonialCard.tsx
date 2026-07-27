@@ -8,7 +8,8 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -20, opacity: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col gap-6">
+      className="flex flex-col gap-6"
+    >
       <blockquote className="font-display text-xl md:text-2xl lg:text-3xl font-light leading-relaxed text-[var(--text-primary)] italic">
         "{testimonial.quote}"
       </blockquote>

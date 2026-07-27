@@ -4,11 +4,11 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 export function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-  
+
   const springConfig = { damping: 25, stiffness: 300, mass: 0.5 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
-  
+
   const [isHovered, setIsHovered] = useState(false);
   const [hoverText, setHoverText] = useState("");
 
@@ -20,18 +20,20 @@ export function CustomCursor() {
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      
+
       // Check for interactive elements
       if (
-        target.closest("button") || 
-        target.closest("a") || 
+        target.closest("button") ||
+        target.closest("a") ||
         target.closest(".interactive")
       ) {
         setIsHovered(true);
-        
+
         // Custom text for specific elements
         if (target.closest("[data-cursor]")) {
-          setHoverText(target.closest("[data-cursor]")?.getAttribute("data-cursor") || "");
+          setHoverText(
+            target.closest("[data-cursor]")?.getAttribute("data-cursor") || "",
+          );
         } else {
           setHoverText("");
         }

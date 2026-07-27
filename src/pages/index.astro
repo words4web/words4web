@@ -5,11 +5,21 @@ import { CustomCursor } from '../components/CustomCursor';
 import { ScrollProgress } from '../components/ScrollProgress';
 import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
-import { About } from '../components/About';
-import { Services } from '../components/Services';
+import { StatsBar } from '../components/StatsBar';
+import { WhoWeAre } from '../components/WhoWeAre';
+import { Ticker } from '../components/Ticker';
 import { CaseStudies } from '../components/CaseStudies';
+import { WhyChooseUs } from '../components/WhyChooseUs';
 import { Testimonials } from '../components/Testimonials';
+import { Services } from '../components/Services';
+import { Industries } from '../components/Industries';
+import { Process } from '../components/Process';
+import { Founder } from '../components/Founder';
+import { Tools } from '../components/Tools';
+import { Countries } from '../components/Countries';
 import { Contact } from '../components/Contact';
+import { FAQs } from '../components/FAQs';
+import { CTA } from '../components/CTA';
 import { Footer } from '../components/Footer';
 ---
 
@@ -21,12 +31,22 @@ import { Footer } from '../components/Footer';
   <div class="relative w-full min-h-screen selection:bg-[var(--primary)] selection:text-white">
     <Navbar client:load />
     <main>
-      <Hero client:load />
-      <About client:visible />
-      <Services client:visible />
-      <CaseStudies client:visible />
-      <Testimonials client:visible />
-      <Contact client:visible />
+      <!-- <Hero client:load /> -->
+      <!-- <StatsBar client:visible /> -->
+      <!-- <WhoWeAre client:visible /> -->
+      <!-- <Ticker client:visible /> -->
+      <!-- <CaseStudies client:visible /> -->
+      <!-- <WhyChooseUs client:visible /> -->
+      <!-- <Testimonials client:visible /> -->
+      <!-- <Services client:visible /> -->
+      <!-- <Industries client:visible /> -->
+      <!-- <Process client:visible /> -->
+      <!-- <Founder client:visible /> -->
+      <!-- <Tools client:visible /> -->
+      <Countries client:visible />
+      <!-- <Contact client:visible /> -->
+      <!-- <FAQs client:visible /> -->
+      <!-- <CTA client:visible /> -->
     </main>
     <Footer />
   </div>

@@ -30,7 +30,8 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
 
     const headerContent = (badge || title || description) && (
       <div
-        className={`flex flex-col ${alignClass} ${y ? "" : headerClassName}`}>
+        className={`flex flex-col ${alignClass} ${y ? "" : headerClassName}`}
+      >
         {badge && (
           <div className="flex items-center gap-2 mb-4">
             <span className="relative flex h-2 w-2">
@@ -71,7 +72,8 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
       <section
         id={id}
         ref={ref}
-        className={`py-16 md:py-24 px-6 md:px-12 relative overflow-hidden bg-transparent ${borderClass} ${className}`}>
+        className={`py-16 md:py-24 px-6 md:px-12 relative overflow-hidden bg-transparent ${borderClass} ${className}`}
+      >
         {hasBackground && (
           <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--background-secondary)_0%,_var(--background)_100%)] opacity-50" />
         )}

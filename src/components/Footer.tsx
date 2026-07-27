@@ -7,12 +7,14 @@ import {
   Facebook,
   Youtube,
 } from "lucide-react";
+import { footerData } from "../data/footerData";
 
 export function Footer() {
   return (
     <footer
       id="contact"
-      className="relative bg-[var(--background-secondary)] pt-24 pb-12 px-6 md:px-12 border-t border-[var(--border)] overflow-hidden">
+      className="relative bg-[var(--background-secondary)] pt-24 pb-12 px-6 md:px-12 border-t border-[var(--border)] overflow-hidden"
+    >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[var(--primary)]/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="w-full relative z-10">
@@ -38,25 +40,29 @@ export function Footer() {
               <a
                 href="#"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
-                aria-label="Instagram">
+                aria-label="Instagram"
+              >
                 <Instagram size={20} />
               </a>
               <a
                 href="#"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
-                aria-label="LinkedIn">
+                aria-label="LinkedIn"
+              >
                 <Linkedin size={20} />
               </a>
               <a
                 href="#"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
-                aria-label="Facebook">
+                aria-label="Facebook"
+              >
                 <Facebook size={20} />
               </a>
               <a
                 href="#"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
-                aria-label="YouTube">
+                aria-label="YouTube"
+              >
                 <Youtube size={20} />
               </a>
             </div>
@@ -67,7 +73,8 @@ export function Footer() {
               </span>
               <a
                 href="#education"
-                className="text-base font-semibold hover:text-[var(--primary)] transition-colors">
+                className="text-base font-semibold hover:text-[var(--primary)] transition-colors"
+              >
                 Words4Web Education
               </a>
             </div>
@@ -79,55 +86,16 @@ export function Footer() {
               Quick Links
             </h4>
             <ul className="flex flex-col gap-3.5 text-base text-[var(--text-secondary)]">
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#work"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Our Works
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#blog"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#privacy"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#terms"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Terms & Conditions
-                </a>
-              </li>
+              {footerData.quickLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="hover:text-[var(--primary)] transition-colors interactive"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -137,55 +105,16 @@ export function Footer() {
               Services
             </h4>
             <ul className="flex flex-col gap-3.5 text-base text-[var(--text-secondary)]">
-              <li>
-                <a
-                  href="#services"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Amazon Marketing Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Mobile App Development
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Web Designing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Social Media Optimization
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Graphic Designing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  SEO Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="hover:text-[var(--primary)] transition-colors interactive">
-                  Content Writing
-                </a>
-              </li>
+              {footerData.services.map((service) => (
+                <li key={service.label}>
+                  <a
+                    href={service.href}
+                    className="hover:text-[var(--primary)] transition-colors interactive"
+                  >
+                    {service.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -200,25 +129,24 @@ export function Footer() {
                 <span className="flex items-center gap-2">
                   <Mail size={14} className="shrink-0" />
                   <a
-                    href="mailto:info@words4web.com"
-                    className="hover:text-[var(--primary)] transition-colors">
-                    info@words4web.com
+                    href={`mailto:${footerData.mainOffice.email}`}
+                    className="hover:text-[var(--primary)] transition-colors"
+                  >
+                    {footerData.mainOffice.email}
                   </a>
                 </span>
                 <span className="flex items-center gap-2">
                   <Phone size={14} className="shrink-0" />
                   <a
-                    href="tel:+917020207611"
-                    className="hover:text-[var(--primary)] transition-colors">
-                    +91 7020207611
+                    href={`tel:${footerData.mainOffice.phone}`}
+                    className="hover:text-[var(--primary)] transition-colors"
+                  >
+                    {footerData.mainOffice.phone}
                   </a>
                 </span>
                 <span className="flex items-start gap-2">
                   <MapPin size={14} className="mt-0.5 shrink-0" />
-                  <span>
-                    5037, SSRF, Near City Center Mall, Lavate Nagar, Nashik
-                    422002
-                  </span>
+                  <span>{footerData.mainOffice.address}</span>
                 </span>
               </div>
             </div>
@@ -232,25 +160,24 @@ export function Footer() {
                 <span className="flex items-center gap-2">
                   <Mail size={14} className="shrink-0" />
                   <a
-                    href="mailto:info@words4web.com"
-                    className="hover:text-[var(--primary)] transition-colors">
-                    info@words4web.com
+                    href={`mailto:${footerData.branchOffice.email}`}
+                    className="hover:text-[var(--primary)] transition-colors"
+                  >
+                    {footerData.branchOffice.email}
                   </a>
                 </span>
                 <span className="flex items-center gap-2">
                   <Phone size={14} className="shrink-0" />
                   <a
-                    href="tel:+447344861555"
-                    className="hover:text-[var(--primary)] transition-colors">
-                    +44 7344861555
+                    href={`tel:${footerData.branchOffice.phone}`}
+                    className="hover:text-[var(--primary)] transition-colors"
+                  >
+                    {footerData.branchOffice.phone}
                   </a>
                 </span>
                 <span className="flex items-start gap-2">
                   <MapPin size={14} className="mt-0.5 shrink-0" />
-                  <span>
-                    56, Morgan drive, Greenhithe, Dartford DA9 9DT, United
-                    Kingdom
-                  </span>
+                  <span>{footerData.branchOffice.address}</span>
                 </span>
               </div>
             </div>

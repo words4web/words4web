@@ -30,7 +30,8 @@ export const FloatingCard = ({
       }}
       className={`absolute z-10 glass-panel px-6 py-4 rounded-2xl flex items-center gap-3 interactive overflow-hidden ${className}`}
       style={{ isolation: "isolate" }}
-      data-cursor="Explore">
+      data-cursor="Explore"
+    >
       {/* Sliding background fill from left to right */}
       <motion.div
         initial={{ x: "-100%" }}

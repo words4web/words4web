@@ -9,7 +9,12 @@ interface MagneticButtonProps extends HTMLMotionProps<"button"> {
   variant?: "primary" | "ghost" | "glass";
 }
 
-export function MagneticButton({ children, className, variant = "primary", ...props }: MagneticButtonProps) {
+export function MagneticButton({
+  children,
+  className,
+  variant = "primary",
+  ...props
+}: MagneticButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -26,9 +31,12 @@ export function MagneticButton({ children, className, variant = "primary", ...pr
   };
 
   const variants = {
-    primary: "bg-[var(--primary)] text-white hover:brightness-110 shadow-lg shadow-[var(--primary)]/20",
-    ghost: "bg-transparent text-[var(--text-primary)] hover:bg-[var(--primary)]/5",
-    glass: "glass-panel text-[var(--text-primary)] hover:bg-[var(--primary)]/10",
+    primary:
+      "bg-[var(--primary)] text-white hover:brightness-110 shadow-lg shadow-[var(--primary)]/20",
+    ghost:
+      "bg-transparent text-[var(--text-primary)] hover:bg-[var(--primary)]/5",
+    glass:
+      "glass-panel text-[var(--text-primary)] hover:bg-[var(--primary)]/10",
   };
 
   return (
@@ -41,12 +49,12 @@ export function MagneticButton({ children, className, variant = "primary", ...pr
       className={cn(
         "relative overflow-hidden px-8 py-4 rounded-full font-medium transition-colors duration-300 interactive group",
         variants[variant],
-        className
+        className,
       )}
       {...props}
     >
       <span className="relative z-10">{children}</span>
-      
+
       {/* Ripple/Glow effect on hover */}
       <div className="absolute inset-0 z-0 bg-white/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500 ease-out origin-center" />
     </motion.button>

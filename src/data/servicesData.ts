@@ -2,39 +2,51 @@ import type { ServiceItem } from "../types/services";
 
 export const servicesData: ServiceItem[] = [
   {
-    title: "Digital Marketing",
+    title: "Web Development",
     description:
-      "With Words4Web’s SEO services, your business gains higher visibility, targeted traffic, and consistent growth across search engines.",
-    image: "/services/digital_marketing.jpg",
-  },
-  {
-    title: "Amazon Marketing Services",
-    description:
-      "We help brands perform better on Amazon with optimised product listings, data-driven keywords, PPC management and advertising strategies that increase traffic and sales.",
-    image: "/services/amazon_marketing.jpg",
+      "Custom, mobile-friendly websites built to load fast and convert visitors into customers.",
+    image: "/services/web_development.jpg",
   },
   {
     title: "Mobile App Development",
     description:
-      "We build custom mobile apps that help businesses engage users, deliver better experiences, and grow with reliable iOS and Android solutions.",
+      "iOS and Android apps built for reliability, usability, and long-term engagement.",
     image: "/services/mobile_app.jpg",
   },
   {
-    title: "Web Development",
+    title: "Search Engine Optimization (SEO)",
     description:
-      "Our website brings digital spaces to life by teaming up art and artistry. Our sites are visually alluring, without a doubt, they do more than that.",
-    image: "/services/web_development.jpg",
-  },
-  {
-    title: "Graphic Design",
-    description:
-      "The graphic design that we provide is paramount in the process of building up a customer’s brand visual identity.",
-    image: "/services/graphic_design.jpg",
+      "Technical, on-page, and content-driven SEO for sustainable organic growth.",
+    image: "/services/seo.jpg",
   },
   {
     title: "Content Writing",
     description:
-      "Get your website live with our SEO-enabled, custom-made web content, crafted by expert writers who ensure relevance, accuracy, clarity, and enhanced audience engagement.",
+      "Clear, search-optimized content for websites, blogs, and product pages.",
     image: "/services/content_writing.jpg",
+  },
+  {
+    title: "Social Media Management",
+    description:
+      "Full planning, content creation, and community management across platforms.",
+    image: "/services/social_media.jpg",
+  },
+  {
+    title: "Graphic Designing",
+    description:
+      "Logos, packaging, and creatives that build a consistent, recognizable brand identity.",
+    image: "/services/graphic_design.jpg",
+  },
+  {
+    title: "E-Commerce Marketing Services",
+    description:
+      "Listing optimization, Amazon PPC, and keyword strategy to drive sales.",
+    image: "/services/amazon_marketing.jpg",
+  },
+  {
+    title: "Paid Ads Management",
+    description:
+      "Google Ads, Meta Ads, and other paid channels managed for measurable ROI.",
+    image: "/services/paid_ads.jpg",
   },
 ];

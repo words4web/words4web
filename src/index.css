@@ -181,7 +181,7 @@
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-.logo-glow {
+/* .logo-glow {
   animation: logo-glow-wave 3.5s ease-in-out infinite;
 }
 
@@ -195,7 +195,7 @@
     filter: drop-shadow(20px 0 12px rgba(157, 78, 221, 0.75))
       drop-shadow(0 0 8px rgba(157, 78, 221, 0.35));
   }
-}
+} */
 
 .text-gradient {
   background-clip: text;
