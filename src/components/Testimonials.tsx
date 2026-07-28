@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import { Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "./Section";
 import { testimonialsData } from "../data/testimonialsData";
@@ -37,8 +38,7 @@ export function Testimonials() {
       align="center"
       hasBackground
       hasBorderTop
-      headerClassName="max-w-4xl mx-auto text-center"
-    >
+      headerClassName="max-w-4xl mx-auto text-center">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full max-w-7xl mx-auto mt-12 px-2 md:px-6">
         {/* Left Column: Premium Interactive Art Backdrop */}
         <div className="lg:col-span-3 flex justify-center relative min-h-[300px] lg:min-h-[400px]">
@@ -73,11 +73,9 @@ export function Testimonials() {
                 animate={{ scale: 1, opacity: 1, rotate: 0 }}
                 exit={{ scale: 0.5, opacity: 0, rotate: 20 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="flex flex-col items-center justify-center"
-              >
+                className="flex flex-col items-center justify-center">
                 <span
-                  className={`text-5xl md:text-6xl font-display font-black bg-gradient-to-tr ${active.color} bg-clip-text text-transparent tracking-tight`}
-                >
+                  className={`text-5xl md:text-6xl font-display font-black bg-gradient-to-tr ${active.color} bg-clip-text text-transparent tracking-tight`}>
                   {active.initials}
                 </span>
                 <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-[var(--text-secondary)] mt-3">
@@ -100,15 +98,13 @@ export function Testimonials() {
               <button
                 onClick={handlePrev}
                 className="w-12 h-12 rounded-full border border-[var(--text-secondary)]/30 bg-[var(--background-secondary)] shadow-md flex items-center justify-center interactive hover:scale-105 active:scale-95 transition-all text-[var(--text-primary)] hover:bg-[var(--primary)] hover:text-white hover:border-[var(--primary)] z-30"
-                aria-label="Previous testimonial"
-              >
+                aria-label="Previous testimonial">
                 <svg
                   className="w-5 h-5"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2.5"
-                  viewBox="0 0 24 24"
-                >
+                  viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -119,15 +115,13 @@ export function Testimonials() {
               <button
                 onClick={handleNext}
                 className="w-12 h-12 rounded-full border border-[var(--text-secondary)]/30 bg-[var(--background-secondary)] shadow-md flex items-center justify-center interactive hover:scale-105 active:scale-95 transition-all text-[var(--text-primary)] hover:bg-[var(--primary)] hover:text-white hover:border-[var(--primary)] z-30"
-                aria-label="Next testimonial"
-              >
+                aria-label="Next testimonial">
                 <svg
                   className="w-5 h-5"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2.5"
-                  viewBox="0 0 24 24"
-                >
+                  viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -157,21 +151,41 @@ export function Testimonials() {
       </div>
 
       {/* Trust Strip */}
-      <div className="w-full max-w-5xl mx-auto mt-16 px-4 py-5 rounded-2xl glass-panel border border-white/5 bg-black/10 dark:bg-white/[0.01] flex flex-wrap justify-around items-center gap-4 text-center">
-        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
-          <span className="text-[var(--primary)] mr-1">150+</span> Brands Served
-        </div>
-        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] hidden md:block" />
-        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
-          <span className="text-[var(--primary)] mr-1">8</span> Services, 1 Team
-        </div>
-        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] hidden md:block" />
-        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
-          Worldwide Clients
-        </div>
-        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] hidden md:block" />
-        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
-          Long-Term Partnerships
+      <div className="w-full mt-20 rounded-2xl glass-panel border border-white/10 bg-black/30 dark:bg-white/[0.02] shadow-[0_15px_35px_rgba(0,0,0,0.2)] overflow-hidden">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 divide-x divide-white/10">
+          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-white/[0.03] transition-colors duration-300">
+            <span className="text-3xl md:text-4xl font-bold text-[#a855f7] dark:text-[#c084fc] font-display leading-none">
+              150+
+            </span>
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-white/60 mt-1">
+              Brands Served
+            </span>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-white/[0.03] transition-colors duration-300">
+            <span className="text-3xl md:text-4xl font-bold text-[#a855f7] dark:text-[#c084fc] font-display leading-none">
+              8
+            </span>
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-white/60 mt-1">
+              Services, 1 Team
+            </span>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-white/[0.03] transition-colors duration-300">
+            <Globe
+              className="w-9 h-9 md:w-10 md:h-10 text-[#a855f7] dark:text-[#c084fc]"
+              strokeWidth={1.5}
+            />
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-white/60 mt-1">
+              Worldwide Clients
+            </span>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-white/[0.03] transition-colors duration-300">
+            <span className="text-5xl md:text-6xl font-bold text-[#a855f7] dark:text-[#c084fc] font-display leading-none">
+              ∞
+            </span>
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-white/60 mt-1">
+              Long-Term Partnerships
+            </span>
+          </div>
         </div>
       </div>
     </Section>

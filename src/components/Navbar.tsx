@@ -42,7 +42,7 @@ const itemVariants = {
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
-  const { scrollY } = useScroll();
+  const { scrollY, scrollYProgress } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -64,8 +64,7 @@ export function Navbar() {
       style={{ border: "none" }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-    >
+      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center interactive">
           <img
@@ -86,8 +85,7 @@ export function Navbar() {
                 onMouseEnter={() =>
                   hasChildren && setActiveDropdown(item.label)
                 }
-                onMouseLeave={() => hasChildren && setActiveDropdown(null)}
-              >
+                onMouseLeave={() => hasChildren && setActiveDropdown(null)}>
                 {hasChildren ? (
                   <button className="flex items-center gap-1.5 interactive hover:text-[var(--primary)] transition-colors py-2 whitespace-nowrap">
                     {item.label}
@@ -102,8 +100,7 @@ export function Navbar() {
                 ) : (
                   <a
                     href={item.href}
-                    className="interactive hover:text-[var(--primary)] transition-colors relative group py-2 whitespace-nowrap block"
-                  >
+                    className="interactive hover:text-[var(--primary)] transition-colors relative group py-2 whitespace-nowrap block">
                     {item.label}
                     <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all group-hover:w-full" />
                   </a>
@@ -117,15 +114,13 @@ export function Navbar() {
                       animate="visible"
                       exit="exit"
                       className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-72 dropdown-glass rounded-2xl p-4 flex flex-col gap-1.5 shadow-2xl z-50 text-left"
-                      style={{ border: "none" }}
-                    >
+                      style={{ border: "none" }}>
                       {item.children!.map((child) => (
                         <motion.a
                           variants={itemVariants}
                           key={child.label}
                           href={child.href}
-                          className="px-4 py-2.5 rounded-xl hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] hover:translate-x-1.5 duration-200 transition-all text-sm font-semibold whitespace-nowrap block"
-                        >
+                          className="px-4 py-2.5 rounded-xl hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] hover:translate-x-1.5 duration-200 transition-all text-sm font-semibold whitespace-nowrap block">
                           {child.label}
                         </motion.a>
                       ))}
@@ -141,18 +136,22 @@ export function Navbar() {
           <MagneticButton
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             variant="glass"
-            className="w-10 h-10 p-0 rounded-full flex items-center justify-center"
-          >
+            className="w-10 h-10 p-0 rounded-full flex items-center justify-center">
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </MagneticButton>
           <MagneticButton
             variant="primary"
-            className="hidden md:block py-2.5 px-6 text-sm"
-          >
+            className="hidden md:block py-2.5 px-6 text-sm">
             Let's Talk
           </MagneticButton>
         </div>
       </div>
+
+      {/* Thin scroll progress indicator at the bottom edge of Navbar */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] origin-left"
+        style={{ scaleX: scrollYProgress }}
+      />
     </motion.nav>
   );
 }

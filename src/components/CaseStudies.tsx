@@ -82,8 +82,7 @@ function ProjectCard({
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: index * 0.15 }}
       style={{ perspective: "1000px" }}
-      className="group relative flex flex-col gap-6"
-    >
+      className="group relative flex flex-col gap-6">
       {/* 3D Tilting Browser Mockup */}
       <motion.div
         onMouseMove={handleMouseMove}
@@ -98,8 +97,7 @@ function ProjectCard({
             : "0 15px 35px -10px rgba(0, 0, 0, 0.5)",
           transition: "box-shadow 0.5s ease-in-out",
         }}
-        className="w-full rounded-3xl relative select-none"
-      >
+        className="w-full rounded-3xl relative select-none">
         {/* Neon border — outside overflow-hidden so it renders OUTSIDE the card */}
         <div className="neon-border-overlay rounded-3xl" />
         {/* Inner card with overflow clipping */}
@@ -110,8 +108,7 @@ function ProjectCard({
               ? "rgba(123, 44, 191, 0.4)"
               : "rgba(255, 255, 255, 0.08)",
             transition: "border-color 0.5s ease-in-out",
-          }}
-        >
+          }}>
           {/* Address bar/header */}
           <div className="h-8 w-full bg-[var(--background-secondary)] px-4 flex items-center gap-2 border-b border-[var(--border)]">
             <div className="flex gap-1.5 shrink-0">
@@ -125,13 +122,13 @@ function ProjectCard({
           </div>
 
           {/* Screenshot Viewport Container */}
-          <div className="relative w-full h-[380px] overflow-hidden bg-black/10">
+          <div className="relative w-full h-[480px] overflow-hidden bg-black/10">
             <img
               src={project.image}
               alt={project.title}
               style={{
                 transform: isHovered
-                  ? "translateY(calc(-100% + 380px))"
+                  ? "translateY(calc(-100% + 480px))"
                   : "translateY(0)",
                 transition: "transform 10s ease-in-out",
               }}
@@ -143,7 +140,7 @@ function ProjectCard({
 
       {/* Showcase Card Slogan Details */}
       <div className="flex flex-col text-left px-2">
-        <span className="text-[var(--primary)] text-xs uppercase tracking-widest font-semibold mb-1">
+        <span className="text-[#a855f7] dark:text-[#c084fc] text-sm uppercase tracking-widest font-bold mb-1">
           Service(s) Involved: {project.services}
         </span>
         <h3 className="font-display text-2xl font-bold tracking-tight text-[var(--text-primary)] mb-1">
@@ -152,7 +149,7 @@ function ProjectCard({
             {project.subtitle}
           </span>
         </h3>
-        <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-light mt-2">
+        <p className="text-md text-[var(--text-primary)] leading-relaxed font-normal mt-2">
           {project.description}
         </p>
       </div>
@@ -190,8 +187,7 @@ export function CaseStudies() {
       align="center"
       headerClassName="max-w-4xl mx-auto text-center"
       y={y}
-      hasBorderTop
-    >
+      hasBorderTop>
       {/* 3-Column Portfolio Mockup Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {workData.map((project, idx) => (

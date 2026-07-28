@@ -68,7 +68,7 @@ export function Counter({
             {count}
             {suffix}
           </span>
-          <span className="text-[10px] md:text-xs tracking-wider text-[var(--text-secondary)] font-bold uppercase leading-tight truncate">
+          <span className="text-[10px] md:text-xs tracking-wider text-[var(--text-secondary)] font-bold uppercase leading-tight whitespace-normal break-words">
             {label}
           </span>
         </div>

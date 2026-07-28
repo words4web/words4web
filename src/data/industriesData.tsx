@@ -4,14 +4,23 @@ import React from "react";
 export const industriesData: IndustryItem[] = [
   {
     name: "Restaurants and Cafes",
+    colors: {
+      base: "#f97316",
+      hoverBg: "rgba(249,115,22,0.18)",
+      glow: "rgba(249,115,22,0.5)",
+      border: "rgba(249,115,22,0.8)",
+      borderBase: "rgba(249,115,22,0.3)",
+      activeText: "#ffedd5",
+      lineNormal: "rgba(249,115,22,0.4)",
+      lineActive: "rgba(249,115,22,0.95)",
+    },
     icon: (
       <svg
         className="w-8 h-8"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
-        viewBox="0 0 24 24"
-      >
+        viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -22,14 +31,23 @@ export const industriesData: IndustryItem[] = [
   },
   {
     name: "Hospitality",
+    colors: {
+      base: "#06b6d4",
+      hoverBg: "rgba(6,182,212,0.18)",
+      glow: "rgba(6,182,212,0.5)",
+      border: "rgba(6,182,212,0.8)",
+      borderBase: "rgba(6,182,212,0.3)",
+      activeText: "#ecfeff",
+      lineNormal: "rgba(6,182,212,0.4)",
+      lineActive: "rgba(6,182,212,0.95)",
+    },
     icon: (
       <svg
         className="w-8 h-8"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
-        viewBox="0 0 24 24"
-      >
+        viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -40,14 +58,23 @@ export const industriesData: IndustryItem[] = [
   },
   {
     name: "Health and Wellness",
+    colors: {
+      base: "#10b981",
+      hoverBg: "rgba(16,185,129,0.18)",
+      glow: "rgba(16,185,129,0.5)",
+      border: "rgba(16,185,129,0.8)",
+      borderBase: "rgba(16,185,129,0.3)",
+      activeText: "#d1fae5",
+      lineNormal: "rgba(16,185,129,0.4)",
+      lineActive: "rgba(16,185,129,0.95)",
+    },
     icon: (
       <svg
         className="w-8 h-8"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
-        viewBox="0 0 24 24"
-      >
+        viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -58,14 +85,23 @@ export const industriesData: IndustryItem[] = [
   },
   {
     name: "Real Estate",
+    colors: {
+      base: "#3b82f6",
+      hoverBg: "rgba(59,130,246,0.18)",
+      glow: "rgba(59,130,246,0.5)",
+      border: "rgba(59,130,246,0.8)",
+      borderBase: "rgba(59,130,246,0.3)",
+      activeText: "#dbeafe",
+      lineNormal: "rgba(59,130,246,0.4)",
+      lineActive: "rgba(59,130,246,0.95)",
+    },
     icon: (
       <svg
         className="w-8 h-8"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
-        viewBox="0 0 24 24"
-      >
+        viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -76,14 +112,23 @@ export const industriesData: IndustryItem[] = [
   },
   {
     name: "E-commerce and Retail",
+    colors: {
+      base: "#d946ef",
+      hoverBg: "rgba(217,70,239,0.18)",
+      glow: "rgba(217,70,239,0.5)",
+      border: "rgba(217,70,239,0.8)",
+      borderBase: "rgba(217,70,239,0.3)",
+      activeText: "#fdf4ff",
+      lineNormal: "rgba(217,70,239,0.4)",
+      lineActive: "rgba(217,70,239,0.95)",
+    },
     icon: (
       <svg
         className="w-8 h-8"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
-        viewBox="0 0 24 24"
-      >
+        viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"

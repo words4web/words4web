@@ -9,7 +9,7 @@ export function ParticleSphere({ theme }: { theme: "light" | "dark" }) {
   const particlesPosition = useMemo(() => {
     const positions = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      const r = 2; // radius
+      const r = 5;
       const theta = 2 * Math.PI * Math.random();
       const phi = Math.acos(2 * Math.random() - 1);
       const x = r * Math.sin(phi) * Math.cos(theta);
