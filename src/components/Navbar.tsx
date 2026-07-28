@@ -66,14 +66,14 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
       <div className="w-full flex items-center justify-between">
-        <div className="flex items-center interactive">
+        <a href="#" className="flex items-center interactive cursor-pointer">
           <img
             src="/logo/logo_purple.png"
             alt="words4web logo"
             style={{ height: "96px", width: "auto" }}
             className="object-contain logo-glow"
           />
-        </div>
+        </a>
 
         <div className="hidden lg:flex items-center gap-10 text-base xl:text-lg font-medium">
           {navData.map((item) => {
@@ -139,11 +139,11 @@ export function Navbar() {
             className="w-10 h-10 p-0 rounded-full flex items-center justify-center">
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </MagneticButton>
-          <MagneticButton
-            variant="primary"
-            className="hidden md:block py-2.5 px-6 text-sm">
-            Let's Talk
-          </MagneticButton>
+          <a href="#contact" className="hidden md:block">
+            <MagneticButton variant="primary" className="py-2.5 px-6 text-sm">
+              Let's Talk
+            </MagneticButton>
+          </a>
         </div>
       </div>
 

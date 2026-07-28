@@ -41,7 +41,7 @@ export function WhyChooseUs() {
             {/* Bigger Custom Tag Badge */}
             {item.badge && (
               <div className="self-start">
-                <span className="inline-flex items-center px-4 py-1.5 rounded-xl text-xs md:text-sm font-semibold bg-black/10 dark:bg-white/[0.03] border border-black/5 dark:border-white/10 text-[var(--text-secondary)] group-hover:text-white transition-colors duration-300">
+                <span className="inline-flex items-center px-4 py-1.5 rounded-xl text-xs md:text-sm font-semibold bg-black/10 dark:bg-white/[0.03] border border-black/5 dark:border-white/10 text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors duration-300">
                   {item.badge}
                 </span>
               </div>

@@ -117,19 +117,21 @@ export function Process() {
                     <span
                       className={`inline-flex items-center px-3.5 py-1 rounded-lg text-xs font-semibold tracking-wider uppercase border transition-colors duration-500 ${
                         isPassed
-                          ? "bg-[var(--primary)]/20 border-[var(--primary)]/40 text-purple-300"
+                          ? "bg-[var(--primary)]/20 border-[var(--primary)]/40 text-[var(--primary)]"
                           : "bg-[var(--primary)]/10 border-[var(--primary)]/20 text-[var(--primary)]"
                       }`}>
                       Step {step.step}
                     </span>
                   </div>
 
-                  <h4 className="font-display text-2xl font-bold text-white mb-3">
+                  <h4 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-3">
                     {step.title}
                   </h4>
                   <p
                     className={`text-base leading-relaxed font-normal transition-colors duration-500 ${
-                      isPassed ? "text-white/90" : "text-white/70"
+                      isPassed
+                        ? "text-[var(--text-primary)]/90"
+                        : "text-[var(--text-secondary)]"
                     }`}>
                     {step.description}
                   </p>

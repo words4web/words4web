@@ -29,9 +29,7 @@ function AnimatedInput({
         }}
         transition={{ duration: 0.25, ease: "easeOut" }}
         className={`absolute left-0 top-3 font-light text-base pointer-events-none origin-left transition-colors duration-200 ${
-          isFocused
-            ? "text-[var(--primary)]"
-            : "text-[var(--text-secondary)]/50"
+          isFocused ? "text-[var(--primary)]" : "text-[var(--text-primary)]"
         }`}>
         {label} {required && <span className="text-red-500">*</span>}
       </motion.label>
@@ -44,7 +42,7 @@ function AnimatedInput({
         onChange={(e) => onChange(e.target.value)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className="w-full bg-transparent text-[var(--text-primary)] border-none outline-none py-1 text-base font-light focus:ring-0 focus:outline-none"
+        className="w-full bg-transparent text-(--text-primary) border-none outline-none py-1 text-base font-light focus:ring-0 focus:outline-none"
       />
 
       <motion.div
@@ -85,9 +83,7 @@ function AnimatedTextarea({
         }}
         transition={{ duration: 0.25, ease: "easeOut" }}
         className={`absolute left-0 top-3 font-light text-base pointer-events-none origin-left transition-colors duration-200 ${
-          isFocused
-            ? "text-[var(--primary)]"
-            : "text-[var(--text-secondary)]/50"
+          isFocused ? "text-[var(--primary)]" : "text-[var(--text-primary)]"
         }`}>
         {label} {required && <span className="text-red-500">*</span>}
       </motion.label>

@@ -16,8 +16,7 @@ export function Founder() {
       title="Priya Khatod — Founder of Words4Web"
       align="center"
       hasBorderTop
-      headerClassName="max-w-4xl mx-auto text-center mb-16"
-    >
+      headerClassName="max-w-4xl mx-auto text-center mb-16">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-5xl mx-auto text-left">
         {/* CEO Portrait Column */}
         <div className="lg:col-span-5 flex flex-col items-center">
@@ -25,8 +24,7 @@ export function Founder() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8 }}
-            className="relative flex flex-col items-center group cursor-pointer"
-          >
+            className="relative flex flex-col items-center group cursor-pointer">
             {/* Ambient Back Glow */}
             <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-[#7b2cbf]/30 to-[#e0aaff]/30 opacity-40 blur-2xl group-hover:opacity-80 group-hover:scale-115 transition-all duration-700 pointer-events-none" />
 
@@ -73,15 +71,14 @@ export function Founder() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col gap-4"
-          >
+            className="flex flex-col gap-4">
             <h3 className="font-display text-2xl font-bold tracking-tight text-[var(--text-primary)]">
               Bridging Tech, Strategy & Creative Vision
             </h3>
-            <p className="text-base text-[var(--text-secondary)] font-light leading-relaxed">
+            <p className="text-base text-[var(--text-primary)] font-light leading-relaxed">
               {founderData.description}
             </p>
-            <p className="text-sm text-[var(--text-secondary)] font-light leading-relaxed">
+            <p className="text-sm text-[var(--text-primary)] font-light leading-relaxed">
               Under Priya's leadership, Words4Web has grown from a local
               boutique agency to an international full-service partner serving
               businesses across Spain, Greece, Estonia, Portugal, Germany,
@@ -94,8 +91,7 @@ export function Founder() {
             initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-2"
-          >
+            className="mt-2">
             <a href="#contact">
               <MagneticButton className="rounded-xl px-6 py-3 bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-xs text-white shadow-[0_0_15px_rgba(123,44,191,0.25)] border-none">
                 Get in Touch with Priya

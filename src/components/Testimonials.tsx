@@ -151,38 +151,38 @@ export function Testimonials() {
       </div>
 
       {/* Trust Strip */}
-      <div className="w-full mt-20 rounded-2xl glass-panel border border-white/10 bg-black/30 dark:bg-white/[0.02] shadow-[0_15px_35px_rgba(0,0,0,0.2)] overflow-hidden">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 divide-x divide-white/10">
-          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-white/[0.03] transition-colors duration-300">
+      <div className="w-full mt-20 rounded-2xl glass-panel border border-[var(--glass-border)] bg-black/[0.02] dark:bg-white/[0.02] shadow-[0_15px_35px_rgba(0,0,0,0.05)] dark:shadow-[0_15px_35px_rgba(0,0,0,0.2)] overflow-hidden">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 divide-x divide-[var(--glass-border)]">
+          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-black/[0.01] dark:hover:bg-white/[0.03] transition-colors duration-300">
             <span className="text-3xl md:text-4xl font-bold text-[#a855f7] dark:text-[#c084fc] font-display leading-none">
               150+
             </span>
-            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-white/60 mt-1">
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-[var(--text-secondary)] mt-1">
               Brands Served
             </span>
           </div>
-          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-white/[0.03] transition-colors duration-300">
+          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-black/[0.01] dark:hover:bg-white/[0.03] transition-colors duration-300">
             <span className="text-3xl md:text-4xl font-bold text-[#a855f7] dark:text-[#c084fc] font-display leading-none">
               8
             </span>
-            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-white/60 mt-1">
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-[var(--text-secondary)] mt-1">
               Services, 1 Team
             </span>
           </div>
-          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-white/[0.03] transition-colors duration-300">
+          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-black/[0.01] dark:hover:bg-white/[0.03] transition-colors duration-300">
             <Globe
               className="w-9 h-9 md:w-10 md:h-10 text-[#a855f7] dark:text-[#c084fc]"
               strokeWidth={1.5}
             />
-            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-white/60 mt-1">
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-[var(--text-secondary)] mt-1">
               Worldwide Clients
             </span>
           </div>
-          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-white/[0.03] transition-colors duration-300">
+          <div className="flex flex-col items-center justify-center gap-1 px-6 py-8 hover:bg-black/[0.01] dark:hover:bg-white/[0.03] transition-colors duration-300">
             <span className="text-5xl md:text-6xl font-bold text-[#a855f7] dark:text-[#c084fc] font-display leading-none">
               ∞
             </span>
-            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-white/60 mt-1">
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-[var(--text-secondary)] mt-1">
               Long-Term Partnerships
             </span>
           </div>

@@ -3,7 +3,14 @@ import type { ToolCategory } from "../types/tools";
 export const toolsData: ToolCategory[] = [
   {
     category: "Web & App Development",
-    tools: ["WordPress", "Shopify", "React", "Flutter"],
+    tools: [
+      "WordPress",
+      "Shopify",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "React Native",
+    ],
   },
   {
     category: "Design",

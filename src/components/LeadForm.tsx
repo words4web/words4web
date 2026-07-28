@@ -30,7 +30,7 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
   };
 
   return (
-    <div className="w-full rounded-3xl p-8 md:p-10 glass-panel border border-white/10 relative overflow-hidden bg-black/10 dark:bg-white/[0.02] shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+    <div className="w-full rounded-3xl p-8 md:p-10 glass-panel border border-[var(--glass-border)] relative overflow-hidden bg-black/[0.02] dark:bg-white/[0.02] shadow-[0_20px_50px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
       <h3 className="font-display text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2">
         Tell Us About Your Business
       </h3>
@@ -64,7 +64,7 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
                 value={formData.fullName}
                 onChange={handleInputChange}
                 placeholder="John Doe"
-                className="w-full px-5 py-3.5 rounded-xl bg-black/20 dark:bg-white/[0.03] border border-white/10 text-base text-[var(--text-primary)] placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
+                className="w-full px-5 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-base text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
               />
             </div>
 
@@ -79,7 +79,7 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="john@example.com"
-                className="w-full px-5 py-3.5 rounded-xl bg-black/20 dark:bg-white/[0.03] border border-white/10 text-base text-[var(--text-primary)] placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
+                className="w-full px-5 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-base text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
               />
             </div>
 
@@ -94,7 +94,7 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
                 value={formData.phone}
                 onChange={handleInputChange}
                 placeholder="+1 (555) 123-4567"
-                className="w-full px-5 py-3.5 rounded-xl bg-black/20 dark:bg-white/[0.03] border border-white/10 text-base text-[var(--text-primary)] placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
+                className="w-full px-5 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-base text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
               />
             </div>
 
@@ -106,7 +106,7 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
                 name="helpWith"
                 value={formData.helpWith}
                 onChange={handleInputChange}
-                className="w-full px-5 py-3.5 rounded-xl bg-black/20 dark:bg-white/[0.03] border border-white/10 text-base text-[var(--text-primary)] focus:outline-none focus:border-[var(--primary)] transition-all [&>option]:bg-[#120826] [&>option]:text-white">
+                className="w-full px-5 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-base text-[var(--text-primary)] focus:outline-none focus:border-[var(--primary)] transition-all [&>option]:bg-white [&>option]:text-black dark:[&>option]:bg-[#120826] dark:[&>option]:text-white">
                 <option value="Website">Website</option>
                 <option value="App">App</option>
                 <option value="SEO">SEO</option>
@@ -129,7 +129,7 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
               value={formData.details}
               onChange={handleInputChange}
               placeholder="Tell us a bit about your project..."
-              className="w-full px-5 py-3.5 rounded-xl bg-black/20 dark:bg-white/[0.03] border border-white/10 text-base text-[var(--text-primary)] placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all resize-none"
+              className="w-full px-5 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-base text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all resize-none"
             />
           </div>
 

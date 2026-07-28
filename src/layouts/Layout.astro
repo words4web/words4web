@@ -27,5 +27,31 @@ const { title = "Words4Web | Best Digital Marketing Agency" } = Astro.props;
 	</head>
 	<body>
 		<slot />
+		<script>
+			// Global smooth scroll for all local anchor links
+			document.addEventListener("click", (e) => {
+				const anchor = (e.target as HTMLElement).closest("a");
+				if (!anchor) return;
+				const href = anchor.getAttribute("href");
+				if (href && href.startsWith("#")) {
+					e.preventDefault();
+					if (href === "#") {
+						window.scrollTo({
+							top: 0,
+							behavior: "smooth",
+						});
+					} else {
+						const targetId = href.substring(1);
+						const elem = document.getElementById(targetId);
+						if (elem) {
+							elem.scrollIntoView({
+								behavior: "smooth",
+								block: "start",
+							});
+						}
+					}
+				}
+			});
+		</script>
 	</body>
 </html>
