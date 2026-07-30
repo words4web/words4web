@@ -144,7 +144,7 @@
 }
 
 .navbar-glass {
-  background: rgba(255, 255, 255, 0.88) !important;
+  background: #ffffff !important;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
@@ -162,7 +162,7 @@
 }
 
 .dropdown-glass {
-  background: rgba(255, 255, 255, 0.96) !important;
+  background: #ffffff !important;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
