@@ -8,4 +8,5 @@ export interface TestimonialItem {
 
 export interface TestimonialCardProps {
   testimonial: TestimonialItem;
+  index: number;
 }
