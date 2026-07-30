@@ -44,7 +44,7 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
         backfaceVisibility: "hidden",
         willChange: "transform",
       }}
-      className="w-full max-w-lg mx-auto rounded-3xl p-6 md:p-8 glass-panel border border-[var(--glass-border)] relative overflow-hidden bg-white/95 dark:bg-neutral-950/95 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+      className="w-full max-w-lg mx-auto rounded-3xl p-6 md:p-8 border border-[var(--glass-border)] relative overflow-hidden bg-white/95 dark:bg-neutral-950/95 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
       <h3 className="font-display text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-1">
         Tell Us About Your Business
       </h3>

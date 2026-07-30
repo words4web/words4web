@@ -4,40 +4,32 @@ import { Section } from "./Section";
 import { toolsData } from "../data/toolsData";
 
 const getIconUrl = (name: string) => {
-  const simpleIconsMapping: { [key: string]: string } = {
-    WordPress: "wordpress",
-    Shopify: "shopify",
-    React: "react",
-    "React Native": "react",
-    "Node.js": "nodedotjs",
-    MongoDB: "mongodb",
-    Figma: "figma",
-    "Google Search Console": "googlesearchconsole",
-    "Google Analytics": "googleanalytics",
-    "Ahrefs/SEMrush": "semrush",
-    "Meta Business Suite": "meta",
-    Buffer: "buffer/FFF",
-    Hootsuite: "hootsuite/FFF",
-    "Etsy Seller Central": "etsy",
-    "Google Ads": "googleads",
-    "Meta Ads Manager": "meta",
-    "Other Paid media platforms": "googlemarketingplatform",
+  const localMapping: Record<string, string> = {
+    WordPress: "/tools/wordpress.svg",
+    Shopify: "/tools/shopify.svg",
+    React: "/tools/react.svg",
+    "React Native": "/tools/react-native.svg",
+    "Node.js": "/tools/node-js.svg",
+    MongoDB: "/tools/mongodb.svg",
+    Figma: "/tools/figma.svg",
+    "Google Search Console": "/tools/google-search-console.svg",
+    "Google Analytics": "/tools/google-analytics.svg",
+    "Ahrefs/SEMrush": "/tools/ahrefs-semrush.svg",
+    "Meta Business Suite": "/tools/meta-business-suite.svg",
+    Buffer: "/tools/buffer.svg",
+    Hootsuite: "/tools/hootsuite.svg",
+    "Etsy Seller Central": "/tools/etsy-seller-central.svg",
+    "Google Ads": "/tools/google-ads.svg",
+    "Meta Ads Manager": "/tools/meta-ads-manager.svg",
+    "Other Paid media platforms": "/tools/other-paid-media-platforms.svg",
+    "Adobe Creative Suite": "/tools/adobe-creative-suite.png",
+    Canva: "/tools/canva.png",
+    "Amazon Seller Central": "/tools/amazon-seller-central.png",
+    "Amazon Advertising Console": "/tools/amazon-advertising-console.png",
+    "LinkedIn Ads": "/tools/linkedin-ads.png",
   };
 
-  const hunterMapping: { [key: string]: string } = {
-    "Adobe Creative Suite": "adobe.com",
-    Canva: "canva.com",
-    "Amazon Seller Central": "amazon.com",
-    "Amazon Advertising Console": "amazon.com",
-    "LinkedIn Ads": "linkedin.com",
-  };
-
-  if (hunterMapping[name]) {
-    return `https://logos.hunter.io/${hunterMapping[name]}`;
-  }
-
-  const slug = simpleIconsMapping[name] || "google";
-  return `https://cdn.simpleicons.org/${slug}`;
+  return localMapping[name] || "/tools/wordpress.svg";
 };
 
 export function Tools() {
@@ -56,7 +48,7 @@ export function Tools() {
       hasBorderTop
       headerClassName="max-w-3xl mx-auto text-center mb-12">
       <div className="flex justify-center mb-16 px-4">
-        <div className="flex flex-wrap md:flex-nowrap gap-1 p-1.5 rounded-full bg-white/[0.02] border border-white/5 max-w-4xl overflow-x-auto no-scrollbar justify-center shadow-inner">
+        <div className="flex flex-wrap md:flex-nowrap gap-1 p-1.5 rounded-full bg-white/[0.02] border border-white/5 max-w-5xl overflow-x-auto no-scrollbar justify-center shadow-inner">
           {toolsData.map((cat) => {
             const isActive = cat.category === activeTab;
             return (
@@ -95,23 +87,42 @@ export function Tools() {
                 initial={{ opacity: 0, scale: 0.8, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.8, y: 15 }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 15px 30px rgba(123, 44, 191, 0.15)",
+                }}
                 transition={{ duration: 0.4 }}
-                className="group relative flex flex-col items-center justify-center p-6 rounded-3xl border border-[var(--glass-border)] bg-black/[0.01] dark:bg-white/[0.01] hover:bg-black/[0.02] dark:hover:bg-white/[0.03] hover:border-[var(--primary)]/30 hover:scale-105 transition-all duration-300 shadow-sm cursor-pointer aspect-square">
-                <div className="w-16 h-16 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
-                  <img
-                    src={getIconUrl(tool)}
-                    alt={tool}
-                    className="w-12 h-12 object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                    loading="lazy"
-                    onError={(e) => {
-                      e.currentTarget.src =
-                        "https://cdn.simpleicons.org/simpleicons";
+                className="relative p-[2px] rounded-3xl overflow-hidden cursor-pointer select-none group aspect-square">
+                {/* Glowing Line Tracing Around Border (Visible on Hover Only) */}
+                <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div
+                    className="absolute top-1/2 left-1/2 w-[300%] h-[300%] animate-border-trace"
+                    style={{
+                      background:
+                        "conic-gradient(from 0deg, transparent 0deg, transparent 320deg, #a855f7 340deg, #c084fc 350deg, #e9d5ff 360deg)",
                     }}
                   />
                 </div>
-                <span className="text-sm font-semibold text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors duration-300 text-center px-1 leading-snug">
-                  {tool}
-                </span>
+
+                {/* Inner Card Content */}
+                <div className="relative flex flex-col items-center justify-center p-6 bg-white dark:bg-[#0c0a12] border border-black/5 dark:border-white/5 rounded-[22px] text-center h-full w-full z-10 overflow-hidden">
+                  <div className="w-16 h-16 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
+                    <img
+                      src={getIconUrl(tool)}
+                      alt={tool}
+                      className="w-12 h-12 object-contain opacity-95 group-hover:opacity-100 transition-all duration-300"
+                      style={{ filter: "contrast(1.3) brightness(1.3)" }}
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.src =
+                          "https://cdn.simpleicons.org/simpleicons";
+                      }}
+                    />
+                  </div>
+                  <span className="text-sm font-semibold text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors duration-300 text-center px-1 leading-snug">
+                    {tool}
+                  </span>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>

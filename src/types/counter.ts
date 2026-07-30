@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 
 export interface CounterProps {
-  value: number;
+  value: ReactNode;
   label: string;
   suffix?: string;
-  icon: ReactNode;
+  icon?: ReactNode;
   glowColor: string;
 }

@@ -82,7 +82,7 @@ function ProjectCard({
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: index * 0.15 }}
       style={{ perspective: "1000px" }}
-      className="group relative flex flex-col gap-6">
+      className="group relative flex flex-col gap-6 w-full max-w-[360px] mx-auto">
       {/* 3D Tilting Browser Mockup */}
       <motion.div
         onMouseMove={handleMouseMove}
@@ -122,13 +122,13 @@ function ProjectCard({
           </div>
 
           {/* Screenshot Viewport Container */}
-          <div className="relative w-full h-[420px] overflow-hidden bg-black/10">
+          <div className="relative w-full h-[390px] overflow-hidden bg-black/10">
             <img
               src={project.image}
               alt={project.title}
               style={{
                 transform: isHovered
-                  ? "translateY(calc(-100% + 420px))"
+                  ? "translateY(calc(-100% + 390px))"
                   : "translateY(0)",
                 transition: "transform 8.5s ease-in-out",
               }}
@@ -186,7 +186,7 @@ export function CaseStudies() {
       headerClassName="max-w-4xl mx-auto text-center"
       hasBorderTop>
       {/* 3-Column Portfolio Mockup Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 max-w-[1400px] mx-auto">
         {workData.map((project, idx) => (
           <ProjectCard
             key={idx}
