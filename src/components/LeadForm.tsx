@@ -30,11 +30,11 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
   };
 
   return (
-    <div className="w-full rounded-3xl p-8 md:p-10 glass-panel border border-[var(--glass-border)] relative overflow-hidden bg-black/[0.02] dark:bg-white/[0.02] shadow-[0_20px_50px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
-      <h3 className="font-display text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2">
+    <div className="w-full max-w-lg mx-auto rounded-3xl p-6 md:p-8 glass-panel border border-[var(--glass-border)] relative overflow-hidden bg-white/95 dark:bg-neutral-950/95 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+      <h3 className="font-display text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-1">
         Tell Us About Your Business
       </h3>
-      <p className="text-sm md:text-base text-[var(--text-secondary)] mb-8">
+      <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-6">
         We'll get back to you with a plan — no obligation, no spam.
       </p>
 
@@ -51,10 +51,10 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs uppercase tracking-wider text-[var(--text-secondary)] font-bold mb-2">
+              <label className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5">
                 Full Name
               </label>
               <input
@@ -64,12 +64,12 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
                 value={formData.fullName}
                 onChange={handleInputChange}
                 placeholder="John Doe"
-                className="w-full px-5 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-base text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
+                className="w-full px-4 py-2.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-sm text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-wider text-[var(--text-secondary)] font-bold mb-2">
+              <label className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5">
                 Email Address
               </label>
               <input
@@ -79,12 +79,12 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="john@example.com"
-                className="w-full px-5 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-base text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
+                className="w-full px-4 py-2.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-sm text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-wider text-[var(--text-secondary)] font-bold mb-2">
+              <label className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5">
                 Phone Number
               </label>
               <input
@@ -94,19 +94,19 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
                 value={formData.phone}
                 onChange={handleInputChange}
                 placeholder="+1 (555) 123-4567"
-                className="w-full px-5 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-base text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
+                className="w-full px-4 py-2.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-sm text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-wider text-[var(--text-secondary)] font-bold mb-2">
+              <label className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5">
                 What do you need help with?
               </label>
               <select
                 name="helpWith"
                 value={formData.helpWith}
                 onChange={handleInputChange}
-                className="w-full px-5 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-base text-[var(--text-primary)] focus:outline-none focus:border-[var(--primary)] transition-all [&>option]:bg-white [&>option]:text-black dark:[&>option]:bg-[#120826] dark:[&>option]:text-white">
+                className="w-full px-4 py-2.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--primary)] transition-all [&>option]:bg-white [&>option]:text-black dark:[&>option]:bg-[#120826] dark:[&>option]:text-white">
                 <option value="Website">Website</option>
                 <option value="App">App</option>
                 <option value="SEO">SEO</option>
@@ -120,22 +120,24 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
           </div>
 
           <div className="w-full">
-            <label className="block text-xs uppercase tracking-wider text-[var(--text-secondary)] font-bold mb-2">
+            <label className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5">
               Project Details
             </label>
             <textarea
               name="details"
-              rows={4}
+              rows={3}
               value={formData.details}
               onChange={handleInputChange}
               placeholder="Tell us a bit about your project..."
-              className="w-full px-5 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-base text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all resize-none"
+              className="w-full px-4 py-2.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-sm text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all resize-none"
             />
           </div>
 
-          <MagneticButton className="w-full py-4 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-sm text-white border-none flex items-center justify-center gap-2 mt-2 shadow-[0_0_15px_rgba(123,44,191,0.2)]">
+          <button
+            type="submit"
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-xs text-white border-none flex items-center justify-center gap-2 mt-1 shadow-[0_0_15px_rgba(123,44,191,0.2)] hover:brightness-110 active:scale-[0.98] transition-all cursor-pointer">
             <span>Submit →</span>
-          </MagneticButton>
+          </button>
         </form>
       )}
     </div>

@@ -6,3 +6,9 @@ export interface WhyChooseUsItem {
   icon?: ReactNode;
   badge?: string;
 }
+
+export interface WhyChooseUsCardProps {
+  item: WhyChooseUsItem;
+  direction?: "left" | "right";
+  delay?: number;
+}

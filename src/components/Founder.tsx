@@ -29,7 +29,7 @@ export function Founder() {
             <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-[#7b2cbf]/30 to-[#e0aaff]/30 opacity-40 blur-2xl group-hover:opacity-80 group-hover:scale-115 transition-all duration-700 pointer-events-none" />
 
             {/* Glowing Border Arc Photo Box */}
-            <div className="relative w-56 h-56 rounded-full p-[4px] overflow-hidden border border-white/5 shadow-[0_0_40px_rgba(123,44,191,0.2)] hover:shadow-[0_0_60px_rgba(123,44,191,0.4)] transition-all duration-500">
+            <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full p-[4px] overflow-hidden border border-white/5 shadow-[0_0_40px_rgba(123,44,191,0.2)] hover:shadow-[0_0_60px_rgba(123,44,191,0.4)] transition-all duration-500">
               {/* Spinning Trace line */}
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
                 <div
@@ -75,10 +75,10 @@ export function Founder() {
             <h3 className="font-display text-2xl font-bold tracking-tight text-[var(--text-primary)]">
               Bridging Tech, Strategy & Creative Vision
             </h3>
-            <p className="text-base text-[var(--text-primary)] font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-[var(--text-primary)] font-light leading-relaxed">
               {founderData.description}
             </p>
-            <p className="text-sm text-[var(--text-primary)] font-light leading-relaxed">
+            <p className="text-base md:text-lg text-[var(--text-primary)] font-light leading-relaxed">
               Under Priya's leadership, Words4Web has grown from a local
               boutique agency to an international full-service partner serving
               businesses across Spain, Greece, Estonia, Portugal, Germany,
