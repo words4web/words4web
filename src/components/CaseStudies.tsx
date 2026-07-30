@@ -175,8 +175,6 @@ export function CaseStudies() {
     leaveTimer.current = setTimeout(() => setHoveredIdx(null), 120);
   };
 
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-
   return (
     <Section
       id="work"
@@ -186,7 +184,6 @@ export function CaseStudies() {
       description="A look at real projects across web development, app development, marketing, and design — built for real businesses."
       align="center"
       headerClassName="max-w-4xl mx-auto text-center"
-      y={y}
       hasBorderTop>
       {/* 3-Column Portfolio Mockup Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

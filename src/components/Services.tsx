@@ -13,8 +13,6 @@ export function Services() {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-
   return (
     <Section
       id="services"
@@ -26,17 +24,14 @@ export function Services() {
         </>
       }
       description="We provide a dynamic range of services designed to elevate your brand’s success. Whether it’s cutting-edge digital marketing, bespoke web development, or innovative design solutions, we craft strategies that align with your unique business goals, ensuring impactful and lasting results."
-      headerClassName="max-w-3xl text-left"
-      y={y}
-    >
+      headerClassName="max-w-3xl text-left">
       {/* Highlight EU Commission ISLE Project Card */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="glass-panel p-8 md:p-12 rounded-3xl flex flex-col lg:flex-row items-center justify-between gap-12 mb-20 relative overflow-hidden text-left"
-      >
+        className="glass-panel p-8 md:p-12 rounded-3xl flex flex-col lg:flex-row items-center justify-between gap-12 mb-20 relative overflow-hidden text-left">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[var(--primary)]/5 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="flex flex-col gap-6 max-w-2xl">
@@ -84,8 +79,7 @@ export function Services() {
         <a href="#work">
           <MagneticButton
             variant="primary"
-            className="px-10 py-5 text-base flex items-center gap-2"
-          >
+            className="px-10 py-5 text-base flex items-center gap-2">
             <span>See Our Works</span>
             <span className="group-hover:translate-x-1 duration-300">→</span>
           </MagneticButton>
