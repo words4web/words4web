@@ -58,12 +58,12 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
     );
 
     const header = y ? (
-      <motion.div style={{ y }} className={`w-full mb-20 ${headerClassName}`}>
+      <motion.div style={{ y }} className={`w-full mb-12 ${headerClassName}`}>
         {headerContent}
       </motion.div>
     ) : (
       headerContent && (
-        <div className={`w-full mb-20 ${headerClassName}`}>{headerContent}</div>
+        <div className={`w-full mb-12 ${headerClassName}`}>{headerContent}</div>
       )
     );
 
@@ -71,7 +71,7 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
       <section
         id={id}
         ref={ref}
-        className={`py-16 md:py-24 px-6 md:px-12 relative overflow-hidden bg-transparent ${borderClass} ${className}`}>
+        className={`py-12 md:py-16 px-6 md:px-12 relative overflow-hidden bg-transparent ${borderClass} ${className}`}>
         {hasBackground && (
           <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--background-secondary)_0%,_var(--background)_100%)] opacity-50" />
         )}
