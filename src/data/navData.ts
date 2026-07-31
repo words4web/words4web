@@ -19,5 +19,4 @@ export const navData: NavItem[] = [
   { label: "Our Works", href: "#work" },
   { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
-  { label: "Words4Web Education", href: "#education" },
 ];

@@ -13,8 +13,7 @@ export function Footer() {
   return (
     <footer
       id="contact"
-      className="relative bg-[var(--background-secondary)] pt-24 pb-12 px-6 md:px-12 border-t border-[var(--border)] overflow-hidden"
-    >
+      className="relative bg-[var(--background-secondary)] pt-24 pb-12 px-6 md:px-12 border-t border-[var(--border)] overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[var(--primary)]/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="w-full relative z-10">
@@ -40,42 +39,26 @@ export function Footer() {
               <a
                 href="#"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
-                aria-label="Instagram"
-              >
+                aria-label="Instagram">
                 <Instagram size={20} />
               </a>
               <a
                 href="#"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
-                aria-label="LinkedIn"
-              >
+                aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
               <a
                 href="#"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
-                aria-label="Facebook"
-              >
+                aria-label="Facebook">
                 <Facebook size={20} />
               </a>
               <a
                 href="#"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
-                aria-label="YouTube"
-              >
+                aria-label="YouTube">
                 <Youtube size={20} />
-              </a>
-            </div>
-
-            <div className="mt-2">
-              <span className="text-sm uppercase tracking-widest font-semibold text-[var(--primary)] block mb-1">
-                Affiliate
-              </span>
-              <a
-                href="#education"
-                className="text-base font-semibold hover:text-[var(--primary)] transition-colors"
-              >
-                Words4Web Education
               </a>
             </div>
           </div>
@@ -90,8 +73,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="hover:text-[var(--primary)] transition-colors interactive"
-                  >
+                    className="hover:text-[var(--primary)] transition-colors interactive">
                     {link.label}
                   </a>
                 </li>
@@ -109,8 +91,7 @@ export function Footer() {
                 <li key={service.label}>
                   <a
                     href={service.href}
-                    className="hover:text-[var(--primary)] transition-colors interactive"
-                  >
+                    className="hover:text-[var(--primary)] transition-colors interactive">
                     {service.label}
                   </a>
                 </li>
@@ -130,8 +111,7 @@ export function Footer() {
                   <Mail size={14} className="shrink-0" />
                   <a
                     href={`mailto:${footerData.mainOffice.email}`}
-                    className="hover:text-[var(--primary)] transition-colors"
-                  >
+                    className="hover:text-[var(--primary)] transition-colors">
                     {footerData.mainOffice.email}
                   </a>
                 </span>
@@ -139,8 +119,7 @@ export function Footer() {
                   <Phone size={14} className="shrink-0" />
                   <a
                     href={`tel:${footerData.mainOffice.phone}`}
-                    className="hover:text-[var(--primary)] transition-colors"
-                  >
+                    className="hover:text-[var(--primary)] transition-colors">
                     {footerData.mainOffice.phone}
                   </a>
                 </span>
@@ -161,8 +140,7 @@ export function Footer() {
                   <Mail size={14} className="shrink-0" />
                   <a
                     href={`mailto:${footerData.branchOffice.email}`}
-                    className="hover:text-[var(--primary)] transition-colors"
-                  >
+                    className="hover:text-[var(--primary)] transition-colors">
                     {footerData.branchOffice.email}
                   </a>
                 </span>
@@ -170,8 +148,7 @@ export function Footer() {
                   <Phone size={14} className="shrink-0" />
                   <a
                     href={`tel:${footerData.branchOffice.phone}`}
-                    className="hover:text-[var(--primary)] transition-colors"
-                  >
+                    className="hover:text-[var(--primary)] transition-colors">
                     {footerData.branchOffice.phone}
                   </a>
                 </span>
@@ -185,12 +162,13 @@ export function Footer() {
         </div>
 
         {/* Footer Bottom copyright */}
-        <div className="w-full flex flex-col sm:flex-row justify-between items-center pt-8 gap-4 text-center sm:text-left">
+        <div className="w-full flex items-center justify-center pt-8 text-center">
           <p className="text-sm text-[var(--text-secondary)]">
-            Copyright &copy; 2026 Words4Web | All rights reserved
-          </p>
-          <p className="text-sm text-[var(--text-secondary)]/50">
-            Founder of Words4Web Digital Marketing Agency
+            Copyright &copy; 2026{" "}
+            <span className="text-[var(--primary)] font-semibold">
+              Words4Web
+            </span>{" "}
+            | All rights reserved
           </p>
         </div>
       </div>
