@@ -29,16 +29,20 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
     }
   };
 
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
     <motion.div
-      animate={{
-        y: [0, -15, 0],
-      }}
-      transition={{
-        duration: 4,
-        ease: "easeInOut",
-        repeat: Infinity,
-      }}
+      animate={isFocused ? { y: 0 } : { y: [0, -15, 0] }}
+      transition={
+        isFocused
+          ? { type: "spring", stiffness: 300, damping: 25 }
+          : {
+              duration: 4,
+              ease: "easeInOut",
+              repeat: Infinity,
+            }
+      }
       style={{
         transformStyle: "preserve-3d",
         backfaceVisibility: "hidden",
@@ -65,7 +69,15 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form
+          onSubmit={handleSubmit}
+          onFocus={() => setIsFocused(true)}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+              setIsFocused(false);
+            }
+          }}
+          className="flex flex-col gap-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5">

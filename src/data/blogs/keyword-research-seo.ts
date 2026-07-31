@@ -5,8 +5,6 @@ export const keywordResearchSeoPost: BlogPostData = {
   title: "Keyword Research for SEO: How to Find High-Intent Keywords That Rank",
   author: "Words4Web",
   date: "2026-07-29",
-  description:
-    "A guide on search intent, seed keywords, and building an SEO keyword strategy that drives ranks and audience growth.",
   headerImage: "/blog/keyword-research-seo/seo-keyword-research-banner.webp",
   content: [
     {

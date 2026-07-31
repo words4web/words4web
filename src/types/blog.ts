@@ -13,7 +13,6 @@ export interface BlogPostData {
   title: string;
   author: string;
   date: string;
-  description: string;
   headerImage: string;
   content: BlogContentBlock[];
   faqs: FAQItem[];

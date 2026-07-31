@@ -5,8 +5,6 @@ export const agencyAiToolsPost: BlogPostData = {
   title: "Top AI tools every digital marketing agency should use in 2026",
   author: "Words4Web",
   date: "2026-04-23",
-  description:
-    "Explore the top generative AI tools for digital marketing agencies to optimize content creation, SEO, graphic design, email marketing, and analytics.",
   headerImage: "/blog/agency-ai-tools/agency-ai-tools-banner.webp",
   content: [
     {

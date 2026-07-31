@@ -5,8 +5,6 @@ export const zeroClickSearchPost: BlogPostData = {
   title: "What Zero-Click Search Means for Your Blog Strategy in 2026?",
   author: "Words4Web",
   date: "2026-05-01",
-  description:
-    "Understand the impact of AI summaries, featured snippets, and generatively optimized strategies for zero-click queries.",
   headerImage: "/blog/zero-click-search/zero-click-search-banner.webp",
   content: [
     {

@@ -5,8 +5,6 @@ export const voiceSearchPost: BlogPostData = {
   title: "How to Optimise Your Website for Voice Search in 2026?",
   author: "Words4Web",
   date: "2026-06-09",
-  description:
-    "A guide to optimizing your site for conversational search intent, structured content formats, local queries, and voice assistants.",
   headerImage: "/blog/voice-search/voice-search-banner.webp",
   content: [
     {

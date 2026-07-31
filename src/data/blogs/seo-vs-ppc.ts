@@ -5,8 +5,6 @@ export const seoVsPpcPost: BlogPostData = {
   title: "SEO vs PPC: Which One is Better for Your Business in 2026?",
   author: "Words4Web",
   date: "2026-05-12",
-  description:
-    "A complete comparison of search engine optimization and pay-per-click advertising, mapping their pros, cons, costs, and how to combine them for maximum growth.",
   headerImage: "/blog/seo-vs-ppc/seo-vs-ppc-banner.webp",
   content: [
     {

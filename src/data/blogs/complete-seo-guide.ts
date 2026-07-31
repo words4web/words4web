@@ -5,8 +5,6 @@ export const completeSeoGuidePost: BlogPostData = {
   title: "Complete SEO Guide: How to Rank Higher on Google in 2026",
   author: "Words4Web",
   date: "2026-07-08",
-  description:
-    "Learn how search engine optimization works, why it is critical for business growth, and the core types of SEO techniques.",
   headerImage: "/blog/seo-guide/complete-seo-guide-banner.webp",
   content: [
     {

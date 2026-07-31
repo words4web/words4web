@@ -45,15 +45,28 @@ export function Navbar() {
   const { scrollY, scrollYProgress } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isHome, setIsHome] = useState(true);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      setIsHome(
+        window.location.pathname === "/" ||
+          window.location.pathname === "" ||
+          window.location.pathname.endsWith("/index.html"),
+      );
       setScrolled(window.scrollY > 50);
     }
     return scrollY.onChange((latest) => {
       setScrolled(latest > 50);
     });
   }, [scrollY]);
+
+  const getHref = (href: string) => {
+    if (isHome && href.startsWith("/#")) {
+      return href.substring(1);
+    }
+    return href;
+  };
 
   return (
     <motion.nav
@@ -66,7 +79,9 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
       <div className="w-full flex items-center justify-between">
-        <a href="#" className="flex items-center interactive cursor-pointer">
+        <a
+          href={isHome ? "#" : "/"}
+          className="flex items-center interactive cursor-pointer">
           <img
             src="/logo/logo_purple.png"
             alt="words4web logo"
@@ -99,7 +114,7 @@ export function Navbar() {
                   </button>
                 ) : (
                   <a
-                    href={item.href}
+                    href={getHref(item.href)}
                     className="interactive hover:text-[var(--primary)] transition-colors relative group py-2 whitespace-nowrap block">
                     {item.label}
                     <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all group-hover:w-full" />
@@ -119,7 +134,7 @@ export function Navbar() {
                         <motion.a
                           variants={itemVariants}
                           key={child.label}
-                          href={child.href}
+                          href={getHref(child.href)}
                           className="px-4 py-2.5 rounded-xl hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] hover:translate-x-1.5 duration-200 transition-all text-sm font-semibold whitespace-nowrap block">
                           {child.label}
                         </motion.a>

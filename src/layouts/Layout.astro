@@ -32,7 +32,14 @@ const { title = "Words4Web | Best Digital Marketing Agency" } = Astro.props;
 			document.addEventListener("click", (e) => {
 				const anchor = (e.target as HTMLElement).closest("a");
 				if (!anchor) return;
-				const href = anchor.getAttribute("href");
+				let href = anchor.getAttribute("href");
+				if (!href) return;
+
+				// Normalize root-relative anchors (e.g. /#services -> #services) on the home page
+				if (href.startsWith("/#") && window.location.pathname === "/") {
+					href = href.substring(1);
+				}
+
 				if (href && href.startsWith("#")) {
 					e.preventDefault();
 					if (href === "#") {

@@ -5,8 +5,6 @@ export const croGuidePost: BlogPostData = {
   title: "What Is Conversion Rate Optimization (CRO) and Why It Matters?",
   author: "Words4Web",
   date: "2026-06-13",
-  description:
-    "Discover how conversion rate optimization can maximize your existing traffic value, improve ROI, and turn website visitors into loyal customers.",
   headerImage: "/blog/cro-guide/cro-guide-banner.webp",
   content: [
     {
