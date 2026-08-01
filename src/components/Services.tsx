@@ -1,10 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { servicesData } from "../data/servicesData";
 import { Section } from "./Section";
 import { ServiceCard } from "./ServiceCard";
 
 export function Services() {
   const ref = useRef(null);
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
     <Section
@@ -22,7 +23,17 @@ export function Services() {
       {/* 4-Column Symmetric Grid Layout for the 8 original services (2 rows of 4 cards) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mt-12">
         {servicesData.map((service, idx) => (
-          <ServiceCard key={idx} service={service} />
+          <div
+            key={idx}
+            onMouseEnter={() => setHoveredIdx(idx)}
+            onMouseLeave={() => setHoveredIdx(null)}
+            className="transition-all duration-300">
+            <ServiceCard
+              service={service}
+              isHovered={hoveredIdx === idx}
+              isAnyHovered={hoveredIdx !== null}
+            />
+          </div>
         ))}
       </div>
     </Section>
