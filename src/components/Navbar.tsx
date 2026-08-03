@@ -62,8 +62,13 @@ export function Navbar() {
   }, [scrollY]);
 
   const getHref = (href: string) => {
-    if (isHome && href.startsWith("/#")) {
-      return href.substring(1);
+    if (isHome) {
+      if (href === "/") {
+        return "#";
+      }
+      if (href?.startsWith("/#")) {
+        return href?.substring(1);
+      }
     }
     return href;
   };
