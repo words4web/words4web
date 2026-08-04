@@ -11,8 +11,15 @@ export function CustomCursor() {
 
   const [isHovered, setIsHovered] = useState(false);
   const [hoverText, setHoverText] = useState("");
+  const [isEnabled, setIsEnabled] = useState(false);
 
   useEffect(() => {
+    // Check if the device matches a touch pointer (coarse) or has small screen width
+    const mediaQuery = window.matchMedia("(pointer: fine)");
+    setIsEnabled(mediaQuery.matches);
+
+    if (!mediaQuery.matches) return;
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 16);
       cursorY.set(e.clientY - 16);
@@ -50,7 +57,9 @@ export function CustomCursor() {
       window.removeEventListener("mousemove", moveCursor);
       window.removeEventListener("mouseover", handleMouseOver);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isEnabled]);
+
+  if (!isEnabled) return null;
 
   return (
     <motion.div
@@ -58,8 +67,7 @@ export function CustomCursor() {
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
-      }}
-    >
+      }}>
       <motion.div
         className="bg-white rounded-full flex items-center justify-center text-black font-medium text-[10px] tracking-widest uppercase overflow-hidden"
         initial={{ width: 32, height: 32 }}
@@ -68,14 +76,12 @@ export function CustomCursor() {
           height: isHovered ? (hoverText ? 80 : 48) : 32,
           opacity: 1,
         }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      >
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}>
         {hoverText && (
           <motion.span
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="absolute text-center whitespace-nowrap"
-          >
+            className="absolute text-center whitespace-nowrap">
             {hoverText}
           </motion.span>
         )}

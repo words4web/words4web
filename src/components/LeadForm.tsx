@@ -12,6 +12,8 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
     formData,
     errors,
     submitted,
+    isSubmitting,
+    submitError,
     handleFieldChange,
     handleSubmit,
     resetForm,
@@ -25,6 +27,7 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
         values.phoneNumber,
       ),
     onSubmitSuccess,
+    "/submit-lead",
   );
 
   const [isFocused, setIsFocused] = useState(false);
@@ -74,6 +77,14 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
             }
           }}
           className="flex flex-col gap-4">
+          <input
+            type="text"
+            name="website"
+            aria-hidden="true"
+            tabIndex={-1}
+            autoComplete="off"
+            style={{ display: "none" }}
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5 text-left">
@@ -169,9 +180,15 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
 
           <button
             type="submit"
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-xs text-white border-none flex items-center justify-center gap-2 mt-1 shadow-[0_0_15px_rgba(123,44,191,0.2)] hover:brightness-110 active:scale-[0.98] transition-all cursor-pointer">
-            <span>Submit →</span>
+            disabled={isSubmitting}
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-xs text-white border-none flex items-center justify-center gap-2 mt-1 shadow-[0_0_15px_rgba(123,44,191,0.2)] hover:brightness-110 active:scale-[0.98] transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+            <span>{isSubmitting ? "Submitting..." : "Submit →"}</span>
           </button>
+          {submitError && (
+            <div className="w-full p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-light text-left mt-2">
+              {submitError}
+            </div>
+          )}
         </form>
       )}
     </motion.div>

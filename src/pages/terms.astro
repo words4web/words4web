@@ -1,0 +1,325 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SmoothScroll } from "../components/SmoothScroll";
+import { CustomCursor } from "../components/CustomCursor";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
+import { Scale, Mail, Phone, Clock } from "lucide-react";
+
+const tocItems = [
+  { id: "1-use-of-website", label: "1. Use of Website" },
+  { id: "2-services", label: "2. Services" },
+  { id: "3-quotes-pricing", label: "3. Quotes & Pricing" },
+  { id: "4-payments", label: "4. Payments" },
+  { id: "5-client-responsibilities", label: "5. Client Responsibilities" },
+  { id: "6-third-party-tools", label: "6. Third-Party Tools" },
+  { id: "7-termination", label: "7. Termination" },
+  { id: "8-refund-policy", label: "8. Refund Policy" },
+  { id: "9-contact-us", label: "9. Get In Touch" },
+];
+---
+
+<Layout title="Terms & Conditions | Words4Web">
+  <SmoothScroll client:load />
+  <CustomCursor client:load />
+
+  <div
+    class="relative w-full min-h-screen bg-[var(--background)] text-[var(--text-primary)] selection:bg-[var(--primary)] selection:text-white overflow-x-clip">
+    <!-- Glowing backdrop lights -->
+    <div
+      class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-purple-600/5 dark:bg-purple-600/10 blur-[150px] pointer-events-none">
+    </div>
+    <div
+      class="absolute bottom-[20%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-blue-600/5 dark:bg-blue-600/10 blur-[150px] pointer-events-none">
+    </div>
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,rgba(128,128,128,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(128,128,128,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0">
+    </div>
+
+    <Navbar client:load />
+
+    <main
+      class="pt-32 pb-24 px-4 max-w-7xl mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
+      <!-- Title Header Block -->
+      <div
+        class="text-left max-w-4xl border-b border-black/[0.08] dark:border-white/[0.08] pb-10 flex flex-col gap-5">
+        <div
+          class="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/5 backdrop-blur-md w-fit">
+          <Scale size={14} className="text-purple-400" />
+          <span
+            class="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)]">
+            Terms of Service
+          </span>
+        </div>
+        <h1
+          class="text-4xl md:text-7xl font-extralight tracking-tight text-[var(--text-primary)] leading-tight">
+          Terms & <span
+            class="bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400 bg-clip-text text-transparent font-normal"
+            >Conditions</span
+          >
+        </h1>
+        <div
+          class="flex items-center gap-6 text-sm text-[var(--text-secondary)] font-light mt-2">
+          <span class="flex items-center gap-1.5"
+            ><Clock size={14} /> Last updated: August 2026</span
+          >
+        </div>
+      </div>
+
+      <!-- Content Section (Double Column Grid) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start w-full">
+        <!-- Left: Sticky Table of Contents -->
+        <aside
+          class="lg:col-span-4 sticky top-32 hidden lg:flex flex-col gap-6 p-8 rounded-3xl border border-black/[0.08] dark:border-white/[0.08] bg-white/[0.01] dark:bg-white/[0.01] backdrop-blur-xl">
+          <h3
+            class="font-display font-semibold text-lg uppercase tracking-wider text-[var(--text-primary)]">
+            Sections
+          </h3>
+          <nav class="flex flex-col gap-3 text-left">
+            {
+              tocItems.map((item) => (
+                <a
+                  href={`#${item.id}`}
+                  class="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] hover:translate-x-1 transition-all duration-300 font-light">
+                  {item.label}
+                </a>
+              ))
+            }
+          </nav>
+        </aside>
+
+        <!-- Right: Text Content Block -->
+        <div
+          class="lg:col-span-8 flex flex-col gap-10 text-left text-base md:text-lg text-[var(--text-secondary)] font-light leading-relaxed">
+          <p
+            class="text-xl font-light text-[var(--text-primary)] leading-relaxed border-l-2 border-[var(--primary)] pl-6 py-2">
+            Welcome to Words4Web. By accessing or using our website and
+            services, you agree to comply with the following Terms & Conditions.
+            Please read them carefully.
+          </p>
+
+          <section
+            id="1-use-of-website"
+            class="flex flex-col gap-4 border-t border-black/[0.08] dark:border-white/[0.06] pt-8 scroll-mt-32">
+            <h2 class="text-2xl font-normal text-[var(--text-primary)]">
+              1. Use of Our Website
+            </h2>
+            <p>By using this website, you agree to:</p>
+            <ul class="list-disc pl-6 flex flex-col gap-2 text-base">
+              <li>Use it only for lawful purposes</li>
+              <li>Not misuse, disrupt, or attempt to hack the website</li>
+              <li>Provide accurate information when filling out forms</li>
+            </ul>
+            <p class="mt-2 text-base">
+              We reserve the right to restrict or terminate access if these
+              terms are violated.
+            </p>
+          </section>
+
+          <section
+            id="2-services"
+            class="flex flex-col gap-3 border-t border-black/[0.08] dark:border-white/[0.06] pt-8 scroll-mt-32">
+            <h2 class="text-2xl font-normal text-[var(--text-primary)]">
+              2. Services
+            </h2>
+            <p>
+              Words4Web provides digital marketing services, including but not
+              limited to:
+            </p>
+            <ul class="list-disc pl-6 flex flex-col gap-2 text-base">
+              <li>Search Engine Optimization (SEO)</li>
+              <li>Paid Advertising (Google Ads, Meta Ads, etc.)</li>
+              <li>Social Media Marketing</li>
+              <li>Website Design & Development</li>
+              <li>Content Writing</li>
+              <li>App Development</li>
+            </ul>
+            <p class="mt-2 text-base">
+              All services are subject to individual agreements, proposals, or
+              contracts.
+            </p>
+          </section>
+
+          <section
+            id="3-quotes-pricing"
+            class="flex flex-col gap-3 border-t border-black/[0.08] dark:border-white/[0.06] pt-8 scroll-mt-32">
+            <h2 class="text-2xl font-normal text-[var(--text-primary)]">
+              3. Quotes & Pricing
+            </h2>
+            <ul class="list-disc pl-6 flex flex-col gap-2 text-base">
+              <li>
+                All services are offered based on custom quotes, depending on
+                project requirements, scope, and complexity.
+              </li>
+              <li>
+                Any quote provided is valid for a limited time and may change if
+                the project scope is modified.
+              </li>
+              <li>
+                Final pricing will be confirmed in a formal proposal or
+                agreement before the start of the project.
+              </li>
+            </ul>
+          </section>
+
+          <section
+            id="4-payments"
+            class="flex flex-col gap-3 border-t border-black/[0.08] dark:border-white/[0.06] pt-8 scroll-mt-32">
+            <h2 class="text-2xl font-normal text-[var(--text-primary)]">
+              4. Payments
+            </h2>
+            <ul class="list-disc pl-6 flex flex-col gap-2 text-base">
+              <li>Payment terms will be defined in the project agreement</li>
+              <li>Services may require advance or milestone-based payments</li>
+              <li>Delayed payments may result in service suspension</li>
+            </ul>
+          </section>
+
+          <section
+            id="5-client-responsibilities"
+            class="flex flex-col gap-3 border-t border-black/[0.08] dark:border-white/[0.06] pt-8 scroll-mt-32">
+            <h2 class="text-2xl font-normal text-[var(--text-primary)]">
+              5. Client Responsibilities
+            </h2>
+            <p>Clients agree to:</p>
+            <ul class="list-disc pl-6 flex flex-col gap-2 text-base">
+              <li>Provide accurate and timely information</li>
+              <li>Approve deliverables within reasonable time</li>
+              <li>Cooperate during project execution</li>
+            </ul>
+            <p class="mt-2 text-base">
+              Delays from the client’s side may impact timelines.
+            </p>
+          </section>
+
+          <section
+            id="6-third-party-tools"
+            class="flex flex-col gap-3 border-t border-black/[0.08] dark:border-white/[0.06] pt-8 scroll-mt-32">
+            <h2 class="text-2xl font-normal text-[var(--text-primary)]">
+              6. Third-Party Tools & Platforms
+            </h2>
+            <p>We may use third-party platforms such as:</p>
+            <ul class="list-disc pl-6 flex flex-col gap-2 text-base">
+              <li>Google Ads</li>
+              <li>Meta (Facebook & Instagram)</li>
+              <li>Analytics tools</li>
+            </ul>
+            <p class="mt-4">We are not responsible for:</p>
+            <ul class="list-disc pl-6 flex flex-col gap-2 text-base">
+              <li>Policy changes by these platforms</li>
+              <li>Account suspensions due to policy violations</li>
+              <li>Platform downtime or technical issues</li>
+            </ul>
+          </section>
+
+          <section
+            id="7-termination"
+            class="flex flex-col gap-3 border-t border-black/[0.08] dark:border-white/[0.06] pt-8 scroll-mt-32">
+            <h2 class="text-2xl font-normal text-[var(--text-primary)]">
+              7. Termination
+            </h2>
+            <p>We reserve the right to:</p>
+            <ul class="list-disc pl-6 flex flex-col gap-2 text-base">
+              <li>Suspend or terminate services if terms are violated</li>
+              <li>End services due to non-payment or misuse</li>
+            </ul>
+            <p class="mt-2 text-base">
+              Clients may also terminate services based on agreed terms.
+            </p>
+          </section>
+
+          <section
+            id="8-refund-policy"
+            class="flex flex-col gap-3 border-t border-black/[0.08] dark:border-white/[0.06] pt-8 scroll-mt-32">
+            <h2 class="text-2xl font-normal text-[var(--text-primary)]">
+              8. Refund Policy
+            </h2>
+            <ul class="list-disc pl-6 flex flex-col gap-2 text-base">
+              <li>
+                Payments made are generally non-refundable unless agreed
+                otherwise
+              </li>
+              <li>
+                Refunds (if applicable) will depend on project stage and work
+                completed
+              </li>
+            </ul>
+            <p class="mt-4 text-base">
+              Our website may contain links to external websites. We are not
+              responsible for their privacy practices.
+            </p>
+          </section>
+
+          <section
+            id="9-contact-us"
+            class="group relative p-[1px] rounded-3xl overflow-hidden mt-8 transition-all duration-500 w-full scroll-mt-32">
+            <!-- Glowing Line Tracing Card Border -->
+            <div
+              class="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none z-0">
+              <div
+                class="absolute top-1/2 left-1/2 w-[300%] h-[300%] animate-border-trace"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, transparent 0deg, transparent 320deg, var(--primary) 340deg, #9d4edd 350deg, #c084fc 360deg)",
+                }}>
+              </div>
+            </div>
+
+            <div
+              class="relative z-10 p-8 rounded-[23px] bg-[var(--background)] dark:bg-[#0c0c0e] flex flex-col gap-4 border border-black/[0.03] dark:border-white/[0.02] shadow-[0_8px_30px_rgba(123,44,191,0.04)] dark:shadow-[inset_0_0_30px_rgba(123,44,191,0.1)]">
+              <h2 class="text-2xl font-normal text-[var(--text-primary)]">
+                9. Contact Us
+              </h2>
+              <p class="text-base font-light">
+                If you have any questions about the terms and conditions, please
+                contact us:
+              </p>
+
+              <div
+                class="mt-4 flex flex-col gap-3 text-base font-normal border-t border-black/[0.08] dark:border-white/[0.06] pt-4">
+                <p class="text-[var(--text-primary)] font-medium text-lg">
+                  Words4Web
+                </p>
+
+                <div class="flex items-center gap-3">
+                  <Mail size={16} className="text-purple-400 shrink-0" />
+                  <a
+                    href="mailto:info@words4web.com"
+                    class="text-[#a855f7] hover:text-[#c084fc] hover:underline transition-colors font-light"
+                    >info@words4web.com</a
+                  >
+                </div>
+
+                <div
+                  class="flex items-start md:items-center flex-col md:flex-row gap-3 md:gap-4">
+                  <div class="flex items-center gap-3">
+                    <Phone size={16} className="text-purple-400 shrink-0" />
+                    <a
+                      href="tel:+917020207611"
+                      class="text-[#a855f7] hover:text-[#c084fc] hover:underline transition-colors font-light"
+                      >+91 7020207611</a
+                    >
+                  </div>
+                  <span class="hidden md:inline text-white/20">|</span>
+                  <div class="flex items-center gap-3">
+                    <Phone
+                      size={16}
+                      className="text-purple-400 shrink-0 animate-pulse"
+                    />
+                    <a
+                      href="tel:+447344861555"
+                      class="text-[#a855f7] hover:text-[#c084fc] hover:underline transition-colors font-light"
+                      >+44 7344861555</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>

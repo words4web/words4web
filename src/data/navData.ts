@@ -17,6 +17,7 @@ export const navData: NavItem[] = [
     ],
   },
   { label: "Our Works", href: "/#work" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];

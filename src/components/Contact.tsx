@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { ShieldCheck, Zap, Clock, FileText } from "lucide-react";
 import { Section } from "./Section";
 import {
   AnimatedInput,
@@ -16,16 +17,22 @@ export function Contact() {
     formData,
     errors,
     submitted,
+    isSubmitting,
+    submitError,
     handleFieldChange,
     handleSubmit,
     resetForm,
-  } = useForm(contactFormDefaults, (values) =>
-    validateContactFields(
-      values.fullName,
-      values.email,
-      values.phoneDialCode,
-      values.phoneNumber,
-    ),
+  } = useForm(
+    contactFormDefaults,
+    (values) =>
+      validateContactFields(
+        values.fullName,
+        values.email,
+        values.phoneDialCode,
+        values.phoneNumber,
+      ),
+    undefined,
+    "/submit-contact",
   );
 
   return (
@@ -85,6 +92,15 @@ export function Contact() {
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                  {/* Honeypot field — hidden from users, catches bots */}
+                  <input
+                    type="text"
+                    name="website"
+                    aria-hidden="true"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    style={{ display: "none" }}
+                  />
                   <div>
                     <AnimatedInput
                       label="Full Name"
@@ -173,14 +189,23 @@ export function Contact() {
                   </div>
 
                   {/* Submit Button */}
-                  <div className="mt-8 flex justify-start">
+                  <div className="mt-8 flex flex-col gap-4 items-start">
                     <motion.button
                       type="submit"
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="group relative overflow-hidden rounded-xl px-8 py-4 bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-xs text-white shadow-[0_0_15px_rgba(123,44,191,0.2)] border-none flex items-center gap-2 cursor-pointer">
-                      <span className="relative z-10">Submit →</span>
+                      disabled={isSubmitting}
+                      whileHover={isSubmitting ? {} : { scale: 1.03 }}
+                      whileTap={isSubmitting ? {} : { scale: 0.97 }}
+                      className="group relative overflow-hidden rounded-xl px-8 py-4 bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-xs text-white shadow-[0_0_15px_rgba(123,44,191,0.2)] border-none flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+                      <span className="relative z-10">
+                        {isSubmitting ? "Submitting..." : "Submit →"}
+                      </span>
                     </motion.button>
+
+                    {submitError && (
+                      <div className="w-full p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-light text-left">
+                        {submitError}
+                      </div>
+                    )}
                   </div>
                 </form>
               </motion.div>
@@ -199,24 +224,66 @@ export function Contact() {
         </motion.div>
       </div>
 
-      {/* Trust Strip */}
-      <div className="w-full max-w-5xl mx-auto mt-16 px-4 py-5 rounded-2xl glass-panel border border-white/5 bg-black/10 dark:bg-white/[0.01] flex flex-wrap justify-around items-center gap-4 text-center">
-        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
-          <span className="text-[var(--primary)] mr-1">150+</span> Brands Served
+      {/* Trust Strip Component */}
+      <ContactTrustStrip />
+    </Section>
+  );
+}
+
+function ContactTrustStrip() {
+  return (
+    <div className="w-full mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 select-none">
+      {/* Card 1 */}
+      <div className="p-6 rounded-3xl bg-[var(--background)] dark:bg-[#0c0c0e] border border-black/[0.03] dark:border-white/[0.02] flex items-center gap-4 shadow-[0_8px_30px_rgba(123,44,191,0.04)] dark:shadow-[inset_0_0_30px_rgba(123,44,191,0.05)] hover:-translate-y-1 transition-transform duration-300">
+        <div className="p-2.5 rounded-xl bg-purple-500/10 text-[var(--primary)] shrink-0">
+          <ShieldCheck size={18} />
         </div>
-        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] hidden md:block" />
-        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
-          <span className="text-[var(--primary)] mr-1">8</span> Services, 1 Team
-        </div>
-        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] hidden md:block" />
-        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
-          Response Within 24 Hours
-        </div>
-        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] hidden md:block" />
-        <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
-          No Obligation Quote
+        <div className="text-left text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
+          <span className="text-[var(--text-primary)] font-extrabold mr-1 block text-lg normal-case">
+            150+
+          </span>
+          Brands Served
         </div>
       </div>
-    </Section>
+
+      {/* Card 2 */}
+      <div className="p-6 rounded-3xl bg-[var(--background)] dark:bg-[#0c0c0e] border border-black/[0.03] dark:border-white/[0.02] flex items-center gap-4 shadow-[0_8px_30px_rgba(123,44,191,0.04)] dark:shadow-[inset_0_0_30px_rgba(123,44,191,0.05)] hover:-translate-y-1 transition-transform duration-300">
+        <div className="p-2.5 rounded-xl bg-purple-500/10 text-[var(--primary)] shrink-0">
+          <Zap size={18} />
+        </div>
+        <div className="text-left text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
+          <span className="text-[var(--text-primary)] font-extrabold mr-1 block text-lg normal-case">
+            8 Services
+          </span>
+          Delivered by 1 Team
+        </div>
+      </div>
+
+      {/* Card 3 */}
+      <div className="p-6 rounded-3xl bg-[var(--background)] dark:bg-[#0c0c0e] border border-black/[0.03] dark:border-white/[0.02] flex items-center gap-4 shadow-[0_8px_30px_rgba(123,44,191,0.04)] dark:shadow-[inset_0_0_30px_rgba(123,44,191,0.05)] hover:-translate-y-1 transition-transform duration-300">
+        <div className="p-2.5 rounded-xl bg-purple-500/10 text-[var(--primary)] shrink-0">
+          <Clock size={18} />
+        </div>
+        <div className="text-left text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
+          <span className="text-[var(--text-primary)] font-extrabold mr-1 block text-lg normal-case">
+            24 Hours
+          </span>
+          Guaranteed Response
+        </div>
+      </div>
+
+      {/* Card 4 */}
+      <div className="p-6 rounded-3xl bg-[var(--background)] dark:bg-[#0c0c0e] border border-black/[0.03] dark:border-white/[0.02] flex items-center gap-4 shadow-[0_8px_30px_rgba(123,44,191,0.04)] dark:shadow-[inset_0_0_30px_rgba(123,44,191,0.05)] hover:-translate-y-1 transition-transform duration-300">
+        <div className="p-2.5 rounded-xl bg-purple-500/10 text-[var(--primary)] shrink-0">
+          <FileText size={18} />
+        </div>
+        <div className="text-left text-xs md:text-sm font-bold uppercase tracking-wider text-[var(--text-secondary)]">
+          <span className="text-[var(--text-primary)] font-extrabold mr-1 block text-lg normal-case">
+            Free Quote
+          </span>
+          No Obligation Audit
+        </div>
+      </div>
+    </div>
   );
 }

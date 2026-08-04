@@ -27,3 +27,11 @@ export interface LeadFormData {
   details: string;
   formType: string;
 }
+
+export interface OfficeCardProps {
+  label: string;
+  city: string;
+  address: string;
+  phone: string;
+  email: string;
+}

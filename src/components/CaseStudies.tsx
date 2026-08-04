@@ -25,8 +25,30 @@ function ProjectCard({
   onHoverEnd: () => void;
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    // We only track intersection on mobile viewports
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.6, // Trigger when 60% of card is visible
+      },
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   // Smooth spring physics for cursor alignment
   const mouseXSpring = useSpring(x, { stiffness: 120, damping: 20 });
@@ -40,16 +62,28 @@ function ProjectCard({
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [12, -12]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-12, 12]);
 
-  // Drive the lean spring whenever the hovered card changes
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    if (hoveredIdx === null || hoveredIdx === index) {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Drive the lean spring whenever the hovered card changes (bypass on mobile)
+  useEffect(() => {
+    if (isMobile || hoveredIdx === null || hoveredIdx === index) {
       leanY.set(0);
     } else {
       leanY.set(index < hoveredIdx ? 22 : -22);
     }
-  }, [hoveredIdx, index, leanY]);
+  }, [hoveredIdx, index, leanY, isMobile]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isMobile) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -77,6 +111,7 @@ function ProjectCard({
 
   return (
     <motion.div
+      ref={cardRef}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -84,73 +119,81 @@ function ProjectCard({
       style={{ perspective: "1000px" }}
       className="group relative flex flex-col gap-6 w-full max-w-[360px] mx-auto">
       {/* 3D Tilting Browser Mockup */}
-      <motion.div
-        onMouseMove={handleMouseMove}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          rotateX,
-          rotateY: isHovered ? rotateY : leanYSpring,
-          transformStyle: "preserve-3d",
-          boxShadow: isHovered
-            ? "0 20px 45px -10px rgba(123, 44, 191, 0.25)"
-            : "0 15px 35px -10px rgba(0, 0, 0, 0.5)",
-          transition: "box-shadow 0.5s ease-in-out",
-        }}
-        className="w-full rounded-3xl relative select-none">
-        {/* Neon border — outside overflow-hidden so it renders OUTSIDE the card */}
-        <div className="neon-border-overlay rounded-3xl" />
-        {/* Inner card with overflow clipping */}
-        <div
-          className="w-full rounded-3xl overflow-hidden glass-panel border bg-[var(--background-secondary)]"
+      <a href={project?.link} className="block w-full">
+        <motion.div
+          onMouseMove={handleMouseMove}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           style={{
-            borderColor: isHovered
-              ? "rgba(123, 44, 191, 0.4)"
-              : "rgba(255, 255, 255, 0.08)",
-            transition: "border-color 0.5s ease-in-out",
-          }}>
-          {/* Address bar/header */}
-          <div className="h-8 w-full bg-[var(--background-secondary)] px-4 flex items-center gap-2 border-b border-[var(--border)]">
-            <div className="flex gap-1.5 shrink-0">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+            rotateX: isMobile ? 0 : rotateX,
+            rotateY: isMobile ? 0 : isHovered ? rotateY : leanYSpring,
+            transformStyle: "preserve-3d",
+            boxShadow: isHovered
+              ? "0 20px 45px -10px rgba(123, 44, 191, 0.25)"
+              : "0 15px 35px -10px rgba(0, 0, 0, 0.5)",
+            transition: "box-shadow 0.5s ease-in-out",
+          }}
+          className="w-full rounded-3xl relative select-none">
+          {/* Neon border — outside overflow-hidden so it renders OUTSIDE the card */}
+          <div className="neon-border-overlay rounded-3xl" />
+          {/* Inner card with overflow clipping */}
+          <div
+            className="w-full rounded-3xl overflow-hidden glass-panel border bg-[var(--background-secondary)]"
+            style={{
+              borderColor: isHovered
+                ? "rgba(123, 44, 191, 0.4)"
+                : "rgba(255, 255, 255, 0.08)",
+              transition: "border-color 0.5s ease-in-out",
+            }}>
+            {/* Address bar/header */}
+            <div className="h-8 w-full bg-[var(--background-secondary)] px-4 flex items-center gap-2 border-b border-[var(--border)]">
+              <div className="flex gap-1.5 shrink-0">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+              </div>
+              <div className="mx-auto w-40 h-4 rounded bg-[var(--background)]/80 flex items-center justify-center text-[8px] text-[var(--text-secondary)] font-mono truncate px-2">
+                words4web.com/showcase
+              </div>
             </div>
-            <div className="mx-auto w-40 h-4 rounded bg-[var(--background)]/80 flex items-center justify-center text-[8px] text-[var(--text-secondary)] font-mono truncate px-2">
-              words4web.com/showcase
-            </div>
-          </div>
 
-          {/* Screenshot Viewport Container */}
-          <div className="relative w-full h-[390px] overflow-hidden bg-black/10">
-            <img
-              src={project.image}
-              alt={project.title}
-              style={{
-                transform: isHovered
-                  ? "translateY(calc(-100% + 390px))"
-                  : "translateY(0)",
-                transition: "transform 8.5s ease-in-out",
-              }}
-              className="w-full h-auto object-top select-none"
-            />
+            {/* Screenshot Viewport Container */}
+            <div className="relative w-full h-[390px] overflow-hidden bg-black/10">
+              <img
+                src={project.image}
+                alt={project.title}
+                style={{
+                  transform:
+                    isHovered || (isMobile && isInView)
+                      ? "translateY(calc(-100% + 390px))"
+                      : "translateY(0)",
+                  transition: "transform 8.5s ease-in-out",
+                }}
+                className="w-full h-auto object-top select-none"
+              />
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </a>
 
       {/* Showcase Card Slogan Details */}
       <div className="flex flex-col text-left px-2">
         <span className="text-[#a855f7] dark:text-[#c084fc] text-sm uppercase tracking-widest font-bold mb-1">
-          Service(s) Involved: {project.services}
+          Service(s) Involved: {project?.services}
         </span>
         <h3 className="font-display text-2xl font-bold tracking-tight text-[var(--text-primary)] mb-1">
-          {project.title} —{" "}
+          <a
+            href={project?.link}
+            className="hover:text-[var(--primary)] transition-colors">
+            {project?.title}
+          </a>{" "}
+          —{" "}
           <span className="text-sm font-normal text-[var(--text-secondary)]">
-            {project.subtitle}
+            {project?.subtitle}
           </span>
         </h3>
         <p className="text-md text-[var(--text-primary)] leading-relaxed font-normal mt-2">
-          {project.description}
+          {project?.description}
         </p>
       </div>
     </motion.div>
@@ -201,7 +244,7 @@ export function CaseStudies() {
 
       {/* Bottom CTA Action */}
       <div className="mt-16 flex justify-center">
-        <a href="#contact">
+        <a href="/work">
           <MagneticButton className="px-8 py-4 bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-sm text-white shadow-[0_0_20px_rgba(123,44,191,0.3)] border-none flex items-center gap-2">
             <span>See Our Work →</span>
           </MagneticButton>

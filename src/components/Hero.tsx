@@ -64,17 +64,17 @@ export function Hero() {
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap gap-4 mb-8"
+            className="flex flex-col sm:flex-row gap-4 mb-8 w-full sm:w-auto"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}>
-            <a href="#contact">
-              <MagneticButton className="rounded-xl px-6 py-3.5 bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-sm text-white shadow-[0_0_20px_rgba(123,44,191,0.3)] border-none">
+            <a href="#contact" className="w-full sm:w-auto">
+              <MagneticButton className="w-full sm:w-auto rounded-xl px-6 py-4 bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-base sm:text-sm text-white shadow-[0_0_20px_rgba(123,44,191,0.3)] border-none flex items-center justify-center">
                 Book a Free Strategy Call →
               </MagneticButton>
             </a>
-            <a href="#work">
-              <MagneticButton className="rounded-xl px-6 py-3.5 glass-panel font-bold text-sm text-[var(--text-primary)] border border-white/10 hover:bg-white/5 transition-all">
+            <a href="#work" className="w-full sm:w-auto">
+              <MagneticButton className="w-full sm:w-auto rounded-xl px-6 py-4 glass-panel font-bold text-base sm:text-sm text-[var(--text-primary)] border border-white/10 hover:bg-white/5 transition-all flex items-center justify-center">
                 See Our Work →
               </MagneticButton>
             </a>

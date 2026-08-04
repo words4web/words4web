@@ -1,7 +1,11 @@
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 
-export function SmoothScroll({ children }: { children: React.ReactNode }) {
+export function SmoothScroll({
+  children = null,
+}: {
+  children?: React.ReactNode;
+}) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {

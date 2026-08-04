@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Globe, ArrowLeft, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "./Section";
@@ -8,20 +8,39 @@ import { TrustStrip } from "./TrustStrip";
 
 export function Testimonials() {
   const containerRef = useRef(null);
-  const [pageIndex, setPageIndex] = useState(0); // 0 or 1
+  const [pageIndex, setPageIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Page 1: items 0 to 5. Page 2: items 4 to 9 (so both show exactly 6 items)
-  const displayedItems =
-    pageIndex === 0
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Limit pageIndex when changing viewports
+  useEffect(() => {
+    if (!isMobile && pageIndex > 1) {
+      setPageIndex(0);
+    }
+  }, [isMobile, pageIndex]);
+
+  const displayedItems = isMobile
+    ? [testimonialsData[pageIndex]]
+    : pageIndex === 0
       ? testimonialsData.slice(0, 6)
       : testimonialsData.slice(4, 10);
 
+  const totalPages = isMobile ? testimonialsData.length : 2;
+
   const handlePrev = () => {
-    setPageIndex((prev) => (prev === 0 ? 1 : 0));
+    setPageIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setPageIndex((prev) => (prev === 0 ? 1 : 0));
+    setPageIndex((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -73,8 +92,8 @@ export function Testimonials() {
           </div>
 
           {/* Pagination Slider Indicator */}
-          <div className="flex items-center gap-2">
-            {[0, 1].map((idx) => {
+          <div className="flex flex-wrap items-center justify-center gap-1.5 max-w-[200px] sm:max-w-none">
+            {Array.from({ length: totalPages }, (_, i) => i).map((idx) => {
               const isActive = idx === pageIndex;
               return (
                 <motion.div
@@ -82,10 +101,10 @@ export function Testimonials() {
                   onClick={() => setPageIndex(idx)}
                   layoutId={`pill-${idx}`}
                   animate={{
-                    width: isActive ? 28 : 8,
+                    width: isActive ? 24 : 6,
                   }}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  className={`h-2 rounded-full cursor-pointer transition-colors duration-300 ${
+                  className={`h-1.5 rounded-full cursor-pointer transition-colors duration-300 ${
                     isActive
                       ? "bg-[var(--primary)]"
                       : "bg-black/20 dark:bg-white/20 hover:bg-black/30 dark:hover:bg-white/30"

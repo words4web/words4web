@@ -54,12 +54,7 @@ export function Counter({
       </div>
 
       {/* Inner Card Content */}
-      <div
-        className={`relative p-6 md:p-8 bg-[#f7f7f7] dark:bg-[#0c0c0e] rounded-[21px] overflow-hidden h-full shadow-[0_8px_32px_rgba(0,0,0,0.02)] dark:shadow-[inset_0_0_30px_rgba(0,0,0,0.5)] border border-black/[0.03] dark:border-white/[0.02] z-10 flex ${
-          displayValue === null || displayValue === ""
-            ? "flex-col items-start justify-center text-left gap-4"
-            : "items-center gap-5 md:gap-6 text-left"
-        }`}>
+      <div className="relative p-6 md:p-8 bg-[#f7f7f7] dark:bg-[#0c0c0e] rounded-[21px] overflow-hidden h-full shadow-[0_8px_32px_rgba(0,0,0,0.02)] dark:shadow-[inset_0_0_30px_rgba(0,0,0,0.5)] border border-black/[0.03] dark:border-white/[0.02] z-10 flex items-center gap-5 md:gap-6 text-left">
         {/* Dynamic Hover Glow */}
         <div
           className={`absolute -right-8 -bottom-8 w-32 h-32 bg-gradient-to-tr ${glowColor} opacity-5 blur-2xl group-hover:scale-150 group-hover:opacity-20 transition-all duration-700 pointer-events-none rounded-full`}

@@ -48,14 +48,14 @@ export function Tools() {
       hasBorderTop
       headerClassName="max-w-3xl mx-auto text-center mb-12">
       <div className="flex justify-center mb-16 px-4">
-        <div className="flex flex-wrap md:flex-nowrap gap-1 p-1.5 rounded-full bg-white/[0.02] border border-white/5 max-w-5xl overflow-x-auto no-scrollbar justify-center shadow-inner">
-          {toolsData.map((cat) => {
-            const isActive = cat.category === activeTab;
+        <div className="flex flex-nowrap gap-1 p-1 sm:p-1.5 rounded-full bg-white/[0.02] border border-purple-500/30 max-w-full overflow-x-auto no-scrollbar shadow-[0_0_25px_rgba(123,44,191,0.1)] px-2 sm:px-3">
+          {toolsData?.map((cat) => {
+            const isActive = cat?.category === activeTab;
             return (
               <button
-                key={cat.category}
-                onClick={() => setActiveTab(cat.category)}
-                className={`relative px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 whitespace-nowrap cursor-pointer ${
+                key={cat?.category}
+                onClick={() => setActiveTab(cat?.category)}
+                className={`relative px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 whitespace-nowrap cursor-pointer ${
                   isActive
                     ? "text-white shadow-lg"
                     : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
@@ -63,12 +63,12 @@ export function Tools() {
                 {isActive && (
                   <motion.div
                     layoutId="activeTabPill"
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--primary)] to-purple-500 shadow-[0_4px_20px_rgba(168,85,247,0.3)]"
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--primary)] to-purple-500 border border-white/25 shadow-[0_4px_20px_rgba(168,85,247,0.3)]"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     style={{ zIndex: 0 }}
                   />
                 )}
-                <span className="relative z-10">{cat.category}</span>
+                <span className="relative z-10">{cat?.category}</span>
               </button>
             );
           })}

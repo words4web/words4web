@@ -7,8 +7,6 @@ export function Process() {
   const containerRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Measure each step's actual vertical centre position relative to the container
-  // and convert it to a [0–1] threshold that matches scrollYProgress.
   const [stepThresholds, setStepThresholds] = useState<number[]>(
     processData.map((_, i) => i / (processData.length - 1)),
   );
@@ -64,17 +62,17 @@ export function Process() {
         ref={containerRef}
         className="relative w-full max-w-5xl mx-auto flex flex-col gap-24 lg:gap-16">
         {/* Background dim line */}
-        <div className="absolute left-[31px] lg:left-1/2 top-4 bottom-4 w-[2px] bg-white/5 hidden lg:block -translate-x-1/2" />
+        <div className="absolute left-1/2 top-4 bottom-4 w-[2px] bg-neutral-200 dark:bg-white/10 -translate-x-1/2 z-0" />
 
         {/* Active glowing fill line */}
         <motion.div
-          className="absolute left-[31px] lg:left-1/2 top-4 w-[2px] bg-gradient-to-b from-[var(--primary)] to-purple-400 origin-top shadow-[0_0_8px_rgba(168,85,247,0.5)] hidden lg:block -translate-x-1/2"
+          className="absolute left-1/2 top-4 w-[2px] bg-gradient-to-b from-[var(--primary)] to-purple-400 origin-top shadow-[0_0_8px_rgba(168,85,247,0.5)] -translate-x-1/2 z-0"
           style={{ height: "calc(100% - 32px)", scaleY }}
         />
 
         {/* Floating neon tracker ball */}
         <motion.div
-          className="absolute left-[31px] lg:left-1/2 w-4 h-4 rounded-full bg-white border-2 border-[var(--primary)] shadow-[0_0_12px_rgba(168,85,247,0.8)] z-20 hidden lg:block -translate-x-1/2"
+          className="absolute left-1/2 w-4 h-4 rounded-full bg-white border-2 border-[var(--primary)] shadow-[0_0_12px_rgba(168,85,247,0.8)] z-10 -translate-x-1/2"
           style={{
             top: useTransform(scaleY, (v) => `calc(${v * 100}% - 8px)`),
           }}
@@ -95,25 +93,27 @@ export function Process() {
               ref={(el) => {
                 stepRefs.current[idx] = el;
               }}
-              className={`relative flex flex-col lg:flex-row items-start lg:items-center w-full gap-12 lg:gap-0 ${
+              className={`relative flex flex-col lg:flex-row items-center w-full gap-0 ${
                 isEven ? "lg:flex-row" : "lg:flex-row-reverse"
               }`}>
               {/* Content Panel */}
               <div
-                className={`w-full lg:w-1/2 px-4 lg:px-16 flex ${isEven ? "lg:justify-end text-left lg:text-right" : "lg:justify-start text-left"}`}>
+                className={`w-full lg:w-1/2 px-4 lg:px-16 flex justify-center mt-24 lg:mt-0 ${
+                  isEven ? "lg:justify-end" : "lg:justify-start"
+                }`}>
                 <motion.div
                   initial={{ opacity: 0, x: isEven ? -40 : 40 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, ease: "easeOut" }}
-                  className={`relative p-8 rounded-3xl border transition-all duration-500 overflow-hidden group max-w-lg shadow-[0_8px_30px_rgb(0,0,0,0.06)] ${
+                  className={`relative z-20 p-8 rounded-3xl border bg-[var(--background)] transition-all duration-500 overflow-hidden group max-w-lg shadow-[0_8px_30px_rgb(0,0,0,0.06)] ${
                     isPassed
-                      ? "border-[var(--primary)]/30 bg-[var(--primary)]/10 shadow-[0_10px_30px_rgba(168,85,247,0.1)]"
-                      : "border-[var(--primary)]/10 bg-[var(--primary)]/5"
+                      ? "border-[var(--primary)]/30 bg-gradient-to-br from-[var(--background)] to-[var(--primary)]/10 shadow-[0_10px_30px_rgba(168,85,247,0.1)]"
+                      : "border-neutral-200 dark:border-white/15 bg-gradient-to-br from-[var(--background)] to-[var(--primary)]/5"
                   }`}>
                   {/* Step Pill */}
                   <div
-                    className={`mb-4 flex ${isEven ? "lg:justify-end" : "justify-start"}`}>
+                    className={`mb-4 flex justify-start ${isEven ? "lg:justify-end" : "lg:justify-start"}`}>
                     <span
                       className={`inline-flex items-center px-3.5 py-1 rounded-lg text-xs font-semibold tracking-wider uppercase border transition-colors duration-500 ${
                         isPassed
@@ -124,11 +124,11 @@ export function Process() {
                     </span>
                   </div>
 
-                  <h4 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-3">
+                  <h4 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-3 text-left">
                     {step.title}
                   </h4>
                   <p
-                    className={`text-base leading-relaxed font-normal transition-colors duration-500 ${
+                    className={`text-base leading-relaxed font-normal text-left transition-colors duration-500 ${
                       isPassed
                         ? "text-[var(--text-primary)]/90"
                         : "text-[var(--text-secondary)]"
@@ -139,7 +139,7 @@ export function Process() {
               </div>
 
               {/* Central Badge/Milestone Circle */}
-              <div className="absolute left-[31px] lg:left-1/2 transform -translate-x-1/2 flex items-center justify-center z-10">
+              <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center z-10">
                 <motion.div
                   initial={{ scale: 0.7, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
