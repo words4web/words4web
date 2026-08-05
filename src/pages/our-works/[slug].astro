@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 const { study } = Astro.props;
 ---
 
-<Layout title={`${study.title} Case Study | Words4Web`}>
+<Layout title={`${study.title} | Our Works | Words4Web`}>
   <SmoothScroll client:load />
   <CustomCursor client:load />
 
@@ -41,9 +41,7 @@ const { study } = Astro.props;
       class="pt-32 px-4 max-w-7xl mx-auto relative z-10 text-left text-sm text-[var(--text-secondary)] font-mono">
       <a href="/" class="hover:text-[var(--primary)]">Home</a>
       <span class="mx-2">&gt;</span>
-      <a href="/case-studies" class="hover:text-[var(--primary)]"
-        >Case Studies</a
-      >
+      <a href="/our-works" class="hover:text-[var(--primary)]">Our Works</a>
       <span class="mx-2">&gt;</span>
       <span class="text-[var(--text-primary)] font-medium">{study.title}</span>
     </div>

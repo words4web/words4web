@@ -5,7 +5,7 @@ export interface PartnerItem {
 
 export interface TechItem {
   name: string;
-  desc: string;
+  desc?: string;
   iconUrl?: string;
 }
 

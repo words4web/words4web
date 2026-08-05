@@ -9,7 +9,7 @@ export const caseStudiesData: CaseStudyItem[] = [
     description:
       "Words4Web powers the EU’s ISLE project with social media campaigns, multilingual newsletters, and corporate identity design to establish a collaborative voice for primary school redesign across Europe.",
     image: "/case_studies/isle_project.png",
-    link: "/case-studies/eu-education-isle-project",
+    link: "/our-works/eu-education-isle-project",
     aboutText1:
       "At Words4Web, we’re proud to be the digital communication partner for the European Union Commission’s ISLE project: Collaborative Learning Communities for Redesigning Primary Education Towards Innovative & Sustainable Learning Environments.",
     aboutText2:
@@ -27,22 +27,22 @@ export const caseStudiesData: CaseStudyItem[] = [
       {
         name: "LinkedIn",
         desc: "Professional Outreach",
-        iconUrl: "/tools/linkedin-ads.png",
+        iconUrl: "/tools/linkedin.svg",
       },
       {
         name: "Facebook",
         desc: "Community Support",
-        iconUrl: "https://cdn.simpleicons.org/facebook/1877F2",
+        iconUrl: "/tools/facebook.svg",
       },
       {
         name: "Instagram",
         desc: "Interactive Reels",
-        iconUrl: "https://cdn.simpleicons.org/instagram/E1306C",
+        iconUrl: "/tools/instagram.svg",
       },
       {
         name: "Mailchimp",
         desc: "Newsletter Delivery",
-        iconUrl: "https://cdn.simpleicons.org/mailchimp/FFE500",
+        iconUrl: "/tools/mailchimp.svg",
       },
     ],
     servicesOffered: [

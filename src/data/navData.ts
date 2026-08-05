@@ -16,8 +16,7 @@ export const navData: NavItem[] = [
       { label: "Amazon Marketing Services", href: "/#services" },
     ],
   },
-  { label: "Our Works", href: "/#work" },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Our Works", href: "/our-works" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];
