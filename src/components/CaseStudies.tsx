@@ -244,7 +244,7 @@ export function CaseStudies() {
 
       {/* Bottom CTA Action */}
       <div className="mt-16 flex justify-center">
-        <a href="/work">
+        <a href="/our-works">
           <MagneticButton className="px-8 py-4 bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-sm text-white shadow-[0_0_20px_rgba(123,44,191,0.3)] border-none flex items-center gap-2">
             <span>See Our Work →</span>
           </MagneticButton>

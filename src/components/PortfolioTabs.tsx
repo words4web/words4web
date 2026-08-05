@@ -33,7 +33,7 @@ export function PortfolioTabs({ activeTab, setActiveTab }: PortfolioTabsProps) {
               setActiveTab(portfolioCategories[currentIndex - 1]);
             }
           }}
-          className="absolute left-0 z-20 w-9 h-9 rounded-full border border-purple-500/25 bg-[var(--primary)] text-white flex items-center justify-center cursor-pointer shadow-[0_4px_12px_rgba(123,44,191,0.25)] hover:bg-purple-700 active:scale-95 transition-all"
+          className="absolute left-0 z-20 w-9 h-9 rounded-full bg-white dark:bg-[#181524] text-black dark:text-white border border-black/10 dark:border-white/10 flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-[#201d30] active:scale-95 transition-all duration-300 shadow-md"
           aria-label="Scroll left">
           <ChevronLeft size={18} />
         </button>
@@ -76,7 +76,7 @@ export function PortfolioTabs({ activeTab, setActiveTab }: PortfolioTabsProps) {
               setActiveTab(portfolioCategories[currentIndex + 1]);
             }
           }}
-          className="absolute right-0 z-20 w-9 h-9 rounded-full border border-purple-500/25 bg-[var(--primary)] text-white flex items-center justify-center cursor-pointer shadow-[0_4px_12px_rgba(123,44,191,0.25)] hover:bg-purple-700 active:scale-95 transition-all"
+          className="absolute right-0 z-20 w-9 h-9 rounded-full bg-white dark:bg-[#181524] text-black dark:text-white border border-black/10 dark:border-white/10 flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-[#201d30] active:scale-95 transition-all duration-300 shadow-md"
           aria-label="Scroll right">
           <ChevronRight size={18} />
         </button>

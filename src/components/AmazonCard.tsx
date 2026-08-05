@@ -2,7 +2,7 @@ import type { PortfolioItem } from "../types/portfolio";
 
 export function AmazonCard({ item }: { item: PortfolioItem }) {
   return (
-    <div className="group relative w-full max-w-[500px] h-[350px] rounded-3xl overflow-hidden flex items-center justify-center select-none hover:scale-[1.02] transition-transform duration-500">
+    <div className="group relative w-full max-w-[500px] h-[220px] sm:h-[350px] rounded-3xl overflow-hidden flex items-center justify-center select-none hover:scale-[1.02] transition-transform duration-500">
       <img
         src={item?.image}
         alt={item?.title || "Amazon marketing showcase"}

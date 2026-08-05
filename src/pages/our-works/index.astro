@@ -5,6 +5,7 @@ import { CustomCursor } from "../../components/CustomCursor";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { PortfolioGrid } from "../../components/PortfolioGrid";
+import { Contact } from "../../components/Contact";
 ---
 
 <Layout title="Our Works | Words4Web">
@@ -59,6 +60,8 @@ import { PortfolioGrid } from "../../components/PortfolioGrid";
 
       <PortfolioGrid client:load />
     </main>
+
+    <Contact client:visible />
 
     <Footer />
   </div>
