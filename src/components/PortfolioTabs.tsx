@@ -58,7 +58,7 @@ export function PortfolioTabs({ activeTab, setActiveTab }: PortfolioTabsProps) {
               className={cn(
                 "px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold border transition-all duration-300 cursor-pointer select-none",
                 isSelected
-                  ? "bg-[var(--primary)] text-white border-[var(--primary)] shadow-[0_4px_12px_rgba(123,44,191,0.3)]"
+                  ? "bg-[var(--primary)] text-white border-[var(--primary)]"
                   : "bg-black/[0.06] dark:bg-white/[0.08] text-black/90 dark:text-white/90 border-black/20 dark:border-white/20 hover:bg-black/10 dark:hover:bg-white/15 hover:border-black/40 dark:hover:border-white/40",
               )}>
               <span className="e-n-tab-title-text">{category}</span>

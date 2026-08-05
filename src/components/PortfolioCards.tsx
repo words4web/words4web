@@ -62,7 +62,7 @@ export function PortfolioCards({
         if (isWebsite) {
           return <WebsiteCard key={item?.id} item={item} />;
         }
-        if (isBrochure || isSocialFlyer) {
+        if (isBrochure) {
           return <BrochureCard key={item?.id} item={item} />;
         }
         if (isCatalog) {
@@ -74,7 +74,7 @@ export function PortfolioCards({
         if (isSocialMobile || isTata) {
           return <MobileFrameCard key={item?.id} item={item} />;
         }
-        if (isMobileApp) {
+        if (isMobileApp || isSocialFlyer) {
           return <MobileFrameCard key={item?.id} item={item} forcePortrait />;
         }
         if (isAmazon || isPackaging) {

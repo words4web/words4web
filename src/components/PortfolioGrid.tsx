@@ -50,7 +50,7 @@ export function PortfolioGrid() {
                 className={cn(
                   "px-4 py-1.5 rounded-full text-xs font-semibold border transition-all duration-300 cursor-pointer select-none",
                   isSelected
-                    ? "bg-[var(--primary)] text-white border-[var(--primary)] shadow-[0_4px_12px_rgba(123,44,191,0.3)]"
+                    ? "bg-[var(--primary)] text-white border-[var(--primary)]"
                     : "bg-black/[0.04] dark:bg-white/[0.06] text-black/80 dark:text-white/80 border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10",
                 )}>
                 {subTab}
