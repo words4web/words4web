@@ -10,6 +10,7 @@ import {
   Palette,
   ShoppingCart,
   TrendingUp,
+  ArrowRight,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -105,12 +106,13 @@ export function ServiceCard({
 
         <div
           style={{ transform: "translateZ(30px)" }}
-          className={`relative flex flex-col justify-between min-h-[300px] p-8 border rounded-[22px] text-left h-full z-10 overflow-hidden transition-colors duration-300 ${
+          className={`relative flex flex-col min-h-[300px] p-8 border rounded-[22px] text-left h-full z-10 overflow-hidden transition-colors duration-300 ${
             isHovered
               ? "bg-purple-50 dark:bg-[#150a26] border-purple-500/60"
               : "bg-white dark:bg-[#0c0a12] border-purple-500/40 dark:border-purple-500/40"
           }`}>
-          <div className="flex flex-col items-start gap-4">
+          {/* Top content */}
+          <div className="flex flex-col items-start gap-4 flex-1">
             {icon && (
               <div className="w-14 h-14 rounded-full bg-[var(--primary)]/10 dark:bg-[var(--primary)]/15 flex items-center justify-center text-[var(--primary)] shrink-0 shadow-sm">
                 {icon}
@@ -128,11 +130,24 @@ export function ServiceCard({
             </div>
           </div>
 
-          {service.badge && (
-            <div className="bg-gradient-to-r from-purple-500/20 via-fuchsia-500/25 to-indigo-500/20 border border-purple-400/40 dark:border-purple-400/50 text-purple-700 dark:text-purple-300 px-3 py-1 rounded-full text-xs font-bold w-fit mt-6 select-none shadow-[0_0_12px_rgba(168,85,247,0.25)]">
-              {service.badge}
-            </div>
-          )}
+          {/* Bottom: badge + Learn More button — always on one line */}
+          <div className="flex items-center justify-between mt-6 gap-3">
+            {service.badge && (
+              <div className="min-w-0 truncate bg-gradient-to-r from-purple-500/20 via-fuchsia-500/25 to-indigo-500/20 border border-purple-400/40 dark:border-purple-400/50 text-purple-700 dark:text-purple-300 px-3 py-1 rounded-full text-xs font-bold select-none shadow-[0_0_12px_rgba(168,85,247,0.25)]">
+                {service.badge}
+              </div>
+            )}
+
+            {service.slug && (
+              <a
+                href={`/services/${service.slug}`}
+                className="shrink-0 ml-auto flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-purple-500/40 bg-purple-500/5 hover:bg-purple-500 hover:border-purple-500 hover:text-white text-[var(--primary)] text-xs font-bold uppercase tracking-wider transition-all duration-300 group/btn"
+                onClick={(e) => e.stopPropagation()}>
+                Learn More
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
+              </a>
+            )}
+          </div>
         </div>
       </motion.div>
     </div>

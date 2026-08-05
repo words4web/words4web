@@ -1,3 +1,9 @@
+export interface ServiceSection {
+  heading: string;
+  body?: string;
+  items?: string[];
+}
+
 export interface ServiceItem {
   title: string;
   description: string;
@@ -5,6 +11,11 @@ export interface ServiceItem {
   badge?: string;
   number?: string;
   iconKey?: string;
+  slug?: string;
+  heroTagline?: string;
+  sections?: ServiceSection[];
+  ctaHeading?: string;
+  ctaLabel?: string;
 }
 
 export interface FlipCardProps {

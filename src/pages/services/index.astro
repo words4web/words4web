@@ -1,0 +1,151 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SmoothScroll } from "../../components/SmoothScroll";
+import { CustomCursor } from "../../components/CustomCursor";
+import { Navbar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer";
+import { Contact } from "../../components/Contact";
+import { servicesData } from "../../data/servicesData";
+
+const pageTitle = "Our Services | Words4Web — Web Development, SEO & Digital Marketing";
+const pageDescription =
+  "Explore Words4Web's full suite of digital services — Web Development, SEO, Mobile Apps, Social Media, Graphic Design, Content Writing, Amazon Marketing, and more.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <SmoothScroll client:load />
+  <CustomCursor client:load />
+
+  <div
+    class="relative w-full min-h-screen bg-[var(--background)] text-[var(--text-primary)] selection:bg-[var(--primary)] selection:text-white overflow-x-clip"
+  >
+    <!-- Ambient background blobs -->
+    <div
+      class="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-purple-600/5 dark:bg-purple-600/10 blur-[160px] pointer-events-none"
+    ></div>
+    <div
+      class="absolute bottom-[10%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-blue-600/5 dark:bg-blue-600/10 blur-[150px] pointer-events-none"
+    ></div>
+    <!-- Grid overlay -->
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,rgba(128,128,128,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(128,128,128,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0"
+    ></div>
+
+    <Navbar client:load />
+
+    <!-- Breadcrumb -->
+    <div
+      class="pt-24 md:pt-32 px-4 max-w-7xl mx-auto relative z-10 text-left text-xs md:text-sm text-[var(--text-secondary)] font-mono"
+    >
+      <a href="/" class="hover:text-[var(--primary)]">Home</a>
+      <span class="mx-1.5 md:mx-2">&gt;</span>
+      <span class="text-[var(--text-primary)] font-medium">Services</span>
+    </div>
+
+    <main class="relative z-10 max-w-7xl mx-auto px-4 pb-16 md:pb-24">
+      <!-- Hero Section -->
+      <section class="py-10 md:py-20 text-center flex flex-col items-center gap-4 md:gap-6 max-w-4xl mx-auto">
+        <div
+          class="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-purple-500/30 bg-purple-500/5 text-purple-400 text-[10px] md:text-xs font-bold uppercase tracking-widest"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+          What We Do
+        </div>
+        <h1
+          class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight text-[var(--text-primary)] leading-tight"
+        >
+          Services Built to
+          <span
+            class="bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400 bg-clip-text text-transparent font-normal block"
+            >Scale Your Business</span
+          >
+        </h1>
+        <p
+          class="text-base md:text-lg text-[var(--text-secondary)] font-light leading-relaxed max-w-2xl"
+        >
+          From websites to social media, SEO to mobile apps — Words4Web covers the full
+          digital spectrum to help your brand grow consistently.
+        </p>
+      </section>
+
+      <!-- Services Grid -->
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+        {
+          servicesData.map((service, index) => (
+            <a
+              href={`/services/${service.slug}`}
+              id={`service-card-${service.slug}`}
+              class="group relative rounded-2xl md:rounded-[28px] overflow-hidden border border-black/[0.07] dark:border-white/[0.07] bg-white/[0.02] dark:bg-white/[0.01] hover:border-purple-500/40 hover:shadow-[0_20px_60px_rgba(123,44,191,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col cursor-pointer"
+            >
+              <!-- Image -->
+              <div class="relative w-full aspect-[4/3] overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading={index < 4 ? "eager" : "lazy"}
+                />
+                <!-- Gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <!-- Number badge -->
+                <div class="absolute top-3 left-3 md:top-4 md:left-4 w-8 h-8 md:w-9 md:h-9 rounded-xl bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white text-xs font-bold">
+                  {service.number}
+                </div>
+                {service.badge && (
+                  <div class="absolute top-3 right-3 md:top-4 md:right-4 px-2 md:px-3 py-1 rounded-full bg-purple-500/80 backdrop-blur-sm text-white text-[9px] md:text-[10px] font-bold uppercase tracking-wider">
+                    {service.badge}
+                  </div>
+                )}
+              </div>
+
+              <!-- Content -->
+              <div class="flex flex-col gap-2 md:gap-3 p-4 md:p-6 flex-1">
+                <h2 class="text-base md:text-lg font-bold text-[var(--text-primary)] group-hover:text-[var(--primary)] transition-colors duration-300 leading-snug">
+                  {service.title}
+                </h2>
+                <p class="text-xs md:text-sm text-[var(--text-secondary)] font-light leading-relaxed flex-1">
+                  {service.description}
+                </p>
+                <div class="flex items-center gap-1.5 text-[var(--primary)] text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1 md:mt-2 group-hover:gap-2.5 transition-all duration-300">
+                  Learn More
+                  <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </div>
+              </div>
+
+              <!-- Hover glow -->
+              <div class="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-tr from-purple-500/20 to-blue-500/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            </a>
+          ))
+        }
+      </section>
+
+      <!-- CTA Banner -->
+      <section
+        class="mt-14 md:mt-24 w-full p-[2px] rounded-2xl md:rounded-3xl bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 shadow-2xl relative overflow-hidden"
+      >
+        <div
+          class="p-6 md:p-12 rounded-[14px] md:rounded-[22px] bg-[#0c051a] flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 text-center md:text-left"
+        >
+          <div class="flex flex-col gap-2">
+            <h2 class="text-xl md:text-4xl font-extralight tracking-tight text-white">
+              Not sure which service is
+              <span class="text-purple-400 font-normal"> right for you?</span>
+            </h2>
+            <p class="text-xs md:text-sm text-purple-200/70 font-light">
+              Let's talk. We'll identify your biggest growth opportunity and recommend the right starting point.
+            </p>
+          </div>
+          <a
+            href="/#contact"
+            class="w-full md:w-auto shrink-0 px-6 md:px-8 py-3 md:py-3.5 rounded-xl md:rounded-2xl border border-purple-500 bg-purple-500/10 hover:bg-purple-500 text-white font-bold text-xs tracking-wider uppercase transition-all duration-300 text-center"
+          >
+            Let's Discuss
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Contact client:load />
+    <Footer />
+  </div>
+</Layout>

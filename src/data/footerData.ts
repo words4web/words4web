@@ -11,13 +11,22 @@ export const footerData: FooterData = {
     { label: "Terms & Conditions", href: "/terms" },
   ],
   services: [
-    { label: "Amazon Marketing Services", href: "/#services" },
-    { label: "Mobile App Development", href: "/#services" },
-    { label: "Web Designing", href: "/#services" },
-    { label: "Social Media Optimization", href: "/#services" },
-    { label: "Graphic Designing", href: "/#services" },
-    { label: "SEO Services", href: "/#services" },
-    { label: "Content Writing", href: "/#services" },
+    {
+      label: "Amazon Marketing Services",
+      href: "/services/amazon-marketing-services",
+    },
+    {
+      label: "Mobile App Development",
+      href: "/services/mobile-app-development",
+    },
+    { label: "Web Designing", href: "/services/web-development" },
+    {
+      label: "Social Media Optimization",
+      href: "/services/social-media-optimisation",
+    },
+    { label: "Graphic Designing", href: "/services/graphic-designing" },
+    { label: "SEO Services", href: "/services/search-engine-optimization" },
+    { label: "Content Writing", href: "/services/content-writing" },
   ],
   mainOffice: {
     email: "info@words4web.com",
