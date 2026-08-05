@@ -2,63 +2,100 @@
 import "../index.css";
 
 interface Props {
-	title?: string;
+  title?: string;
+  description?: string;
+  image?: string;
 }
 
-const { title = "Words4Web | Best Digital Marketing Agency" } = Astro.props;
+const {
+  title = "Words4Web | Web Development, SEO & Digital Marketing Agency",
+  description = "Words4Web builds high-performance websites and runs goal-driven SEO, PPC, and digital marketing campaigns for businesses.",
+  image = "/logo/logo_purple.png",
+} = Astro.props;
+
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || "https://words4web.com",
+).href;
+const absoluteImageURL = new URL(image, Astro.url.href).href;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="At Words4Web, we turn your brand's potential into real, measurable growth. High-end web development, SEO, and digital marketing services." />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/logo/logo_purple.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<script is:inline>
-			// Inline script to prevent theme flickering on page load
-			const stored = localStorage.getItem("words4web-theme");
-			const theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-			document.documentElement.classList.remove("light", "dark");
-			document.documentElement.classList.add(theme);
-		</script>
-	</head>
-	<body>
-		<slot />
-		<script>
-			// Global smooth scroll for all local anchor links
-			document.addEventListener("click", (e) => {
-				const anchor = (e.target as HTMLElement).closest("a");
-				if (!anchor) return;
-				let href = anchor.getAttribute("href");
-				if (!href) return;
+  <head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/logo/logo_purple.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
 
-				// Normalize root-relative anchors (e.g. /#services -> #services) on the home page
-				if (href.startsWith("/#") && window.location.pathname === "/") {
-					href = href.substring(1);
-				}
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
 
-				if (href && href.startsWith("#")) {
-					e.preventDefault();
-					if (href === "#") {
-						window.scrollTo({
-							top: 0,
-							behavior: "smooth",
-						});
-					} else {
-						const targetId = href.substring(1);
-						const elem = document.getElementById(targetId);
-						if (elem) {
-							elem.scrollIntoView({
-								behavior: "smooth",
-								block: "start",
-							});
-						}
-					}
-				}
-			});
-		</script>
-	</body>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={absoluteImageURL} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={absoluteImageURL} />
+
+    <script is:inline>
+      // Inline script to prevent theme flickering on page load
+      const stored = localStorage.getItem("words4web-theme");
+      const theme =
+        stored ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+      document.documentElement.classList.remove("light", "dark");
+      document.documentElement.classList.add(theme);
+    </script>
+  </head>
+  <body>
+    <slot />
+    <script>
+      // Global smooth scroll for all local anchor links
+      document.addEventListener("click", (e) => {
+        const anchor = (e.target as HTMLElement).closest("a");
+        if (!anchor) return;
+        let href = anchor.getAttribute("href");
+        if (!href) return;
+
+        // Normalize root-relative anchors (e.g. /#services -> #services) on the home page
+        if (href.startsWith("/#") && window.location.pathname === "/") {
+          href = href.substring(1);
+        }
+
+        if (href && href.startsWith("#")) {
+          e.preventDefault();
+          if (href === "#") {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          } else {
+            const targetId = href.substring(1);
+            const elem = document.getElementById(targetId);
+            if (elem) {
+              elem.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          }
+        }
+      });
+    </script>
+  </body>
 </html>
