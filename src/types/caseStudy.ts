@@ -40,4 +40,7 @@ export interface CaseStudyItem {
   servicesOffered: ServiceItem[];
   integrations: IntegrationItem[];
   processSteps: ProcessStep[];
+  ctaTitle?: string;
+  ctaDesc?: string;
+  ctaButton?: string;
 }

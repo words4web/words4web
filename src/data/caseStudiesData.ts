@@ -3,11 +3,11 @@ import type { CaseStudyItem } from "../types/caseStudy";
 export const caseStudiesData: CaseStudyItem[] = [
   {
     slug: "eu-education-isle-project",
-    title: "EU Commission ISLE Project",
+    title: "Words4Web × EU Commission – ISLE Project",
     subtitle: "Redefining Primary Education Across Europe",
     services: "Social Media + Newsletters + Logo Design",
     description:
-      "Words4Web powers the EU’s ISLE project with social media campaigns, multilingual newsletters, and corporate identity design to establish a collaborative voice for primary school redesign across Europe.",
+      "Words4Web powers EU’s ISLE project with social media, newsletters, and logo design to redefine primary education with innovative, inclusive learning environments in Europe.",
     image: "/case_studies/isle_project.png",
     link: "/our-works/eu-education-isle-project",
     aboutText1:
@@ -19,11 +19,6 @@ export const caseStudiesData: CaseStudyItem[] = [
       { name: "University Partners" },
     ],
     technologies: [
-      {
-        name: "Figma",
-        desc: "Identity & Visuals",
-        iconUrl: "/tools/figma.svg",
-      },
       {
         name: "LinkedIn",
         desc: "Professional Outreach",
@@ -40,27 +35,23 @@ export const caseStudiesData: CaseStudyItem[] = [
         iconUrl: "/tools/instagram.svg",
       },
       {
-        name: "Mailchimp",
-        desc: "Newsletter Delivery",
-        iconUrl: "/tools/mailchimp.svg",
+        name: "Canva",
+        desc: "Asset Creation",
+        iconUrl: "/tools/canva.svg",
       },
     ],
     servicesOffered: [
       {
-        title: "Logo & Corporate Identity Design",
-        desc: "Designed the official ISLE logo representing purpose, people, and future, aligning strictly with EU communication guidelines.",
+        title: "Leading the Digital Voice of ISLE",
+        desc: "We’re responsible for creating ISLE’s online presence across major social platforms like Facebook, Instagram, and LinkedIn. Our creative team designs everything from reels and motion graphics to informative and inspirational static posts that bring the project’s mission to life. And at the heart of the project’s social identity? The ISLE logo, proudly conceptualised and designed by Words4Web to represent its purpose, people, and future. Our content helps simplify the project's core ideas, making them accessible and engaging for educators, institutions, and decision-makers across Europe.",
       },
       {
-        title: "Social Media Post Templates",
-        desc: "Responsible for creating ISLE’s online presence across Facebook, Instagram, and LinkedIn with custom Reels, motion graphics, and static posts.",
+        title: "Multilingual Newsletters That Travel Across Borders",
+        desc: "Each month, we deliver multi-language newsletters in over five European languages. These newsletters highlight key project milestones, activities, and policy recommendations, ensuring clear communication across borders. Each version is tailored, translated, and designed to maintain consistency and clarity for all EU partners following the EU branding guidelines.",
       },
       {
-        title: "Multilingual Newsletter Campaigns",
-        desc: "Drafting, translating, and delivering multi-language newsletters in over five European languages monthly.",
-      },
-      {
-        title: "Fast Turnaround Support",
-        desc: "Round-the-clock speed, accuracy, and on-time delivery for event rollouts, newsletter dispatch, and last-minute asset modifications.",
+        title: "Fast Turnaround. Always-On Support.",
+        desc: "We deliver round-the-clock support with a focus on speed, accuracy and on-time delivery for all digital assets. Our team ensures that content aligns with project goals, brand guidelines, and EU timelines. Whether it’s newsletter dispatch, last-minute asset changes, or event campaign rollouts, our team is responsive and reliable. We are trusted by EU partners for our: 1. Design consistency, 2. Strategic Clarity, and 3. Timely execution.",
       },
     ],
     integrations: [
@@ -106,5 +97,9 @@ export const caseStudiesData: CaseStudyItem[] = [
         iconName: "CheckCircle",
       },
     ],
+    ctaTitle: "Let’s Collaborate",
+    ctaDesc:
+      "Working on an EU-funded initiative or education project that needs strong digital communication? Get in touch and see how Words4Web can help you scale with creative, multilingual content that connects and communicates clearly and effectively. Contact us to scale your outreach with multilingual, design-led communication.",
+    ctaButton: "Contact Us",
   },
 ];
