@@ -1,10 +1,11 @@
 import { useTheme } from "./ThemeProvider";
 import { Moon, Sun, ChevronDown } from "lucide-react";
-import { motion, useScroll, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { MagneticButton } from "./MagneticButton";
 import { useState, useEffect } from "react";
 import { cn } from "@/src/lib/utils";
 import { navData } from "../data/navData";
+import { MobileMenu } from "./MobileMenu";
 
 const dropdownVariants = {
   hidden: { opacity: 0, y: 15, scale: 0.95 },
@@ -47,6 +48,20 @@ export function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isHome, setIsHome] = useState(true);
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 1152);
+      };
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       setIsHome(
@@ -61,6 +76,17 @@ export function Navbar() {
     });
   }, [scrollY]);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   const getHref = (href: string) => {
     if (isHome) {
       if (href === "/") {
@@ -74,104 +100,150 @@ export function Navbar() {
   };
 
   return (
-    <motion.nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-[padding,background-color,border-color] duration-500 px-6 md:px-12 py-4",
-        scrolled ? "py-2 navbar-glass" : "bg-transparent",
-      )}
-      style={{ border: "none" }}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
-      <div className="w-full flex items-center justify-between">
-        <a
-          href={isHome ? "#" : "/"}
-          className="flex items-center interactive cursor-pointer">
-          <img
-            src="/logo/logo_purple.png"
-            alt="words4web logo"
-            style={{ height: "96px", width: "auto" }}
-            className="object-contain logo-glow"
-          />
-        </a>
-
-        <div className="hidden lg:flex items-center gap-10 text-base xl:text-lg font-medium">
-          {navData.map((item) => {
-            const hasChildren = item.children && item.children.length > 0;
-            return (
-              <div
-                key={item.label}
-                className="relative py-4"
-                onMouseEnter={() =>
-                  hasChildren && setActiveDropdown(item.label)
-                }
-                onMouseLeave={() => hasChildren && setActiveDropdown(null)}>
-                {hasChildren ? (
-                  <button className="flex items-center gap-1.5 interactive hover:text-[var(--primary)] transition-colors py-2 whitespace-nowrap">
-                    {item.label}
-                    <ChevronDown
-                      size={16}
-                      className={cn(
-                        "transition-transform duration-300",
-                        activeDropdown === item.label && "rotate-180",
-                      )}
-                    />
-                  </button>
-                ) : (
-                  <a
-                    href={getHref(item.href)}
-                    className="interactive hover:text-[var(--primary)] transition-colors relative group py-2 whitespace-nowrap block">
-                    {item.label}
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all group-hover:w-full" />
-                  </a>
-                )}
-
-                <AnimatePresence>
-                  {hasChildren && activeDropdown === item.label && (
-                    <motion.div
-                      variants={dropdownVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-72 dropdown-glass rounded-2xl p-4 flex flex-col gap-1.5 shadow-2xl z-50 text-left"
-                      style={{ border: "none" }}>
-                      {item.children!.map((child) => (
-                        <motion.a
-                          variants={itemVariants}
-                          key={child.label}
-                          href={getHref(child.href)}
-                          className="px-4 py-2.5 rounded-xl hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] hover:translate-x-1.5 duration-200 transition-all text-sm font-semibold whitespace-nowrap block">
-                          {child.label}
-                        </motion.a>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="flex items-center gap-4">
-          <MagneticButton
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            variant="glass"
-            className="w-10 h-10 p-0 rounded-full flex items-center justify-center">
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-          </MagneticButton>
-          <a href="#contact" className="hidden md:block">
-            <MagneticButton variant="primary" className="py-2.5 px-6 text-sm">
-              Let's Talk
-            </MagneticButton>
+    <>
+      <motion.nav
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 transition-[padding,background-color,border-color] duration-500 px-6 md:px-12 py-4",
+          scrolled ? "py-2 navbar-glass" : "bg-transparent",
+        )}
+        style={{ border: "none" }}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
+        <div className="w-full flex items-center justify-between">
+          <a
+            href={isHome ? "#" : "/"}
+            className="flex items-center interactive cursor-pointer">
+            <img
+              src="/logo/logo_purple.png"
+              alt="words4web logo"
+              style={{ height: "96px", width: "auto" }}
+              className="object-contain logo-glow"
+            />
           </a>
-        </div>
-      </div>
 
-      {/* Thin scroll progress indicator at the bottom edge of Navbar */}
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] origin-left"
-        style={{ scaleX: scrollYProgress }}
-      />
-    </motion.nav>
+          <div
+            className={cn(
+              "items-center gap-10 text-base xl:text-lg font-medium",
+              isMobile ? "hidden" : "flex",
+            )}>
+            {navData.map((item) => {
+              const hasChildren = item.children && item.children.length > 0;
+              return (
+                <div
+                  key={item.label}
+                  className="relative py-4"
+                  onMouseEnter={() =>
+                    hasChildren && setActiveDropdown(item.label)
+                  }
+                  onMouseLeave={() => hasChildren && setActiveDropdown(null)}>
+                  {hasChildren ? (
+                    <button className="flex items-center gap-1.5 interactive hover:text-[var(--primary)] transition-colors py-2 whitespace-nowrap">
+                      {item.label}
+                      <ChevronDown
+                        size={16}
+                        className={cn(
+                          "transition-transform duration-300",
+                          activeDropdown === item.label && "rotate-180",
+                        )}
+                      />
+                    </button>
+                  ) : (
+                    <a
+                      href={getHref(item.href)}
+                      className="interactive hover:text-[var(--primary)] transition-colors relative group py-2 whitespace-nowrap block">
+                      {item.label}
+                      <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all group-hover:w-full" />
+                    </a>
+                  )}
+
+                  <AnimatePresence>
+                    {hasChildren && activeDropdown === item.label && (
+                      <motion.div
+                        variants={dropdownVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-72 dropdown-glass rounded-2xl p-4 flex flex-col gap-1.5 shadow-2xl z-50 text-left"
+                        style={{ border: "none" }}>
+                        {item.children!.map((child) => (
+                          <motion.a
+                            variants={itemVariants}
+                            key={child.label}
+                            href={getHref(child.href)}
+                            className="px-4 py-2.5 rounded-xl hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] hover:translate-x-1.5 duration-200 transition-all text-sm font-semibold whitespace-nowrap block">
+                            {child.label}
+                          </motion.a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center gap-4">
+            <MagneticButton
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              variant="glass"
+              className="w-10 h-10 p-0 rounded-full flex items-center justify-center">
+              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            </MagneticButton>
+            <a href="#contact" className={cn(isMobile ? "hidden" : "block")}>
+              <MagneticButton variant="primary" className="py-2.5 px-6 text-sm">
+                Let's Talk
+              </MagneticButton>
+            </a>
+
+            {/* Mobile Hamburger Menu Trigger */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={cn(
+                "w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all cursor-pointer relative z-50",
+                isMobile ? "flex" : "hidden",
+              )}
+              aria-label="Toggle Menu">
+              <span
+                className={cn(
+                  "w-5 h-0.5 bg-[var(--text-primary)] rounded-full transition-transform duration-300 origin-center",
+                  mobileMenuOpen && "rotate-45 translate-y-[4px]",
+                )}
+              />
+              <span
+                className={cn(
+                  "w-5 h-0.5 bg-[var(--text-primary)] rounded-full transition-opacity duration-200",
+                  mobileMenuOpen && "opacity-0",
+                )}
+              />
+              <span
+                className={cn(
+                  "w-5 h-0.5 bg-[var(--text-primary)] rounded-full transition-transform duration-300 origin-center",
+                  mobileMenuOpen && "-rotate-45 -translate-y-[4px]",
+                )}
+              />
+            </button>
+          </div>
+        </div>
+
+        {/* Thin scroll progress indicator at the bottom edge of Navbar */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] origin-left"
+          style={{ scaleX: scrollYProgress }}
+        />
+      </motion.nav>
+
+      {/* Mobile Menu Slide Drawer Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <MobileMenu
+            onClose={() => setMobileMenuOpen(false)}
+            navData={navData}
+            getHref={getHref}
+            isMobile={isMobile}
+          />
+        )}
+      </AnimatePresence>
+    </>
   );
 }
