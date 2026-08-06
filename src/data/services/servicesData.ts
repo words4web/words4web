@@ -350,7 +350,7 @@ export const servicesData: ServiceItem[] = [
     ctaLabel: "Contact Us Now",
   },
   {
-    title: "E-Commerce Marketing Services",
+    title: "Amazon Marketing Services",
     description:
       "Listing optimization, Amazon PPC, and keyword strategy to drive sales.",
     image: "/services/amazon_marketing.jpg",

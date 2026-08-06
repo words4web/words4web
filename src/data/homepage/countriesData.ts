@@ -14,4 +14,6 @@ export const countriesData: CountryItem[] = [
   { name: "Africa", code: "ZA", flag: "🇿🇦" },
   { name: "Malaysia", code: "MY", flag: "🇲🇾" },
   { name: "United Kingdom", code: "GB", flag: "🇬🇧" },
+  { name: "Singapore", code: "SG", flag: "🇸🇬" },
+  { name: "India", code: "IN", flag: "🇮🇳" },
 ];

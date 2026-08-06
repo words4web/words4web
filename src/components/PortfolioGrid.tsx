@@ -4,6 +4,7 @@ import { portfolioData } from "../data/portfolio/portfolioData";
 import { PortfolioTabs } from "./PortfolioTabs";
 import { PortfolioCards } from "./PortfolioCards";
 import { cn } from "@/src/lib/utils";
+import { ScrollArrow } from "./ScrollArrow";
 
 const socialSubTabs = [
   "Accounts",
@@ -40,7 +41,7 @@ export function PortfolioGrid() {
         activeBtn.scrollIntoView({
           behavior: "smooth",
           block: "nearest",
-          inline: "nearest",
+          inline: "center",
         });
       }
     }
@@ -61,27 +62,31 @@ export function PortfolioGrid() {
 
       {/* Social Media Sub Tabs */}
       {activeTab === "Social Media Marketing" && (
-        <div className="relative w-full max-w-4xl mx-auto flex items-center px-4 -mt-4 mb-4">
+        <div className="relative w-full max-w-4xl mx-auto flex items-center px-10 -mt-4 mb-4">
           {/* Left Sub-Tab Scroll Arrow */}
           {showLeftSubArrow && (
-            <button
+            <ScrollArrow
+              direction="left"
               onClick={() => {
                 if (currentSubTabIdx > 0) {
                   setActiveSubTab(socialSubTabs[currentSubTabIdx - 1]);
                 }
               }}
-              className="absolute left-0 z-20 w-8 h-8 rounded-full bg-white dark:bg-[#181524] text-black dark:text-white border border-black/10 dark:border-white/10 flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-[#201d30] active:scale-95 transition-all duration-300 shadow-md"
-              aria-label="Scroll sub-tabs left">
-              <ChevronLeft size={16} />
-            </button>
+              ariaLabel="Scroll sub-tabs left"
+              className="w-10 h-10 shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
+              <ChevronLeft size={22} className="stroke-[2.5]" />
+            </ScrollArrow>
           )}
 
           {/* Sub-Tabs Scrollable Wrapper */}
           <div
             ref={subTabsContainerRef}
             role="tablist"
-            className="w-full flex gap-2 overflow-x-auto no-scrollbar scroll-smooth whitespace-nowrap py-1.5 px-8 justify-start md:justify-center"
-            style={{ scrollbarWidth: "none" }}>
+            className="w-full flex gap-2 overflow-x-auto no-scrollbar scroll-smooth whitespace-nowrap py-2.5 px-4 rounded-full"
+            style={{
+              scrollbarWidth: "none",
+              WebkitOverflowScrolling: "touch",
+            }}>
             {socialSubTabs?.map((subTab, idx) => {
               const isSelected = activeSubTab === subTab;
               return (
@@ -90,10 +95,10 @@ export function PortfolioGrid() {
                   id={`subtab-title-${idx}`}
                   onClick={() => setActiveSubTab(subTab)}
                   className={cn(
-                    "px-4 py-1.5 rounded-full text-xs font-semibold border transition-all duration-300 cursor-pointer select-none whitespace-nowrap",
+                    "px-4 py-2 rounded-full text-xs font-semibold border transition-all duration-300 cursor-pointer select-none whitespace-nowrap touch-manipulation",
                     isSelected
-                      ? "bg-[var(--primary)] text-white border-[var(--primary)]"
-                      : "bg-black/[0.04] dark:bg-white/[0.06] text-black/80 dark:text-white/80 border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10",
+                      ? "bg-[var(--primary)] text-white border-[var(--primary)] shadow-[0_2px_8px_rgba(123,44,191,0.3)]"
+                      : "bg-black/[0.04] dark:bg-white/[0.06] text-black/85 dark:text-white/85 border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10",
                   )}>
                   {subTab}
                 </button>
@@ -103,16 +108,17 @@ export function PortfolioGrid() {
 
           {/* Right Sub-Tab Scroll Arrow */}
           {showRightSubArrow && (
-            <button
+            <ScrollArrow
+              direction="right"
               onClick={() => {
                 if (currentSubTabIdx < socialSubTabs.length - 1) {
                   setActiveSubTab(socialSubTabs[currentSubTabIdx + 1]);
                 }
               }}
-              className="absolute right-0 z-20 w-8 h-8 rounded-full bg-white dark:bg-[#181524] text-black dark:text-white border border-black/10 dark:border-white/10 flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-[#201d30] active:scale-95 transition-all duration-300 shadow-md"
-              aria-label="Scroll sub-tabs right">
-              <ChevronRight size={16} />
-            </button>
+              ariaLabel="Scroll sub-tabs right"
+              className="w-10 h-10 shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
+              <ChevronRight size={22} className="stroke-[2.5]" />
+            </ScrollArrow>
           )}
         </div>
       )}

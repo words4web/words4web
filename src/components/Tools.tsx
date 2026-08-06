@@ -3,33 +3,70 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "./Section";
 import { toolsData } from "../data/homepage/toolsData";
 
-const getIconUrl = (name: string) => {
-  const localMapping: Record<string, string> = {
-    WordPress: "/tools/wordpress.svg",
-    Shopify: "/tools/shopify.svg",
-    React: "/tools/react.svg",
-    "React Native": "/tools/react-native.svg",
-    "Node.js": "/tools/node-js.svg",
-    MongoDB: "/tools/mongodb.svg",
-    Figma: "/tools/figma.svg",
-    "Google Search Console": "/tools/google-search-console.svg",
-    "Google Analytics": "/tools/google-analytics.svg",
-    "Ahrefs/SEMrush": "/tools/ahrefs-semrush.svg",
-    "Meta Business Suite": "/tools/meta-business-suite.svg",
-    Buffer: "/tools/buffer.svg",
-    Hootsuite: "/tools/hootsuite.svg",
-    "Etsy Seller Central": "/tools/etsy-seller-central.svg",
-    "Google Ads": "/tools/google-ads.svg",
-    "Meta Ads Manager": "/tools/meta-ads-manager.svg",
-    "Other Paid media platforms": "/tools/other-paid-media-platforms.svg",
-    "Adobe Creative Suite": "/tools/adobe-creative-suite.png",
-    Canva: "/tools/canva.png",
-    "Amazon Seller Central": "/tools/amazon-seller-central.png",
-    "Amazon Advertising Console": "/tools/amazon-advertising-console.png",
-    "LinkedIn Ads": "/tools/linkedin-ads.png",
-  };
+interface ToolConfig {
+  iconUrl: string;
+  className?: string;
+}
 
-  return localMapping[name] || "/tools/wordpress.svg";
+const TOOL_CONFIGS: Record<string, ToolConfig> = {
+  WordPress: { iconUrl: "/tools/wordpress.svg" },
+  Shopify: { iconUrl: "/tools/shopify.svg" },
+  React: { iconUrl: "/tools/react.svg" },
+  "React Native": { iconUrl: "/tools/react-native.svg" },
+  "Node.js": { iconUrl: "/tools/node-js.svg" },
+  MongoDB: { iconUrl: "/tools/mongodb.svg" },
+  Figma: { iconUrl: "/tools/figma.svg" },
+  "Google Search Console": { iconUrl: "/tools/google-search-console.svg" },
+  "Google Analytics": { iconUrl: "/tools/google-analytics.svg" },
+  "Ahrefs/SEMrush": { iconUrl: "/tools/ahrefs-semrush.svg" },
+  "Meta Business Suite": { iconUrl: "/tools/meta-business-suite.svg" },
+  Buffer: {
+    iconUrl: "/tools/buffer.svg",
+    className: "bg-white p-1.5 rounded-lg shadow-sm",
+  },
+  Hootsuite: { iconUrl: "/tools/hootsuite.svg" },
+  "Etsy Seller Central": { iconUrl: "/tools/etsy-seller-central.svg" },
+  "Google Ads": { iconUrl: "/tools/google-ads.svg" },
+  "Meta Ads Manager": { iconUrl: "/tools/meta-ads-manager.svg" },
+  "Other Paid media platforms": {
+    iconUrl: "/tools/other-paid-media-platforms.svg",
+  },
+  "Adobe Creative Suite": { iconUrl: "/tools/adobe-creative-suite.png" },
+  Canva: { iconUrl: "/tools/canva.png" },
+  "Amazon Seller Central": { iconUrl: "/tools/amazon-seller-central.png" },
+  "Amazon Advertising Console": {
+    iconUrl: "/tools/amazon-advertising-console.png",
+  },
+  "LinkedIn Ads": { iconUrl: "/tools/linkedin-ads.png" },
+  "Screaming Frog": {
+    iconUrl: "/tools/screaming-frog.svg",
+    className: "w-full h-full scale-200",
+  },
+  Ubersuggest: {
+    iconUrl: "/tools/ubersuggest.svg",
+    className: "w-full h-full scale-200",
+  },
+  TikTok: {
+    iconUrl: "/tools/tiktok.svg",
+    className: "bg-white p-1.5 rounded-lg shadow-sm",
+  },
+  Pinterest: { iconUrl: "/tools/pinterest.svg" },
+  Twitter: {
+    iconUrl: "/tools/x-twitter-.svg",
+    className: "bg-white p-1.5 rounded-lg shadow-sm",
+  },
+  YouTube: { iconUrl: "/tools/youtube.svg" },
+  LinkedIn: { iconUrl: "/tools/linkedin.svg" },
+  TypeScript: { iconUrl: "/tools/typescript.svg" },
+  Docker: { iconUrl: "/tools/docker.svg" },
+  AWS: { iconUrl: "/tools/amazon-advertising-console.png" },
+  "Next.js/Astro": { iconUrl: "/tools/react.svg" },
+  Flutter: { iconUrl: "/tools/flutter.svg" },
+  Photoshop: { iconUrl: "/tools/photoshop.svg" },
+};
+
+const getToolConfig = (name: string): ToolConfig => {
+  return TOOL_CONFIGS[name] || { iconUrl: "/tools/wordpress.svg" };
 };
 
 export function Tools() {
@@ -107,17 +144,22 @@ export function Tools() {
                 {/* Inner Card Content */}
                 <div className="relative flex flex-col items-center justify-center p-6 bg-white dark:bg-[#0c0a12] border border-black/5 dark:border-white/5 rounded-[22px] text-center h-full w-full z-10 overflow-hidden">
                   <div className="w-16 h-16 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
-                    <img
-                      src={getIconUrl(tool)}
-                      alt={tool}
-                      className="w-12 h-12 object-contain opacity-95 group-hover:opacity-100 transition-all duration-300"
-                      style={{ filter: "contrast(1.3) brightness(1.3)" }}
-                      loading="lazy"
-                      onError={(e) => {
-                        e.currentTarget.src =
-                          "https://cdn.simpleicons.org/simpleicons";
-                      }}
-                    />
+                    {(() => {
+                      const cfg = getToolConfig(tool);
+                      return (
+                        <img
+                          src={cfg?.iconUrl}
+                          alt={tool}
+                          className={`${cfg?.className || "w-12 h-12"} object-contain opacity-95 group-hover:opacity-100 transition-all duration-300`}
+                          style={{ filter: "contrast(1.3) brightness(1.3)" }}
+                          loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.src =
+                              "https://cdn.simpleicons.org/simpleicons";
+                          }}
+                        />
+                      );
+                    })()}
                   </div>
                   <span className="text-sm font-semibold text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors duration-300 text-center px-1 leading-snug">
                     {tool}

@@ -26,6 +26,14 @@ export const navData: NavItem[] = [
         label: "Amazon Marketing Services",
         href: "/services/amazon-marketing-services",
       },
+      {
+        label: "Paid Ads Management",
+        href: "/services/paid-ads-management",
+      },
+      {
+        label: "View All Services →",
+        href: "/services",
+      },
     ],
   },
   { label: "Our Works", href: "/our-works" },

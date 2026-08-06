@@ -23,8 +23,8 @@ This repository contains the official codebase for the **words4web** official we
 - [**`contact/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/contact) - Assets specific to the Contact section.
 - [**`logo/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/logo) - Brand logo variations (`logo_purple.png`, `logo_black.png`, etc.).
 - [**`services/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/services) - Hero images for each service page (`web_development.jpg`, `mobile_app.jpg`, `seo.jpg`, etc.).
-- [**`tools/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/tools) - SVG icons for tools/technologies used in case studies (e.g., `canva.svg`).
-- [**`work/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/work) - High-resolution screenshots and visuals for selected work projects.
+- [**`tools/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/tools) - SVG icons for tools/technologies used in case studies (e.g., `canva.svg`, `translate-language.svg`).
+- [**`work/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/work) - High-resolution screenshots and visuals for selected work and case study projects (e.g., `box2box.png`, `dadoos.jpeg`, `filipe_carrera.jpeg`, `rkb.webp`, `isle_project.png`).
 
 ### 💻 Source Code (`/src/`)
 
@@ -67,22 +67,24 @@ This repository contains the official codebase for the **words4web** official we
   - [**`PortfolioGrid.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/PortfolioGrid.tsx) - Portfolio sub-category grid with scroll arrows matching main tab style.
   - [**`PortfolioCards.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/PortfolioCards.tsx) - Renders portfolio items. Passes `showAnimatedBorder` only to Packaging cards.
   - [**`AmazonCard.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/AmazonCard.tsx) - Amazon/Packaging card with optional purple animated border trace via `showAnimatedBorder` prop.
-- [**`data/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data)
-  - [**`navData.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/navData.ts) - Site navigation links. "Services" parent → `/services`. All 7 children link to individual `/services/[slug]` pages.
-  - [**`footerData.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/footerData.ts) - Footer link data. Services column updated to link to `/services/[slug]` pages.
-  - [**`heroCardsData.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/heroCardsData.ts) - Coordinates, delays, and titles for all floating cards in the Hero section.
-  - [**`servicesData.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/servicesData.ts) - Full service data with `title`, `description`, `image`, `badge`, `number`, `iconKey`, `slug`, `heroTagline`, `sections[]` (heading + body + items), `ctaHeading`, and `ctaLabel`. Content sourced directly from `services.md`.
-  - [**`caseStudiesData.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/caseStudiesData.ts) - Case study data including slug, title, aboutText, partners, servicesOffered, technologies (with optional `iconUrl`), ctaTitle, ctaDesc, ctaButton.
-  - [**`workData.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/workData.ts) - Stores data (titles, descriptions, screenshot paths) for selected work showcase.
-  - [**`aboutData.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/aboutData.tsx) - About section copy and milestone statistics.
-  - [**`testimonialsData.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/testimonialsData.ts) - Modular testimonial quotes list.
-  - [**`tickerData.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/tickerData.ts) - Fast marquee logos list.
-- [**`types/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/types)
-  - [**`services.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/types/services.ts) - `ServiceItem` interface (includes `slug`, `heroTagline`, `sections: ServiceSection[]`, `ctaHeading`, `ctaLabel`) and `ServiceSection` interface (`heading`, `body?`, `items?`).
-  - [**`caseStudy.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/types/caseStudy.ts) - `CaseStudyItem` interface with dynamic CTA fields.
-  - [**`navigation.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/types/navigation.ts), [**`hero.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/types/hero.ts), [**`work.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/types/work.ts), [**`section.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/types/section.ts), [**`testimonial.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/types/testimonial.ts) - Other typed interfaces.
-- [**`lib/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/lib)
-  - [**`utils.ts`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/lib/utils.ts) - Core CSS class merger utility.
+
+### 🗄️ Structured Data (`/src/data/`)
+
+The data layer is modularized into subdirectories to keep configurations organized:
+
+- [**`site-structure/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/site-structure)
+  - `navData.ts` - Header menu definitions (Services links mapped to dedicated detail routes).
+  - `footerData.ts` - Footer menu items and office contacts (Services mapped to detail routes).
+- [**`services/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/services)
+  - `servicesData.ts` - Multi-section copywriting arrays for the 8 services index and slug templates.
+- [**`case-studies/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/case-studies)
+  - `caseStudiesData.ts` - Fully detailed copywriting content, partners, dynamic CTAs, and SVG tech icons for the 5 dynamic case study pages.
+  - `workData.ts` - Homepage case studies teaser cards data.
+- [**`portfolio/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/portfolio)
+  - `portfolioData.ts` - Unified entry point for the tabbed portfolio grid. Case study listings are mapped dynamically from `caseStudiesData` to prevent listing duplication.
+  - Individual sub-tab category lists (`websiteDesignData.ts`, `brochureData.ts`, `catalogData.ts`, `logosData.ts`, `socialMediaData.ts`, `tataData.ts`, `amazonData.ts`, `mobileAppData.ts`, `packagingData.ts`).
+- [**`homepage/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/homepage)
+  - Miscellaneous landing section items (`faqData.ts`, `founderData.ts`, `heroCardsData.ts`, `testimonialsData.ts`, `tickerData.ts`, `toolsData.ts`, `whyChooseUsData.tsx`, `industriesData.tsx`, `processData.tsx`, `statsData.tsx`, `countriesData.ts`, `countryCodes.ts`).
 
 ---
 
@@ -128,46 +130,6 @@ pnpm astro    # Run Astro CLI utility commands directly
 
 ---
 
-## 📝 Homepage Content & Section Mapping
-
-| Section | Title                      | Status      | Component                                                                                                                                                                                                                                                                          |
-| :------ | :------------------------- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1**   | Hero Section               | `Completed` | [Hero.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Hero.tsx)                                                                                                                                                                        |
-| **2**   | Trusted By / Client Logos  | `Completed` | [Ticker.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Ticker.tsx)                                                                                                                                                                    |
-| **3**   | Portfolio / Work Showcase  | `Completed` | [CaseStudies.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/CaseStudies.tsx) → links to `/our-works`                                                                                                                                  |
-| **4**   | Why Choose Us              | `Completed` | [WhyChooseUs.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/WhyChooseUs.tsx)                                                                                                                                                          |
-| **5**   | Client Testimonials        | `Completed` | [Testimonials.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Testimonials.tsx)                                                                                                                                                        |
-| **6**   | Services Grid (8 services) | `Completed` | [Services.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Services.tsx) + [ServiceCard.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/ServiceCard.tsx) → cards link to `/services/[slug]` |
-| **7**   | Industries We Serve        | `Completed` | [Industries.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Industries.tsx)                                                                                                                                                            |
-| **8**   | Our Process                | `Completed` | [Process.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Process.tsx)                                                                                                                                                                  |
-| **10**  | Meet Our Founder           | `Completed` | [Founder.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Founder.tsx)                                                                                                                                                                  |
-| **11**  | Tools & Platforms          | `Completed` | [Tools.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Tools.tsx)                                                                                                                                                                      |
-| **12**  | Countries We Have Served   | `Completed` | [Countries.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Countries.tsx)                                                                                                                                                              |
-| **13**  | Contact / Lead Form        | `Completed` | [Contact.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Contact.tsx)                                                                                                                                                                  |
-| **14**  | FAQs                       | `Completed` | [FAQs.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/FAQs.tsx)                                                                                                                                                                        |
-| **15**  | Closing CTA Banner         | `Completed` | [CTA.tsx](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/CTA.tsx)                                                                                                                                                                          |
-
----
-
-## 🔒 Backend Integration & Spam Protection
-
-The website communicates with a secure Express API backend located in `../word4web_backend`:
-
-- **Port**: Runs on port `5005` (configurable via environment variables).
-- **Functionality**: Standardizes lead/contact validation rules and processes forms for delivery.
-- **CORS Config**: The Astro origin must be whitelisted in the backend environment.
-
-### 🛡️ Anti-Spam & Bot Protection Pipeline
-
-> [!IMPORTANT]
-> **Honeypot Validation**: A hidden `website` input field is embedded in both the `Contact` and `LeadForm` components.
->
-> - **Client-Side:** If a bot fills in this honeypot field, the client fakes a successful submission instantly to the bot but cancels all actual network request pipelines.
-> - **Backend Guard:** The Express server strictly checks that the incoming `website` request body parameter is empty before processing any submission.
-> - **Rate & Speed Limiting:** Backed by progressive speed-limiting (`express-slow-down`) and endpoint rate-limiting (`express-rate-limit`) to prevent DDoS and spam abuse.
-
----
-
 ## 🗒️ Developer Notes
 
 - **Services content source**: All service page copy lives in [`services.md`](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/services.md). When updating service copy, update that file first, then sync into `servicesData.ts` sections.
@@ -175,3 +137,6 @@ The website communicates with a secure Express API backend located in `../word4w
 - **Canva SVG**: Stored at `public/tools/canva.svg`. Has no background so wrap in `bg-white p-2 rounded-xl` when rendering on dark backgrounds.
 - **Packaging border animation**: The animated purple border trace (`animate-border-trace`) is applied only to Packaging portfolio cards via the `showAnimatedBorder` prop on `AmazonCard`. Amazon listing cards have no border animation.
 - **Case study technologies**: Use `iconUrl` on a technology entry to override the default SimpleIcons CDN URL (e.g., for Canva which uses a local SVG).
+- **ScrollArrow Component**: Used to unify horizontal scrolling control buttons on tabs and sub-tabs. Sizes, shadows, and hover transition states are centralized here. Inverts background themes (`bg-neutral-950` in light mode, `bg-neutral-50` in dark mode) for maximum readability.
+- **Custom Tool Icon backgrounds**: Specific tools with black-colored logos (e.g., Buffer, TikTok, Twitter) are configured with a solid white background class to prevent invisibility on dark canvases.
+- **Local SVGs registered**: Newly added toolkit integrations (Screaming Frog, Ubersuggest, TikTok, Pinterest, Twitter, YouTube, LinkedIn, Flutter, Photoshop) are mapped to their local public folder path inside `Tools.tsx`.
