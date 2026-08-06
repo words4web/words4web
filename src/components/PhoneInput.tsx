@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGeoDialCode } from "../hooks/useGeoDialCode";
-import type { CountryCode } from "../data/countryCodes";
+import type { CountryCode } from "../data/homepage/countryCodes";
 import type { PhoneInputProps } from "../types/formElements";
 
 export function PhoneInput({

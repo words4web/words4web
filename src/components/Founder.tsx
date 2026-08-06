@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Section } from "./Section";
-import { founderData } from "../data/founderData";
+import { founderData } from "../data/homepage/founderData";
 import { MagneticButton } from "./MagneticButton";
 
 export function Founder() {

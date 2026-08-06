@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "./Section";
-import { toolsData } from "../data/toolsData";
+import { toolsData } from "../data/homepage/toolsData";
 
 const getIconUrl = (name: string) => {
   const localMapping: Record<string, string> = {

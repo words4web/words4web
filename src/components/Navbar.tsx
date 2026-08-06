@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { MagneticButton } from "./MagneticButton";
 import { useState, useEffect } from "react";
 import { cn } from "@/src/lib/utils";
-import { navData } from "../data/navData";
+import { navData } from "../data/site-structure/navData";
 import { MobileMenu } from "./MobileMenu";
 
 const dropdownVariants = {

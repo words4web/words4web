@@ -1,6 +1,6 @@
 import { Section } from "./Section";
 import { WhyChooseUsCard } from "./WhyChooseUsCard";
-import { whyChooseUsData } from "../data/whyChooseUsData";
+import { whyChooseUsData } from "../data/homepage/whyChooseUsData";
 
 export function WhyChooseUs() {
   // Split data: 3 items on the left, 3 items on the right

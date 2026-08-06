@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Section } from "./Section";
-import { industriesData } from "../data/industriesData";
+import { industriesData } from "../data/homepage/industriesData";
 import { Globe } from "lucide-react";
 
 const ANGLES = [-90, -18, 54, 126, 198];

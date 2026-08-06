@@ -6,7 +6,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import { workData } from "../data/workData";
+import { workData } from "../data/case-studies/workData";
 import type { WorkItem } from "../types/work";
 import { Section } from "./Section";
 import { MagneticButton } from "./MagneticButton";
@@ -178,20 +178,25 @@ function ProjectCard({
 
       {/* Showcase Card Slogan Details */}
       <div className="flex flex-col text-left px-2">
-        <span className="text-[#a855f7] dark:text-[#c084fc] text-sm uppercase tracking-widest font-bold mb-1">
-          Service(s) Involved: {project?.services}
-        </span>
-        <h3 className="font-display text-2xl font-bold tracking-tight text-[var(--text-primary)] mb-1">
+        <div className="flex flex-wrap gap-2 mb-3">
+          {project?.services?.split("+")?.map((s, idx) => (
+            <span
+              key={idx}
+              className="bg-purple-500/10 dark:bg-purple-500/20 text-[#a855f7] dark:text-[#c084fc] text-[10px] uppercase tracking-wider font-extrabold px-2.5 py-1 rounded-md border border-purple-500/20 shadow-sm">
+              {s?.trim()}
+            </span>
+          ))}
+        </div>
+        <h3 className="font-display text-2xl font-bold tracking-tight text-[var(--text-primary)]">
           <a
             href={project?.link}
             className="hover:text-[var(--primary)] transition-colors">
             {project?.title}
-          </a>{" "}
-          —{" "}
-          <span className="text-sm font-normal text-[var(--text-secondary)]">
-            {project?.subtitle}
-          </span>
+          </a>
         </h3>
+        <span className="text-sm font-semibold text-purple-600 dark:text-purple-400 mt-1.5 tracking-wide font-sans block">
+          {project?.subtitle}
+        </span>
         <p className="text-md text-[var(--text-primary)] leading-relaxed font-normal mt-2">
           {project?.description}
         </p>
@@ -223,8 +228,8 @@ export function CaseStudies() {
       id="work"
       ref={containerRef}
       badge="Portfolio"
-      title="We take pride in showcasing our work"
-      description="A look at real projects across web development, app development, marketing, and design — built for real businesses."
+      title="Real Projects, Real Growth: The Impact We Made"
+      description="Explore our in-depth case studies across web development, app development, marketing, and design — built to deliver measurable business results."
       align="center"
       headerClassName="max-w-4xl mx-auto text-center"
       hasBorderTop>

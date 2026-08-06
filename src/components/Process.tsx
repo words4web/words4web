@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Section } from "./Section";
-import { processData } from "../data/processData";
+import { processData } from "../data/homepage/processData";
 
 export function Process() {
   const containerRef = useRef<HTMLDivElement>(null);

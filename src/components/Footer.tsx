@@ -7,7 +7,7 @@ import {
   Facebook,
   Youtube,
 } from "lucide-react";
-import { footerData } from "../data/footerData";
+import { footerData } from "../data/site-structure/footerData";
 
 export function Footer() {
   return (

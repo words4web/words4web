@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { Globe, ArrowLeft, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "./Section";
-import { testimonialsData } from "../data/testimonialsData";
+import { testimonialsData } from "../data/homepage/testimonialsData";
 import { TestimonialCard } from "./TestimonialCard";
 import { TrustStrip } from "./TrustStrip";
 

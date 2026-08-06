@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
-import { countriesData } from "../data/countriesData";
+import { countriesData } from "../data/homepage/countriesData";
 
 export function Countries() {
   return (

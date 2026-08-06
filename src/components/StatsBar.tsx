@@ -1,5 +1,5 @@
 import { Counter } from "./Counter";
-import { statsData } from "../data/statsData";
+import { statsData } from "../data/homepage/statsData";
 
 export function StatsBar() {
   return (

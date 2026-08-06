@@ -95,7 +95,7 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
                 name="fullName"
                 value={formData.fullName}
                 onChange={(e) => handleFieldChange("fullName", e.target.value)}
-                placeholder="John Doe"
+                placeholder="e.g. Priya Khatod"
                 className="w-full px-4 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-sm text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
               />
               {errors.fullName && (
@@ -114,7 +114,7 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
                 name="email"
                 value={formData.email}
                 onChange={(e) => handleFieldChange("email", e.target.value)}
-                placeholder="john@example.com"
+                placeholder="priya@words4web.com"
                 className="w-full px-4 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-sm text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
               />
               {errors.email && (

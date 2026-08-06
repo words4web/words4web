@@ -4,7 +4,7 @@ import {
   defaultCountry,
   findCountryByIso2,
   type CountryCode,
-} from "../data/countryCodes";
+} from "../data/homepage/countryCodes";
 
 interface GeoResponse {
   country_code?: string;

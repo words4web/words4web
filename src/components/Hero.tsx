@@ -40,7 +40,7 @@ export function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--primary)]"></span>
             </span>
             <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-primary)]">
-              Digital Agency Built For Speed
+              Digital Agency Built For Growth
             </span>
           </motion.div>
 

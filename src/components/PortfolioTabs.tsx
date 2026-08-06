@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { portfolioCategories } from "../data/portfolioData";
+import { portfolioCategories } from "../data/portfolio/portfolioData";
 import type { PortfolioTabsProps } from "../types/portfolio";
 import { cn } from "@/src/lib/utils";
 

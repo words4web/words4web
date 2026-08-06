@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { servicesData } from "../data/servicesData";
+import { servicesData } from "../data/services/servicesData";
 import { Section } from "./Section";
 import { ServiceCard } from "./ServiceCard";
 

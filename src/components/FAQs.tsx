@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "./Section";
-import { faqData } from "../data/faqData";
+import { faqData } from "../data/homepage/faqData";
 import { MagneticButton } from "./MagneticButton";
 
 export function FAQs() {
