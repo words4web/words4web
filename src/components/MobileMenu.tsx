@@ -111,11 +111,29 @@ export function MobileMenu({
         </div>
 
         {/* Bottom Drawer Actions */}
-        <div className="flex flex-col gap-6 pt-6 border-t border-black/5 dark:border-white/5">
+        <div className="flex flex-col gap-3 pt-6 border-t border-black/5 dark:border-white/5">
+          <a
+            href="https://api.whatsapp.com/send/?phone=917020207611&text&type=phone_number&app_absent=0"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClose}
+            className="w-full block">
+            <MagneticButton
+              variant="primary"
+              className="w-full py-3.5 rounded-full bg-green-500 hover:bg-green-600 border-green-500 hover:border-green-600 active:scale-98 text-white font-bold text-sm shadow-md transition-all cursor-pointer"
+              spanClassName="flex flex-row items-center justify-center gap-2">
+              <img
+                src="/tools/whatsapp.svg"
+                alt="WhatsApp"
+                className="w-5.5 h-5.5 object-contain flex-shrink-0"
+              />
+              <span className="whitespace-nowrap">WhatsApp Chat</span>
+            </MagneticButton>
+          </a>
           <a href="#contact" onClick={onClose}>
             <MagneticButton
               variant="primary"
-              className="w-full py-4 text-sm font-bold text-center flex items-center justify-center shadow-lg">
+              className="w-full py-3.5 text-sm font-bold text-center flex items-center justify-center shadow-lg">
               Let's Talk
             </MagneticButton>
           </a>

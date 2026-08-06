@@ -6,12 +6,14 @@ import { cn } from "@/src/lib/utils";
 interface MagneticButtonProps extends HTMLMotionProps<"button"> {
   children: React.ReactNode;
   className?: string;
+  spanClassName?: string;
   variant?: "primary" | "ghost" | "glass";
 }
 
 export function MagneticButton({
   children,
   className,
+  spanClassName,
   variant = "primary",
   ...props
 }: MagneticButtonProps) {
@@ -51,9 +53,8 @@ export function MagneticButton({
         variants[variant],
         className,
       )}
-      {...props}
-    >
-      <span className="relative z-10">{children}</span>
+      {...props}>
+      <span className={cn("relative z-10", spanClassName)}>{children}</span>
 
       {/* Ripple/Glow effect on hover */}
       <div className="absolute inset-0 z-0 bg-white/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500 ease-out origin-center" />

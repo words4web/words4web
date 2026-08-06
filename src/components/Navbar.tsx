@@ -190,6 +190,22 @@ export function Navbar() {
               className="w-10 h-10 p-0 rounded-full flex items-center justify-center">
               {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
             </MagneticButton>
+            <a
+              href="https://api.whatsapp.com/send/?phone=917020207611&text&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn("block", isMobile ? "hidden" : "block")}
+              aria-label="Chat on WhatsApp">
+              <MagneticButton
+                variant="glass"
+                className="w-12 h-12 p-2 rounded-full flex items-center justify-center">
+                <img
+                  src="/tools/whatsapp.svg"
+                  alt="WhatsApp"
+                  className="w-full h-full object-contain"
+                />
+              </MagneticButton>
+            </a>
             <a href="#contact" className={cn(isMobile ? "hidden" : "block")}>
               <MagneticButton variant="primary" className="py-2.5 px-6 text-sm">
                 Let's Talk
