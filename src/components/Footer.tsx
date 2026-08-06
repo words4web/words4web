@@ -37,28 +37,51 @@ export function Footer() {
 
             <div className="flex gap-4 items-center">
               <a
-                href="#"
+                href="https://www.instagram.com/words.4web/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
                 aria-label="Instagram">
                 <Instagram size={20} />
               </a>
               <a
-                href="#"
+                href="https://in.linkedin.com/company/words-4-web"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
                 aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/people/Words4Web/61577399276059/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
                 aria-label="Facebook">
                 <Facebook size={20} />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@words.4web"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
                 aria-label="YouTube">
                 <Youtube size={20} />
+              </a>
+              <a
+                href="https://in.pinterest.com/words4web/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[var(--primary)] text-[var(--text-secondary)] transition-colors interactive"
+                aria-label="Pinterest">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  className="transition-colors">
+                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.41 7.61 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.906 2.17-2.906 1.024 0 1.517.768 1.517 1.686 0 1.026-.65 2.562-.988 3.981-.283 1.195.597 2.169 1.777 2.169 2.133 0 3.774-2.254 3.774-5.503 0-2.879-2.072-4.894-5.025-4.894-3.421 0-5.43 2.566-5.43 5.218 0 1.03.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.62 0 11.983-5.367 11.983-11.987C24 5.367 18.637 0 12.017 0z" />
+                </svg>
               </a>
             </div>
           </div>

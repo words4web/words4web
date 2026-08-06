@@ -24,7 +24,6 @@ export function useGeoDialCode() {
       .then((data) => {
         clearTimeout(timeout);
         if (!cancelled && data?.country_code) {
-          console.log("data.country_code => ", data);
           const match = findCountryByIso2(data?.country_code);
           if (match) setCountry(match);
         }

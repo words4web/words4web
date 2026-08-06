@@ -34,7 +34,6 @@ export const validateContactFields = (
       const fullNumber = `${phoneDialCode}${phoneNumber?.trim()}`;
       try {
         const parsed = parsePhoneNumberWithError(fullNumber);
-        console.log("parsePhoneNumberWithError => ", parsed);
         if (!parsed.isValid()) {
           errors.phone = "Please enter a valid phone number for this country.";
         }
