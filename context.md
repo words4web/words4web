@@ -140,3 +140,7 @@ pnpm astro    # Run Astro CLI utility commands directly
 - **ScrollArrow Component**: Used to unify horizontal scrolling control buttons on tabs and sub-tabs. Sizes, shadows, and hover transition states are centralized here. Inverts background themes (`bg-neutral-950` in light mode, `bg-neutral-50` in dark mode) for maximum readability.
 - **Custom Tool Icon backgrounds**: Specific tools with black-colored logos (e.g., Buffer, TikTok, Twitter) are configured with a solid white background class to prevent invisibility on dark canvases.
 - **Local SVGs registered**: Newly added toolkit integrations (Screaming Frog, Ubersuggest, TikTok, Pinterest, Twitter, YouTube, LinkedIn, Flutter, Photoshop) are mapped to their local public folder path inside `Tools.tsx`.
+- **Custom 404 Page**: Rendered via `404.astro` (compiles to `/404.html` on build). Designed with dark ambient glow spots, animated text headers, and customized vertical spacing. Integrated with `CustomCursor`.
+- **Vercel Web Analytics**: Bootstrapped in `Layout.astro` layout wrapper using `@vercel/analytics` module `inject()` call inside client script tags.
+- **WhatsApp Chat Integration**: Accessible through a custom `w-12 h-12` magnetic navbar bubble on desktop headers and an aligned horizontal magnetic CTA inside the mobile menu drawer.
+- **MagneticButton spanClassName**: Extended the custom button component to accept an optional `spanClassName` prop, allowing users to override flex container properties on nested spans without breaking defaults.

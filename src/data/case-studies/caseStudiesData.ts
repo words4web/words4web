@@ -339,7 +339,7 @@ export const caseStudiesData: CaseStudyItem[] = [
     services: "Social Media + Creative Graphics + Digital Branding + Local SEO",
     description:
       "A Germany-based QSR brand partnered with Words4Web to establish local digital visibility and a strong market presence, moving beyond standard playbooks to drive real customer engagement.",
-    image: "/work/box2box.png",
+    image: "/work/german_qsr_brand.jpeg",
     link: "/our-works/words4web-powers-digital-growth-german-qsr-brand",
     aboutText1:
       "A Germany-based company set out to launch a new venture in the quick service restaurant (QSR) space. As with any new market entry, digital visibility and brand positioning were critical from day one. The client began searching for a marketing partner who could bring both creativity and strategic thinking to the table; someone based in India came recommended, and that search led them to Words4Web.",
