@@ -5,8 +5,7 @@ export const understandingGoogleEeatPost: BlogPostData = {
   title: "Understanding Google's EEAT and Why It Matters for Your Website",
   author: "Words4Web",
   date: "2026-08-12",
-  headerImage:
-    "/blog/understanding-googles-eeat-and-why-it-matters-for-your-website/featured.png",
+  headerImage: "/blog/googles-eeat/eeat-banner.webp",
   content: [
     {
       type: "paragraph",
@@ -87,8 +86,7 @@ export const understandingGoogleEeatPost: BlogPostData = {
     },
     {
       type: "image",
-      value:
-        "/blog/understanding-googles-eeat-and-why-it-matters-for-your-website/2.png",
+      value: "/blog/googles-eeat/eeat-insight.webp",
     },
     {
       type: "paragraph",

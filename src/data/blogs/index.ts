@@ -5,7 +5,7 @@ import { seoVsPpcPost } from "./seo-vs-ppc";
 import { voiceSearchPost } from "./voice-search";
 import { zeroClickSearchPost } from "./zero-click-search";
 import { agencyAiToolsPost } from "./agency-ai-tools";
-import { understandingGoogleEeatPost } from "./understanding-googles-eeat-and-why-it-matters-for-your-website";
+import { understandingGoogleEeatPost } from "./googles-eeat";
 
 export const allBlogPosts = [
   keywordResearchSeoPost,
