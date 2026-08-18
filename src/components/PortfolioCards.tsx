@@ -9,11 +9,16 @@ import { BannerCard } from "./BannerCard";
 import { AmazonCard } from "./AmazonCard";
 import { cn } from "@/src/lib/utils";
 
+interface ExtendedPortfolioCardsProps extends PortfolioCardsProps {
+  isMasonry?: boolean;
+}
+
 export function PortfolioCards({
   filteredItems,
   activeTab,
   activeSubTab,
-}: PortfolioCardsProps) {
+  isMasonry = false,
+}: ExtendedPortfolioCardsProps) {
   const isWebsite = activeTab === "Website Design";
   const isBrochure = activeTab === "Brochure";
   const isCatalog = activeTab === "Catalog";
@@ -52,39 +57,84 @@ export function PortfolioCards({
     return "grid-cols-1 md:grid-cols-2";
   };
 
+  const renderCard = (item: any) => {
+    const cat = item?.category;
+    let cardElement;
+
+    if (cat === "Website Design") {
+      cardElement = <WebsiteCard item={item} />;
+    } else if (cat === "Brochure") {
+      cardElement = <BrochureCard item={item} />;
+    } else if (cat === "Catalog") {
+      cardElement = <CatalogCard item={item} />;
+    } else if (cat === "Logos") {
+      cardElement = <LogoCard item={item} />;
+    } else if (
+      cat === "Social Media Marketing" ||
+      cat === "For TATA Consumers Pvt. Ltd."
+    ) {
+      if (item?.subCategory === "Flyers") {
+        cardElement = <MobileFrameCard item={item} forcePortrait />;
+      } else if (item?.subCategory === "Banners") {
+        cardElement = <BannerCard item={item} />;
+      } else {
+        cardElement = <MobileFrameCard item={item} />;
+      }
+    } else if (cat === "Mobile App Development") {
+      cardElement = <MobileFrameCard item={item} forcePortrait />;
+    } else if (cat === "Amazon Marketing" || cat === "Packaging") {
+      cardElement = <AmazonCard item={item} />;
+    } else {
+      cardElement = <StandardCard item={item} />;
+    }
+
+    if (isMasonry) {
+      const displayCategory =
+        cat === "Social Media Marketing" && item?.subCategory
+          ? `Social (${item.subCategory})`
+          : cat === "For TATA Consumers Pvt. Ltd."
+            ? "TATA Consumer"
+            : cat;
+
+      return (
+        <div
+          key={item?.id}
+          className="relative group/badge w-full flex justify-center">
+          {cardElement}
+          <div className="absolute top-3 left-4 z-[25] bg-black/60 backdrop-blur-md text-white/95 border border-white/10 px-2.5 py-0.5 rounded-full text-[9px] uppercase font-extrabold tracking-widest pointer-events-none group-hover/badge:bg-[var(--primary)] transition-colors duration-300">
+            {displayCategory}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div key={item?.id} className="w-full flex justify-center">
+        {cardElement}
+      </div>
+    );
+  };
+
+  if (isMasonry) {
+    return (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1200px] mx-auto w-full px-4 justify-items-center">
+        {filteredItems?.map(renderCard)}
+        {(!filteredItems || filteredItems?.length === 0) && (
+          <div className="py-16 text-center text-[var(--text-secondary)] text-lg w-full col-span-full">
+            No projects in this category yet. Stay tuned!
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(
         "grid gap-10 max-w-[1200px] mx-auto w-full px-4 justify-items-center",
         getGridClasses(),
       )}>
-      {filteredItems?.map((item) => {
-        if (isWebsite) {
-          return <WebsiteCard key={item?.id} item={item} />;
-        }
-        if (isBrochure) {
-          return <BrochureCard key={item?.id} item={item} />;
-        }
-        if (isCatalog) {
-          return <CatalogCard key={item?.id} item={item} />;
-        }
-        if (isLogo) {
-          return <LogoCard key={item?.id} item={item} />;
-        }
-        if (isSocialMobile || isTata) {
-          return <MobileFrameCard key={item?.id} item={item} />;
-        }
-        if (isMobileApp || isSocialFlyer) {
-          return <MobileFrameCard key={item?.id} item={item} forcePortrait />;
-        }
-        if (isAmazon || isPackaging) {
-          return <AmazonCard key={item?.id} item={item} />;
-        }
-        if (isSocialBanner) {
-          return <BannerCard key={item?.id} item={item} />;
-        }
-        return <StandardCard key={item?.id} item={item} />;
-      })}
+      {filteredItems?.map(renderCard)}
 
       {(!filteredItems || filteredItems?.length === 0) && (
         <div className="col-span-full py-16 text-center text-[var(--text-secondary)] text-lg">

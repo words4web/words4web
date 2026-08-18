@@ -24,7 +24,7 @@ This repository contains the official codebase for the **words4web** official we
 - [**`logo/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/logo) - Brand logo variations (`logo_purple.png`, `logo_black.png`, etc.).
 - [**`services/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/services) - Hero images for each service page (`web_development.jpg`, `mobile_app.jpg`, `seo.jpg`, etc.).
 - [**`tools/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/tools) - SVG icons for tools/technologies used in case studies (e.g., `canva.svg`, `translate-language.svg`).
-- [**`work/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/work) - High-resolution screenshots and visuals for selected work and case study projects (e.g., `box2box.png`, `dadoos.jpeg`, `filipe_carrera.jpeg`, `rkb.webp`, `isle_project.png`).
+- [**`work/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/work) - High-resolution screenshots and visuals for selected work and case study projects (e.g., `box2box_web.webp`, `filipe_carrera.webp`, `isle_project.webp`).
 
 ### 💻 Source Code (`/src/`)
 
@@ -63,9 +63,9 @@ This repository contains the official codebase for the **words4web** official we
   - [**`Footer.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Footer.tsx) - 4-column detailed responsive footer. Services column links to individual `/services/[slug]` pages.
   - [**`MagneticButton.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/MagneticButton.tsx) - Premium physics-based micro-interactive button.
   - [**`Section.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/Section.tsx) - Structured wrapper for sections.
-  - [**`PortfolioTabs.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/PortfolioTabs.tsx) - Portfolio category tab navigation with high-contrast solid scroll arrows.
-  - [**`PortfolioGrid.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/PortfolioGrid.tsx) - Portfolio sub-category grid with scroll arrows matching main tab style.
-  - [**`PortfolioCards.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/PortfolioCards.tsx) - Renders portfolio items. Passes `showAnimatedBorder` only to Packaging cards.
+  - [**`PortfolioTabs.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/PortfolioTabs.tsx) - Portfolio Client/Project tab navigation with high-contrast solid scroll arrows.
+  - [**`PortfolioGrid.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/PortfolioGrid.tsx) - Displays active Client showcase. Splits page layout between a Featured Case Study banner (top) and an interactive Visual Deliverables Grid (bottom). Contains sub-menu categories filter specifically for "Other Projects".
+  - [**`PortfolioCards.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/PortfolioCards.tsx) - Renders client visual assets in a centered responsive grid. Displays dynamic tags on card hover. Passes `showAnimatedBorder` only to Packaging cards.
   - [**`AmazonCard.tsx`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/components/AmazonCard.tsx) - Amazon/Packaging card with optional purple animated border trace via `showAnimatedBorder` prop.
 
 ### 🗄️ Structured Data (`/src/data/`)

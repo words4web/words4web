@@ -230,7 +230,7 @@ export const caseStudiesData: CaseStudyItem[] = [
       "Website Development + SEO + Creative Graphics + Mobile Application + Influencer Marketing",
     description:
       "At Words4Web, we partnered with Box2Box Sports to help them build a football academy brand that players and parents would actually recognise and trust, driving real registrations through a custom site, SEO, and social graphics.",
-    image: "/work/box2box.png",
+    image: "/work/box2box_web.webp",
     link: "/our-works/box2box-sports-football-academy-journey",
     aboutText1:
       "At Words4Web, we partnered with Box2Box Sports to help them build a football academy brand that players and parents would actually recognise and trust. Box2Box came to us with a clear goal: they wanted a proper digital presence that matched the quality of their coaching, and they wanted it to bring in real registrations, not just page views.",

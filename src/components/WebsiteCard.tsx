@@ -15,7 +15,7 @@ export function WebsiteCard({ item }: { item: PortfolioItem }) {
       },
       {
         threshold: 0.55, // Trigger only when more than half the card is in focus
-      }
+      },
     );
 
     if (cardRef.current) {

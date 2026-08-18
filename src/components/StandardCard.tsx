@@ -2,8 +2,7 @@ import type { PortfolioItem } from "../types/portfolio";
 
 export function StandardCard({ item }: { item: PortfolioItem }) {
   const cardContent = (
-    <div className="group relative w-full max-w-[560px] aspect-video mx-auto rounded-3xl overflow-hidden glass-panel border border-black/[0.08] dark:border-white/[0.08] bg-[var(--background-secondary)] shadow-lg hover:shadow-2xl hover:border-purple-500/30 transition-all duration-500 select-none">
-      {/* Tech stack mini badges in top right */}
+    <div className="group relative w-full max-w-[680px] aspect-video mx-auto rounded-3xl overflow-hidden glass-panel border border-black/[0.08] dark:border-white/[0.08] bg-[var(--background-secondary)] shadow-lg hover:shadow-2xl hover:border-purple-500/30 transition-all duration-500 select-none">
       {item?.technologies && item?.technologies?.length > 0 && (
         <div className="absolute top-4 right-4 z-20 flex gap-1.5">
           {item?.technologies?.map((tech) => (
@@ -33,14 +32,12 @@ export function StandardCard({ item }: { item: PortfolioItem }) {
         />
       </div>
 
-      {/* Mobile-only "View Project" pill overlay */}
       <div className="absolute bottom-4 right-4 md:hidden z-20">
         <div className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-purple-500 bg-[#0c0a14] text-white text-[12px] font-bold uppercase tracking-wider shadow-[0_4px_15px_rgba(168,85,247,0.4)]">
           View Project <span className="text-sm">→</span>
         </div>
       </div>
 
-      {/* Desktop-only Hover Details Sheet */}
       {item.title && (
         <div
           className="hidden md:flex absolute bottom-0 left-0 right-0 h-[80%] z-10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex-col justify-end text-left"
@@ -58,8 +55,7 @@ export function StandardCard({ item }: { item: PortfolioItem }) {
             <p className="text-[14px] text-white leading-relaxed line-clamp-2">
               {item?.description}
             </p>
-            <div
-              className="mt-1 self-start inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/5 group-hover:bg-purple-600 group-hover:border-purple-600 text-white text-[12px] font-semibold tracking-wide transition-all duration-300 backdrop-blur-sm">
+            <div className="mt-1 self-start inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/5 group-hover:bg-purple-600 group-hover:border-purple-600 text-white text-[12px] font-semibold tracking-wide transition-all duration-300 backdrop-blur-sm">
               View Project <span className="text-sm">→</span>
             </div>
           </div>
@@ -70,7 +66,7 @@ export function StandardCard({ item }: { item: PortfolioItem }) {
 
   if (item?.link) {
     return (
-      <a href={item.link} className="block w-full max-w-[560px]">
+      <a href={item.link} className="block w-full max-w-[680px]">
         {cardContent}
       </a>
     );

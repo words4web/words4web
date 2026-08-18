@@ -20,7 +20,7 @@ export default defineConfig({
       },
     },
     build: {
-      chunkSizeWarningLimit: 1000, // Increase warning limit to 1MB due to Three.js size
+      chunkSizeWarningLimit: 1000,
     },
   },
 });

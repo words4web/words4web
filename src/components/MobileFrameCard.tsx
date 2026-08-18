@@ -12,7 +12,7 @@ export function MobileFrameCard({
 
   const cardContent = (
     <div
-      className={`group relative w-full ${forcePortrait ? "max-w-[500px]" : "max-w-[260px]"} rounded-3xl overflow-hidden transition-all duration-500 select-none ${
+      className={`group relative w-full ${forcePortrait ? "max-w-[360px]" : "max-w-[260px]"} rounded-3xl overflow-hidden transition-all duration-500 select-none ${
         isVideoOrReel && !forcePortrait
           ? "aspect-[9/16]"
           : forcePortrait

@@ -1,15 +1,15 @@
 import { useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { portfolioCategories } from "../data/portfolio/portfolioData";
+import { clientCategories } from "../data/portfolio/portfolioData";
 import type { PortfolioTabsProps } from "../types/portfolio";
 import { cn } from "@/src/lib/utils";
 import { ScrollArrow } from "./ScrollArrow";
 
 export function PortfolioTabs({ activeTab, setActiveTab }: PortfolioTabsProps) {
   const tabsContainerRef = useRef<HTMLDivElement>(null);
-  const currentIndex = portfolioCategories.indexOf(activeTab as any);
+  const currentIndex = clientCategories.indexOf(activeTab as any);
   const showLeftArrow = currentIndex > 0;
-  const showRightArrow = currentIndex < portfolioCategories.length - 1;
+  const showRightArrow = currentIndex < clientCategories.length - 1;
 
   useEffect(() => {
     const activeButton = document.getElementById(`tab-title-${currentIndex}`);
@@ -24,13 +24,12 @@ export function PortfolioTabs({ activeTab, setActiveTab }: PortfolioTabsProps) {
 
   return (
     <div className="relative w-full max-w-5xl mx-auto flex items-center px-10">
-      {/* Left Arrow Button */}
       {showLeftArrow && (
         <ScrollArrow
           direction="left"
           onClick={() => {
             if (currentIndex > 0) {
-              setActiveTab(portfolioCategories[currentIndex - 1]);
+              setActiveTab(clientCategories[currentIndex - 1]);
             }
           }}
           ariaLabel="Scroll left"
@@ -39,7 +38,6 @@ export function PortfolioTabs({ activeTab, setActiveTab }: PortfolioTabsProps) {
         </ScrollArrow>
       )}
 
-      {/* Tabs Container */}
       <div
         ref={tabsContainerRef}
         role="tablist"
@@ -48,7 +46,7 @@ export function PortfolioTabs({ activeTab, setActiveTab }: PortfolioTabsProps) {
           scrollbarWidth: "none",
           WebkitOverflowScrolling: "touch",
         }}>
-        {portfolioCategories?.map((category, idx) => {
+        {clientCategories?.map((category, idx) => {
           const isSelected = activeTab === category;
           return (
             <button
@@ -70,13 +68,12 @@ export function PortfolioTabs({ activeTab, setActiveTab }: PortfolioTabsProps) {
         })}
       </div>
 
-      {/* Right Arrow Button */}
       {showRightArrow && (
         <ScrollArrow
           direction="right"
           onClick={() => {
-            if (currentIndex < portfolioCategories.length - 1) {
-              setActiveTab(portfolioCategories[currentIndex + 1]);
+            if (currentIndex < clientCategories.length - 1) {
+              setActiveTab(clientCategories[currentIndex + 1]);
             }
           }}
           ariaLabel="Scroll right"

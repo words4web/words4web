@@ -134,24 +134,32 @@ const { study } = Astro.props;
         </div>
 
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto mt-4 justify-items-stretch">
+          class="flex flex-col gap-6 w-full max-w-5xl mx-auto mt-4">
           {
             study.servicesOffered.map((service, index) => (
-              <div class="group relative p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] border border-black/[0.06] dark:border-white/[0.06] bg-black/[0.01] dark:bg-white/[0.01] hover:bg-black/[0.03] dark:hover:bg-white/[0.02] hover:border-purple-500/30 dark:hover:border-purple-500/30 hover:shadow-[0_12px_40px_rgba(123,44,191,0.08)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col gap-5 text-left overflow-hidden">
-                {/* Radial Glow Effect */}
-                <div class="absolute -right-8 -top-8 w-28 h-28 bg-gradient-to-tr from-purple-500/15 to-blue-500/5 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div class="group relative p-6 sm:p-8 md:p-10 rounded-[24px] sm:rounded-[36px] border border-white/[0.04] bg-gradient-to-r from-white/[0.02] to-white/[0.01] hover:from-white/[0.04] hover:to-white/[0.02] hover:border-purple-500/30 hover:shadow-[0_20px_50px_rgba(168,85,247,0.06)] hover:-translate-y-1 transition-all duration-500 flex flex-col md:flex-row gap-6 md:gap-10 items-start text-left overflow-hidden">
+                {/* Glowing Left Comet Line */}
+                <div class="absolute left-0 top-0 h-0 w-[2px] bg-gradient-to-b from-purple-500 via-indigo-500 to-blue-500 group-hover:h-full transition-all duration-500 ease-out" />
 
-                {/* Badge Number */}
-                <div class="w-12 h-12 rounded-2xl bg-purple-500/10 dark:bg-purple-500/15 flex items-center justify-center text-[var(--primary)] font-bold text-lg border border-purple-500/25 group-hover:scale-105 transition-transform duration-300">
-                  0{index + 1}
-                </div>
+                {/* Soft Radial Ambient Glow */}
+                <div class="absolute -left-16 -top-16 w-36 h-36 bg-purple-500/5 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                {/* Details */}
-                <div class="flex flex-col gap-2 relative z-10">
-                  <h3 class="text-lg sm:text-xl font-bold tracking-tight text-[var(--text-primary)] group-hover:text-[var(--primary)] transition-colors duration-300">
+                {/* Left Side: Number Badge & Title */}
+                <div class="flex items-center md:items-start gap-4 md:flex-col md:gap-4 md:w-[28%] shrink-0">
+                  <div class="w-11 h-11 rounded-full bg-black/40 border border-purple-500/20 text-[var(--primary)] font-black text-xs flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.03)] group-hover:border-purple-500/50 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.25)] transition-all duration-500">
+                    0{index + 1}
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold tracking-tight text-white/95 group-hover:text-purple-300 transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p class="text-sm text-[var(--text-secondary)] font-light leading-relaxed">
+                </div>
+
+                {/* Decorative Vertical Divider */}
+                <div class="hidden md:block w-[1px] self-stretch bg-gradient-to-b from-white/10 via-white/5 to-transparent group-hover:from-purple-500/20 group-hover:to-transparent transition-all duration-500" />
+
+                {/* Right Side: Long Description */}
+                <div class="flex-grow relative z-10 md:pt-1">
+                  <p class="text-sm sm:text-base text-[var(--text-secondary)] font-light leading-relaxed group-hover:text-white/85 transition-colors duration-300">
                     {service.desc}
                   </p>
                 </div>
