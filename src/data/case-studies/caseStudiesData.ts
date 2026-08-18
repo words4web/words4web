@@ -8,7 +8,7 @@ export const caseStudiesData: CaseStudyItem[] = [
     services: "Social Media + Newsletters + Logo Design",
     description:
       "Words4Web powers EU’s ISLE project with social media, newsletters, and logo design to redefine primary education with innovative, inclusive learning environments in Europe.",
-    image: "/work/isle_project.png",
+    image: "/work/isle_project.webp",
     link: "/our-works/eu-education-isle-project",
     aboutText1:
       "At Words4Web, we’re proud to be the digital communication partner for the European Union Commission’s ISLE project: Collaborative Learning Communities for Redesigning Primary Education Towards Innovative & Sustainable Learning Environments.",
@@ -287,7 +287,7 @@ export const caseStudiesData: CaseStudyItem[] = [
     services: "Multilingual Website Development + Digital Branding",
     description:
       "Filipe Carrera, a keynote speaker and author, collaborated with us to have a professional website where people can gather all his information. People can learn about his experiences and journey, explore his books, and connect with him for upcoming speaking events. He wanted all the things assembled in one place with a clean and simple design that was easy to use.",
-    image: "/work/filipe_carrera.jpeg",
+    image: "/work/filipe_carrera.webp",
     link: "/our-works/filipe-carrera-leadership-speaker-digital-hub",
     aboutText1:
       "Filipe Carrera, a keynote speaker and author, collaborated with us to have a professional website where people can gather all his information. People can learn about his experiences and journey, explore his books, and connect with him for upcoming speaking events. He wanted all the things assembled in one place with a clean and simple design that was easy to use.",

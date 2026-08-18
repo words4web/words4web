@@ -97,7 +97,7 @@ export function PortfolioGrid() {
       {deliverables && deliverables?.length > 0 && (
         <div className="flex flex-col gap-8 w-full max-w-[1200px] mx-auto px-4 mt-8">
           <div className="flex items-center gap-6 w-full">
-            <h3 className="text-lg md:text-xl font-bold tracking-tight text-[var(--text-primary)] whitespace-nowrap bg-gradient-to-r from-white via-white to-gray-400 bg-clip-text text-transparent">
+            <h3 className="text-lg md:text-xl font-bold tracking-tight text-gradient whitespace-nowrap">
               Visual Deliverables & Assets
             </h3>
             <div className="h-[1px] flex-grow bg-gradient-to-r from-purple-500/25 via-indigo-500/10 to-transparent" />
