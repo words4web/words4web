@@ -157,7 +157,7 @@ export const flutterVsReactNative2026Post: BlogPostData = {
     {
       type: "paragraph",
       value:
-        "If you are planning a new app or improving an existing one, talk to Words4Web. The team can help you turn your idea into a practical mobile app plan built around your clear goals. Visit [www.words4web.com](http://www.words4web.com/) to explore its mobile app development services and take the next step with Flutter vs React Native.",
+        "If you are planning a new app or improving an existing one, talk to Words4Web. The team can help you turn your idea into a practical mobile app plan built around your clear goals. Visit [www.words4web.com](https://www.words4web.com/) to explore its mobile app development services and take the next step with Flutter vs React Native.",
     },
   ],
   faqs: [

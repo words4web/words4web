@@ -158,7 +158,7 @@ export const understandingGoogleEeatPost: BlogPostData = {
     {
       type: "paragraph",
       value:
-        "If you want your website to be trusted by both your audience and Google. Connect with digital Marketing agencies like Words4Web. We create EEAT-designed SEO strategies to build your website reputation and increase your brand in public. Visit [www.words4web.com](http://www.words4web.com) and let us make your brand high-ranking and become trusted in the digital world.",
+        "If you want your website to be trusted by both your audience and Google. Connect with digital Marketing agencies like Words4Web. We create EEAT-designed SEO strategies to build your website reputation and increase your brand in public. Visit [www.words4web.com](https://www.words4web.com) and let us make your brand high-ranking and become trusted in the digital world.",
     },
   ],
   faqs: [
