@@ -5,7 +5,7 @@ export const servicesData: ServiceItem[] = [
     title: "Web Development",
     description:
       "Custom, mobile-friendly websites built to load fast and convert visitors into customers.",
-    image: "/services/web_development.jpg",
+    image: "/services/web_development.webp",
     badge: "Custom & Fast",
     number: "01",
     iconKey: "web",
@@ -63,7 +63,7 @@ export const servicesData: ServiceItem[] = [
     title: "Mobile App Development",
     description:
       "iOS and Android apps built for reliability, usability, and long-term engagement.",
-    image: "/services/mobile_app.jpg",
+    image: "/services/mobile_app.webp",
     badge: "iOS & Android",
     number: "02",
     iconKey: "mobile",
@@ -145,7 +145,7 @@ export const servicesData: ServiceItem[] = [
     title: "Search Engine Optimization (SEO)",
     description:
       "Technical, on-page, and content-driven SEO for sustainable organic growth.",
-    image: "/services/seo.jpg",
+    image: "/services/seo.webp",
     badge: "Organic Growth",
     number: "03",
     iconKey: "seo",
@@ -189,7 +189,7 @@ export const servicesData: ServiceItem[] = [
     title: "Content Writing",
     description:
       "Clear, search-optimized content for websites, blogs, and product pages.",
-    image: "/services/content_writing.jpg",
+    image: "/services/content_writing.webp",
     badge: "SEO Optimized",
     number: "04",
     iconKey: "content",
@@ -248,7 +248,7 @@ export const servicesData: ServiceItem[] = [
     title: "Social Media Management",
     description:
       "Full planning, content creation, and community management across platforms.",
-    image: "/services/social_media.jpg",
+    image: "/services/social_media.webp",
     badge: "Full Planning",
     number: "05",
     iconKey: "social",
@@ -299,7 +299,7 @@ export const servicesData: ServiceItem[] = [
     title: "Graphic Designing",
     description:
       "Logos, packaging, and creatives that build a consistent, recognizable brand identity.",
-    image: "/services/graphic_design.jpg",
+    image: "/services/graphic_design.webp",
     badge: "Brand Identity",
     number: "06",
     iconKey: "design",
@@ -353,7 +353,7 @@ export const servicesData: ServiceItem[] = [
     title: "Amazon Marketing Services",
     description:
       "Listing optimization, Amazon PPC, and keyword strategy to drive sales.",
-    image: "/services/amazon_marketing.jpg",
+    image: "/services/amazon_marketing.webp",
     badge: "Shopify & Amazon",
     number: "07",
     iconKey: "ecommerce",
@@ -413,7 +413,7 @@ export const servicesData: ServiceItem[] = [
     title: "Paid Ads Management",
     description:
       "Google Ads, Meta Ads, and other paid channels managed for measurable ROI.",
-    image: "/services/paid_ads.jpg",
+    image: "/services/paid_ads.webp",
     badge: "PPC & ROI",
     number: "08",
     iconKey: "ads",
