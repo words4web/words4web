@@ -5,7 +5,7 @@ import { faqData } from "../data/homepage/faqData";
 import { MagneticButton } from "./MagneticButton";
 
 export function FAQs() {
-  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   const toggleFAQ = (idx: number) => {
     setOpenIdx(openIdx === idx ? null : idx);

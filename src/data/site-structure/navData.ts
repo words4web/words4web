@@ -5,7 +5,7 @@ export const navData: NavItem[] = [
   { label: "About Us", href: "/#who-we-are" },
   {
     label: "Services",
-    href: "/services",
+    href: "/#services",
     children: [
       {
         label: "Mobile App Development",
@@ -32,7 +32,7 @@ export const navData: NavItem[] = [
       },
       {
         label: "View All Services →",
-        href: "/services",
+        href: "/#services",
       },
     ],
   },
