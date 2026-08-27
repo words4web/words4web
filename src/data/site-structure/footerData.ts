@@ -13,20 +13,20 @@ export const footerData: FooterData = {
   services: [
     {
       label: "Amazon Marketing Services",
-      href: "/services/amazon-marketing-services",
+      href: "/amazon-marketing-services",
     },
     {
       label: "Mobile App Development",
-      href: "/services/mobile-app-development",
+      href: "/mobile-app-development",
     },
-    { label: "Web Designing", href: "/services/web-development" },
+    { label: "Web Designing", href: "/web-development" },
     {
       label: "Social Media Optimization",
-      href: "/services/social-media-optimisation",
+      href: "/social-media-optimisation",
     },
-    { label: "Graphic Designing", href: "/services/graphic-designing" },
-    { label: "SEO Services", href: "/services/search-engine-optimization" },
-    { label: "Content Writing", href: "/services/content-writing" },
+    { label: "Graphic Designing", href: "/graphic-designing" },
+    { label: "SEO Services", href: "/search-engine-optimization" },
+    { label: "Content Writing", href: "/content-writing" },
   ],
   mainOffice: {
     email: "info@words4web.com",

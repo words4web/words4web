@@ -140,7 +140,7 @@ export function ServiceCard({
 
             {service.slug && (
               <a
-                href={`/services/${service.slug}`}
+                href={`/${service.slug}`}
                 className="shrink-0 ml-auto flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-purple-500/40 bg-purple-500/5 hover:bg-purple-500 hover:border-purple-500 hover:text-white text-[var(--primary)] text-xs font-bold uppercase tracking-wider transition-all duration-300 group/btn"
                 onClick={(e) => e.stopPropagation()}>
                 Learn More

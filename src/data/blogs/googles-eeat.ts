@@ -43,7 +43,7 @@ export const understandingGoogleEeatPost: BlogPostData = {
     {
       type: "paragraph",
       value:
-        "[SEO](https://www.words4web.com/services/search-engine-optimization) has always been one of the best organic ways to rank your website on Google. And if you're wondering what EEAT is in SEO, think of it as Google uses it to check the credibility of your content. Google EEAT is divided into four parts to check the relevancy of your website.",
+        "[SEO](https://www.words4web.com/search-engine-optimization) has always been one of the best organic ways to rank your website on Google. And if you're wondering what EEAT is in SEO, think of it as Google uses it to check the credibility of your content. Google EEAT is divided into four parts to check the relevancy of your website.",
     },
     {
       type: "paragraph",
