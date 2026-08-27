@@ -37,6 +37,6 @@ export const navData: NavItem[] = [
     ],
   },
   { label: "Our Works", href: "/our-works" },
-  { label: "Blog", href: "/blog" },
+  { label: "Blogs", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];

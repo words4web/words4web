@@ -5,7 +5,7 @@ export const footerData: FooterData = {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/#who-we-are" },
     { label: "Our Works", href: "/#work" },
-    { label: "Blog", href: "/blog" },
+    { label: "Blogs", href: "/blog" },
     { label: "Contact Us", href: "/contact" },
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms & Conditions", href: "/terms" },
