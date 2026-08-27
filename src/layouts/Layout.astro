@@ -13,10 +13,15 @@ const {
   image = "/logo/logo_purple.png",
 } = Astro.props;
 
-const canonicalURL = new URL(
+let canonicalURL = new URL(
   Astro.url.pathname,
-  Astro.site || "https://words4web.com",
+  Astro.site || "https://www.words4web.com",
 ).href;
+
+if (canonicalURL.endsWith("/") && Astro.url.pathname !== "/") {
+  canonicalURL = canonicalURL.slice(0, -1);
+}
+
 const absoluteImageURL = new URL(image, Astro.url.href).href;
 ---
 

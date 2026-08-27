@@ -7,6 +7,7 @@ import path from "path";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  site: "https://www.words4web.com",
   integrations: [react()],
   server: {
     port: 3000,
