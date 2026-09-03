@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath } from "url";
 import path from "path";
@@ -8,7 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   site: "https://www.words4web.com",
-  integrations: [react()],
+  integrations: [react(), sitemap()],
   server: {
     port: 3000,
     host: true,

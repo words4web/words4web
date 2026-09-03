@@ -1,0 +1,13 @@
+# https://www.robotstxt.org/robotstxt.html
+# Words4Web Robots.txt
+
+User-agent: *
+Allow: /
+
+# Block internal build paths & error pages
+Disallow: /_astro/
+Disallow: /404
+
+# Host & Sitemap specifications
+Host: https://www.words4web.com
+Sitemap: https://www.words4web.com/sitemap-index.xml
