@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
 import { MagneticButton } from "./MagneticButton";
@@ -12,15 +12,28 @@ export function Hero() {
   const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
 
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth < 768);
+      const handleResize = () => setIsMobile(window.innerWidth < 768);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-36 md:pt-32 pb-16 px-4 md:px-8">
       <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--background-secondary)_0%,_var(--background)_100%)] opacity-50" />
 
-      <motion.div className="absolute inset-0 z-0" style={{ y: y1, opacity }}>
-        <Suspense fallback={null}>
-          <HeroCanvas theme={theme} />
-        </Suspense>
-      </motion.div>
+      {!isMobile && (
+        <motion.div className="absolute inset-0 z-0" style={{ y: y1, opacity }}>
+          <Suspense fallback={null}>
+            <HeroCanvas theme={theme} />
+          </Suspense>
+        </motion.div>
+      )}
 
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         <div className="lg:col-span-6 flex flex-col items-start text-left">

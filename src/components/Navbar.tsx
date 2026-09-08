@@ -117,6 +117,9 @@ export function Navbar() {
             <img
               src="/logo/logo_purple.png"
               alt="words4web logo"
+              width="250"
+              height="96"
+              fetchPriority="high"
               style={{ height: "96px", width: "auto" }}
               className="object-contain logo-glow"
             />
@@ -207,6 +210,9 @@ export function Navbar() {
                 <img
                   src="/tools/whatsapp.svg"
                   alt="WhatsApp"
+                  width="32"
+                  height="32"
+                  loading="lazy"
                   className="w-full h-full object-contain"
                 />
               </MagneticButton>
