@@ -12,33 +12,39 @@ interface GeoResponse {
 
 export function useGeoDialCode() {
   const [country, setCountry] = useState<CountryCode>(defaultCountry);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 3000);
+    let timeoutId: ReturnType<typeof setTimeout>;
 
-    fetch("https://ipapi.co/json/", { signal: controller.signal })
-      .then((res) => res.json() as Promise<GeoResponse>)
-      .then((data) => {
-        clearTimeout(timeout);
-        if (!cancelled && data?.country_code) {
-          const match = findCountryByIso2(data?.country_code);
-          if (match) setCountry(match);
-        }
-      })
-      .catch(() => {
-        // Silently fall back to default
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
+    const scheduleFetch = () => {
+      timeoutId = setTimeout(() => {
+        const controller = new AbortController();
+        const fetchTimeout = setTimeout(() => controller.abort(), 2500);
+
+        fetch("https://ipapi.co/json/", { signal: controller.signal })
+          .then((res) => res.json() as Promise<GeoResponse>)
+          .then((data) => {
+            clearTimeout(fetchTimeout);
+            if (!cancelled && data?.country_code) {
+              const match = findCountryByIso2(data?.country_code);
+              if (match) setCountry(match);
+            }
+          })
+          .catch(() => {});
+      }, 2000);
+    };
+
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      window.requestIdleCallback(scheduleFetch);
+    } else {
+      scheduleFetch();
+    }
 
     return () => {
       cancelled = true;
-      controller.abort();
-      clearTimeout(timeout);
+      if (timeoutId) clearTimeout(timeoutId);
     };
   }, []);
 

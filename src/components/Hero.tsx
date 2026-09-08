@@ -1,10 +1,10 @@
-import { Canvas } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
+import { lazy, Suspense } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
-import { ParticleSphere } from "./ParticleSphere";
 import { MagneticButton } from "./MagneticButton";
 import { LeadForm } from "./LeadForm";
+
+const HeroCanvas = lazy(() => import("./HeroCanvas"));
 
 export function Hero() {
   const { theme } = useTheme();
@@ -14,21 +14,15 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-28 pb-16 px-4 md:px-8">
-      {/* Background Radial Gradient */}
       <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--background-secondary)_0%,_var(--background)_100%)] opacity-50" />
 
-      {/* 3D Canvas Background */}
       <motion.div className="absolute inset-0 z-0" style={{ y: y1, opacity }}>
-        <Canvas camera={{ position: [0, 0, 5], fof: 45 } as any}>
-          <ambientLight intensity={0.5} />
-          <ParticleSphere theme={theme} />
-          <Environment preset="city" />
-        </Canvas>
+        <Suspense fallback={null}>
+          <HeroCanvas theme={theme} />
+        </Suspense>
       </motion.div>
 
-      {/* Hero Content Grid */}
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-        {/* Left Column: Typography & CTAs (6/12) */}
         <div className="lg:col-span-6 flex flex-col items-start text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

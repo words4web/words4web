@@ -269,7 +269,7 @@ export const countryCodes: CountryCode[] = rawCountries.map(
 );
 
 export const defaultCountry: CountryCode = countryCodes.find(
-  (c) => c.iso2 === "IN",
+  (c) => c.iso2 === "GB",
 )!;
 
 export function findCountryByIso2(iso2: string): CountryCode | undefined {
