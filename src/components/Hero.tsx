@@ -56,15 +56,11 @@ export function Hero() {
             <span className="text-gradient">with Words4Web</span>
           </h1>
 
-          <motion.p
-            className="text-base md:text-lg text-[var(--text-secondary)] max-w-2xl font-light mb-8 leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}>
+          <p className="text-base md:text-lg text-[var(--text-secondary)] max-w-2xl font-light mb-8 leading-relaxed">
             Words4Web builds websites and apps, runs your SEO and social media,
             manages your paid ads and handles your ecommerce storefront — all
             under one roof, with a real team behind every campaign.
-          </motion.p>
+          </p>
 
           <motion.div
             className="flex flex-col sm:flex-row gap-4 mb-8 w-full sm:w-auto"
