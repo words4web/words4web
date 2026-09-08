@@ -37,7 +37,7 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--primary)] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-[var(--primary)]"></span>
             </span>
-            <span className="text-xs font-bold uppercase tracking-widest text-[var(--primary)]">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--primary-text)]">
               {badge}
             </span>
           </div>

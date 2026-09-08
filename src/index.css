@@ -90,6 +90,7 @@
     --background: #ffffff;
     --background-secondary: #f7f7f7;
     --primary: #7b2cbf;
+    --primary-text: #7b2cbf;
     --text-primary: #1a1a1a;
     --text-secondary: #666666;
     --border: rgba(123, 44, 191, 0.1);
@@ -106,6 +107,7 @@
     --background: #000;
     --background-secondary: #0000;
     --primary: #7b2cbf;
+    --primary-text: #c084fc;
     --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.7);
     --border: rgba(255, 255, 255, 0.1);

@@ -25,14 +25,12 @@ export function PhoneInput({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
 
-  // Sync geo result into internal state
   useEffect(() => {
     if (!loading && !externalCountry) {
       setInternalCountry(geoCountry);
     }
   }, [loading, geoCountry, externalCountry]);
 
-  // Close dropdown on outside click
   useEffect(() => {
     function onClickOutside(e: MouseEvent) {
       if (
@@ -47,7 +45,6 @@ export function PhoneInput({
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, []);
 
-  // Focus search when dropdown opens
   useEffect(() => {
     if (dropdownOpen) {
       setTimeout(() => searchRef.current?.focus(), 50);
@@ -62,7 +59,6 @@ export function PhoneInput({
     const dialMatch = c?.dialCode?.includes?.(query);
     const isoMatch = c?.iso2?.toLowerCase?.()?.includes(query);
 
-    // Support common abbreviations
     let aliasMatch = false;
     if (query === "usa" && c?.iso2 === "US") aliasMatch = true;
     if (query === "uk" && c?.iso2 === "GB") aliasMatch = true;
@@ -78,13 +74,11 @@ export function PhoneInput({
     setSearch("");
   };
 
-  // Label is always floated — the dial code selector is always visible in the field
   const isFloated = true;
 
   return (
     <div
       className={`relative w-full text-left ${variant === "floating" ? "mt-4" : ""}`}>
-      {/* Floating label (only for floating variant) */}
       {variant === "floating" && label && (
         <motion.label
           initial={{ y: 0, scale: 1 }}
@@ -100,7 +94,6 @@ export function PhoneInput({
         </motion.label>
       )}
 
-      {/* Input row */}
       <div
         className={
           variant === "box"
@@ -112,7 +105,6 @@ export function PhoneInput({
             : "flex items-center border-b border-[var(--text-secondary)]/15 py-2"
         }
         ref={dropdownRef}>
-        {/* Country selector trigger */}
         <button
           type="button"
           onClick={() => setDropdownOpen((o) => !o)}
@@ -138,7 +130,6 @@ export function PhoneInput({
           </svg>
         </button>
 
-        {/* Number input */}
         <input
           type="tel"
           name={name}
@@ -147,12 +138,12 @@ export function PhoneInput({
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={variant === "box" ? "e.g. 98765 43210" : ""}
+          aria-label="Phone number"
           className={`flex-1 min-w-0 bg-transparent text-[var(--text-primary)] border-none outline-none py-1 focus:ring-0 focus:outline-none ${
             variant === "box" ? "text-sm" : "text-base font-light"
           }`}
         />
 
-        {/* Animated underline (only for floating variant) */}
         {variant === "floating" && (
           <motion.div
             initial={{ width: 0, left: "50%" }}
@@ -166,7 +157,6 @@ export function PhoneInput({
         )}
       </div>
 
-      {/* Dropdown */}
       <AnimatePresence>
         {dropdownOpen && (
           <motion.div
@@ -175,7 +165,6 @@ export function PhoneInput({
             exit={{ opacity: 0, y: 6, scale: 0.97 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
             className="absolute top-full left-0 z-50 mt-2 w-72 rounded-2xl border border-[var(--glass-border)] bg-white/95 dark:bg-neutral-950/95 shadow-2xl backdrop-blur-xl">
-            {/* Search box */}
             <div className="p-2 border-b border-[var(--glass-border)]">
               <input
                 ref={searchRef}
@@ -183,11 +172,11 @@ export function PhoneInput({
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search country or dial code…"
+                aria-label="Search country or dial code"
                 className="w-full bg-transparent text-[var(--text-primary)] text-sm px-3 py-2 rounded-lg border border-[var(--glass-border)] outline-none focus:border-[var(--primary)]/50 transition-colors placeholder:text-[var(--text-secondary)]/50"
               />
             </div>
 
-            {/* List */}
             <ul
               style={{ maxHeight: "14rem", overflowY: "auto" }}
               onWheel={(e) => e.stopPropagation()}

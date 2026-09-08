@@ -88,9 +88,9 @@ export function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h4 className="font-display font-semibold text-xl mb-6 uppercase tracking-wider text-[var(--text-primary)]">
+            <h3 className="font-display font-semibold text-xl mb-6 uppercase tracking-wider text-[var(--text-primary)]">
               Quick Links
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-3.5 text-base text-[var(--text-secondary)]">
               {footerData.quickLinks.map((link) => (
                 <li key={link.label}>
@@ -106,9 +106,9 @@ export function Footer() {
 
           {/* Column 3: Services */}
           <div>
-            <h4 className="font-display font-semibold text-xl mb-6 uppercase tracking-wider text-[var(--text-primary)]">
+            <h3 className="font-display font-semibold text-xl mb-6 uppercase tracking-wider text-[var(--text-primary)]">
               Services
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-3.5 text-base text-[var(--text-secondary)]">
               {footerData.services.map((service) => (
                 <li key={service.label}>
@@ -126,9 +126,9 @@ export function Footer() {
           <div className="flex flex-col gap-8">
             {/* Main Office */}
             <div>
-              <h4 className="font-display font-semibold text-base mb-4 uppercase tracking-widest text-[var(--primary)]">
+              <h3 className="font-display font-semibold text-base mb-4 uppercase tracking-widest text-[var(--primary-text)]">
                 Main Office
-              </h4>
+              </h3>
               <div className="flex flex-col gap-2.5 text-base text-[var(--text-secondary)]">
                 <span className="flex items-center gap-2">
                   <Mail size={14} className="shrink-0" />
@@ -155,9 +155,9 @@ export function Footer() {
 
             {/* Branch Office */}
             <div>
-              <h4 className="font-display font-semibold text-base mb-4 uppercase tracking-widest text-[var(--primary)]">
+              <h3 className="font-display font-semibold text-base mb-4 uppercase tracking-widest text-[var(--primary-text)]">
                 Branch Office
-              </h4>
+              </h3>
               <div className="flex flex-col gap-2.5 text-base text-[var(--text-secondary)]">
                 <span className="flex items-center gap-2">
                   <Mail size={14} className="shrink-0" />
@@ -188,7 +188,7 @@ export function Footer() {
         <div className="w-full flex items-center justify-center pt-8 text-center">
           <p className="text-sm text-[var(--text-secondary)]">
             Copyright &copy; 2026{" "}
-            <span className="text-[var(--primary)] font-semibold">
+            <span className="text-[var(--primary-text)] font-semibold">
               Words4Web
             </span>{" "}
             | All rights reserved

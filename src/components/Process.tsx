@@ -18,20 +18,18 @@ export function Process() {
       const containerH = container.offsetHeight;
       const thresholds = stepRefs.current.map((el) => {
         if (!el) return 0;
-        // Centre of the step node relative to the container top
+
         const centre = el.offsetTop + el.offsetHeight / 2;
         return centre / containerH;
       });
       setStepThresholds(thresholds);
     };
 
-    // Measure after initial paint and on every resize
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
   }, []);
 
-  // scrollYProgress: 0 when container-top hits viewport-centre, 1 when container-bottom hits viewport-centre
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"],
@@ -43,7 +41,6 @@ export function Process() {
     restDelta: 0.001,
   });
 
-  // Live progress value used to decide which steps are "passed"
   const [progressVal, setProgressVal] = useState(0);
   useEffect(() => {
     return scaleY.on("change", (v) => setProgressVal(v));
@@ -61,16 +58,13 @@ export function Process() {
       <div
         ref={containerRef}
         className="relative w-full max-w-5xl mx-auto flex flex-col gap-24 lg:gap-16">
-        {/* Background dim line */}
         <div className="absolute left-1/2 top-4 bottom-4 w-[2px] bg-neutral-200 dark:bg-white/10 -translate-x-1/2 z-0" />
 
-        {/* Active glowing fill line */}
         <motion.div
           className="absolute left-1/2 top-4 w-[2px] bg-gradient-to-b from-[var(--primary)] to-purple-400 origin-top shadow-[0_0_8px_rgba(168,85,247,0.5)] -translate-x-1/2 z-0"
           style={{ height: "calc(100% - 32px)", scaleY }}
         />
 
-        {/* Floating neon tracker ball */}
         <motion.div
           className="absolute left-1/2 w-4 h-4 rounded-full bg-white border-2 border-[var(--primary)] shadow-[0_0_12px_rgba(168,85,247,0.8)] z-10 -translate-x-1/2"
           style={{
@@ -78,10 +72,9 @@ export function Process() {
           }}
         />
 
-        {/* Process Steps */}
         {processData.map((step, idx) => {
           const isEven = idx % 2 === 0;
-          // Use the real DOM-measured threshold for this step
+
           const threshold =
             stepThresholds[idx] ?? idx / (processData.length - 1);
           const isPassed = progressVal >= threshold;
@@ -89,14 +82,12 @@ export function Process() {
           return (
             <div
               key={idx}
-              // Attach ref to each step wrapper so we can measure its offsetTop
               ref={(el) => {
                 stepRefs.current[idx] = el;
               }}
               className={`relative flex flex-col lg:flex-row items-center w-full gap-0 ${
                 isEven ? "lg:flex-row" : "lg:flex-row-reverse"
               }`}>
-              {/* Content Panel */}
               <div
                 className={`w-full lg:w-1/2 px-4 lg:px-16 flex justify-center mt-24 lg:mt-0 ${
                   isEven ? "lg:justify-end" : "lg:justify-start"
@@ -111,7 +102,6 @@ export function Process() {
                       ? "border-[var(--primary)]/30 bg-gradient-to-br from-[var(--background)] to-[var(--primary)]/10 shadow-[0_10px_30px_rgba(168,85,247,0.1)]"
                       : "border-neutral-200 dark:border-white/15 bg-gradient-to-br from-[var(--background)] to-[var(--primary)]/5"
                   }`}>
-                  {/* Step Pill */}
                   <div
                     className={`mb-4 flex justify-start ${isEven ? "lg:justify-end" : "lg:justify-start"}`}>
                     <span
@@ -124,9 +114,9 @@ export function Process() {
                     </span>
                   </div>
 
-                  <h4 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-3 text-left">
+                  <h3 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-3 text-left">
                     {step.title}
-                  </h4>
+                  </h3>
                   <p
                     className={`text-base leading-relaxed font-normal text-left transition-colors duration-500 ${
                       isPassed
@@ -138,7 +128,6 @@ export function Process() {
                 </motion.div>
               </div>
 
-              {/* Central Badge/Milestone Circle */}
               <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center z-10">
                 <motion.div
                   initial={{ scale: 0.7, opacity: 0 }}

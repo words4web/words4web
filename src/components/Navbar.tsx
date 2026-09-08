@@ -187,7 +187,12 @@ export function Navbar() {
             <MagneticButton
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               variant="glass"
-              className="w-10 h-10 p-0 rounded-full flex items-center justify-center">
+              className="w-10 h-10 p-0 rounded-full flex items-center justify-center"
+              aria-label={
+                theme === "dark"
+                  ? "Switch to light theme"
+                  : "Switch to dark theme"
+              }>
               {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
             </MagneticButton>
             <a

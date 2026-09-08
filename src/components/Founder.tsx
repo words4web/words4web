@@ -18,19 +18,15 @@ export function Founder() {
       hasBorderTop
       headerClassName="max-w-4xl mx-auto text-center mb-16">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-5xl mx-auto text-left">
-        {/* CEO Portrait Column */}
         <div className="lg:col-span-5 flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8 }}
             className="relative flex flex-col items-center group cursor-pointer">
-            {/* Ambient Back Glow */}
             <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-[#7b2cbf]/30 to-[#e0aaff]/30 opacity-40 blur-2xl group-hover:opacity-80 group-hover:scale-115 transition-all duration-700 pointer-events-none" />
 
-            {/* Glowing Border Arc Photo Box */}
             <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full p-[4px] overflow-hidden border border-white/5 shadow-[0_0_40px_rgba(123,44,191,0.2)] hover:shadow-[0_0_60px_rgba(123,44,191,0.4)] transition-all duration-500">
-              {/* Spinning Trace line */}
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
                 <div
                   className="absolute top-1/2 left-1/2 w-[300%] h-[300%] animate-border-trace"
@@ -41,14 +37,12 @@ export function Founder() {
                 />
               </div>
 
-              {/* Photo wrapper */}
               <div className="w-full h-full rounded-full bg-[#120826] flex items-center justify-center relative z-10 overflow-hidden p-[2px]">
                 <img
                   src={founderData.image}
                   alt={founderData.name}
                   className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-700"
                   onError={(e) => {
-                    // Fallback placeholder in case photo is missing
                     (e.target as HTMLImageElement).src =
                       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400";
                   }}
@@ -56,16 +50,15 @@ export function Founder() {
               </div>
             </div>
 
-            <h4 className="font-display text-xl font-bold text-[var(--text-primary)] mt-4 tracking-tight">
+            <h3 className="font-display text-xl font-bold text-[var(--text-primary)] mt-4 tracking-tight">
               {founderData.name}
-            </h4>
+            </h3>
             <span className="text-xs uppercase tracking-wider text-[var(--text-secondary)] font-medium mt-1">
               {founderData.role}
             </span>
           </motion.div>
         </div>
 
-        {/* Biography text */}
         <div className="lg:col-span-7 flex flex-col gap-6 text-left">
           <motion.div
             initial={{ opacity: 0, x: 30 }}

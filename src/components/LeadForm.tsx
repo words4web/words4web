@@ -50,9 +50,9 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
         willChange: "transform",
       }}
       className="w-full max-w-lg mx-auto rounded-3xl p-4 border border-[var(--glass-border)] relative overflow-hidden bg-white/95 dark:bg-neutral-950/95 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
-      <h3 className="font-display text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-1">
+      <h2 className="font-display text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-1">
         Tell Us About Your Business
-      </h3>
+      </h2>
       <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-6">
         We'll get back to you with a plan — no obligation, no spam.
       </p>
@@ -87,15 +87,19 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5 text-left">
+              <label
+                htmlFor="lead-fullname"
+                className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5 text-left">
                 Full Name
               </label>
               <input
+                id="lead-fullname"
                 type="text"
                 name="fullName"
                 value={formData.fullName}
                 onChange={(e) => handleFieldChange("fullName", e.target.value)}
                 placeholder="e.g. Priya Khatod"
+                aria-label="Full Name"
                 className="w-full px-4 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-sm text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
               />
               {errors.fullName && (
@@ -106,15 +110,19 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5 text-left">
+              <label
+                htmlFor="lead-email"
+                className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5 text-left">
                 Email Address
               </label>
               <input
+                id="lead-email"
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={(e) => handleFieldChange("email", e.target.value)}
                 placeholder="priya@words4web.com"
+                aria-label="Email Address"
                 className="w-full px-4 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-sm text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all"
               />
               {errors.email && (
@@ -144,13 +152,17 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5 text-left">
+              <label
+                htmlFor="lead-helpwith"
+                className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5 text-left">
                 What do you need help with?
               </label>
               <select
+                id="lead-helpwith"
                 name="helpWith"
                 value={formData.helpWith}
                 onChange={(e) => handleFieldChange("helpWith", e.target.value)}
+                aria-label="What do you need help with?"
                 className="w-full px-4 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--primary)] transition-all [&>option]:bg-white [&>option]:text-black dark:[&>option]:bg-[#120826] dark:[&>option]:text-white">
                 <option value="Website">Website</option>
                 <option value="App">App</option>
@@ -165,15 +177,19 @@ export function LeadForm({ onSubmitSuccess }: LeadFormProps) {
           </div>
 
           <div className="w-full">
-            <label className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5 text-left">
+            <label
+              htmlFor="lead-details"
+              className="block text-[10px] uppercase tracking-wider text-[var(--text-primary)] font-bold mb-1.5 text-left">
               Project Details
             </label>
             <textarea
+              id="lead-details"
               name="details"
               rows={3}
               value={formData.details}
               onChange={(e) => handleFieldChange("details", e.target.value)}
               placeholder="Tell us a bit about your project..."
+              aria-label="Project Details"
               className="w-full px-4 py-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-sm text-[var(--text-primary)] placeholder-black/35 dark:placeholder-white/30 focus:outline-none focus:border-[var(--primary)] transition-all resize-none"
             />
           </div>

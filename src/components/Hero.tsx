@@ -13,7 +13,7 @@ export function Hero() {
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-28 pb-16 px-4 md:px-8">
+    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-36 md:pt-32 pb-16 px-4 md:px-8">
       <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--background-secondary)_0%,_var(--background)_100%)] opacity-50" />
 
       <motion.div className="absolute inset-0 z-0" style={{ y: y1, opacity }}>
@@ -58,13 +58,13 @@ export function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}>
-            <a href="#contact" className="w-full sm:w-auto">
-              <MagneticButton className="w-full sm:w-auto rounded-xl px-6 py-4 bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-base sm:text-sm text-white shadow-[0_0_20px_rgba(123,44,191,0.3)] border-none flex items-center justify-center">
+            <a href="#contact" className="w-full sm:w-auto inline-block min-h-[48px]">
+              <MagneticButton className="w-full sm:w-auto rounded-xl px-6 py-4 min-h-[48px] bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-base sm:text-sm text-white shadow-[0_0_20px_rgba(123,44,191,0.3)] border-none flex items-center justify-center">
                 Book a Free Strategy Call →
               </MagneticButton>
             </a>
-            <a href="#work" className="w-full sm:w-auto">
-              <MagneticButton className="w-full sm:w-auto rounded-xl px-6 py-4 glass-panel font-bold text-base sm:text-sm text-[var(--text-primary)] border border-white/10 hover:bg-white/5 transition-all flex items-center justify-center">
+            <a href="#work" className="w-full sm:w-auto inline-block min-h-[48px]">
+              <MagneticButton className="w-full sm:w-auto rounded-xl px-6 py-4 min-h-[48px] glass-panel font-bold text-base sm:text-sm text-[var(--text-primary)] border border-white/10 hover:bg-white/5 transition-all flex items-center justify-center">
                 See Our Work →
               </MagneticButton>
             </a>

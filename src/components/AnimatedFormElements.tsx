@@ -15,10 +15,12 @@ export function AnimatedInput({
   onChange,
 }: AnimatedInputProps) {
   const [isFocused, setIsFocused] = useState(false);
+  const inputId = name ? `animated-input-${name}` : undefined;
 
   return (
     <div className="relative w-full border-b border-[var(--text-secondary)]/15 py-2 mt-4 text-left">
       <motion.label
+        htmlFor={inputId}
         initial={{ y: 0, scale: 1 }}
         animate={{
           y: isFocused || value ? -24 : 0,
@@ -32,6 +34,7 @@ export function AnimatedInput({
       </motion.label>
 
       <input
+        id={inputId}
         type={type}
         name={name}
         required={required}
@@ -39,6 +42,7 @@ export function AnimatedInput({
         onChange={(e) => onChange(e.target.value)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
+        aria-label={label}
         className="w-full bg-transparent text-[var(--text-primary)] border-none outline-none py-1 text-base font-light focus:ring-0 focus:outline-none"
       />
 
@@ -63,10 +67,12 @@ export function AnimatedTextarea({
   onChange,
 }: AnimatedTextareaProps) {
   const [isFocused, setIsFocused] = useState(false);
+  const textareaId = name ? `animated-textarea-${name}` : undefined;
 
   return (
     <div className="relative w-full border-b border-[var(--text-secondary)]/15 py-2 mt-6 text-left">
       <motion.label
+        htmlFor={textareaId}
         initial={{ y: 0, scale: 1 }}
         animate={{
           y: isFocused || value ? -24 : 0,
@@ -80,6 +86,7 @@ export function AnimatedTextarea({
       </motion.label>
 
       <textarea
+        id={textareaId}
         name={name}
         required={required}
         value={value}
@@ -87,6 +94,7 @@ export function AnimatedTextarea({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         rows={4}
+        aria-label={label}
         className="w-full bg-transparent text-[var(--text-primary)] border-none outline-none py-1 text-base font-light focus:ring-0 resize-none focus:outline-none"
       />
 
@@ -111,10 +119,12 @@ export function AnimatedSelect({
   children,
 }: AnimatedSelectProps) {
   const [isFocused, setIsFocused] = useState(false);
+  const selectId = name ? `animated-select-${name}` : undefined;
 
   return (
     <div className="relative w-full border-b border-[var(--text-secondary)]/15 py-2 mt-4 text-left">
       <motion.label
+        htmlFor={selectId}
         initial={{ y: 0, scale: 1 }}
         animate={{
           y: isFocused || value ? -24 : 0,
@@ -128,11 +138,13 @@ export function AnimatedSelect({
       </motion.label>
 
       <select
+        id={selectId}
         name={name}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
+        aria-label={label}
         className="w-full bg-transparent text-[var(--text-primary)] border-none outline-none py-1 text-base font-light focus:ring-0 focus:outline-none [&>option]:bg-white [&>option]:text-black dark:[&>option]:bg-[#120826] dark:[&>option]:text-white">
         {children}
       </select>

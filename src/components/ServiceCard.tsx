@@ -111,7 +111,6 @@ export function ServiceCard({
               ? "bg-purple-50 dark:bg-[#150a26] border-purple-500/60"
               : "bg-white dark:bg-[#0c0a12] border-purple-500/40 dark:border-purple-500/40"
           }`}>
-          {/* Top content */}
           <div className="flex flex-col items-start gap-4 flex-1">
             {icon && (
               <div className="w-14 h-14 rounded-full bg-[var(--primary)]/10 dark:bg-[var(--primary)]/15 flex items-center justify-center text-[var(--primary)] shrink-0 shadow-sm">
@@ -120,9 +119,9 @@ export function ServiceCard({
             )}
 
             <div className="flex flex-col gap-2 mt-2">
-              <h4 className="font-display text-xl font-bold text-[var(--text-primary)] tracking-tight">
+              <h3 className="font-display text-xl font-bold text-[var(--text-primary)] tracking-tight">
                 {service.title}
-              </h4>
+              </h3>
               <p
                 className={`text-sm ${isHovered ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]"} font-light leading-relaxed`}>
                 {service.description}
@@ -130,7 +129,6 @@ export function ServiceCard({
             </div>
           </div>
 
-          {/* Bottom: badge + Learn More button — always on one line */}
           <div className="flex items-center justify-between mt-6 gap-3">
             {service.badge && (
               <div className="min-w-0 truncate bg-gradient-to-r from-purple-500/20 via-fuchsia-500/25 to-indigo-500/20 border border-purple-400/40 dark:border-purple-400/50 text-purple-700 dark:text-purple-300 px-3 py-1 rounded-full text-xs font-bold select-none shadow-[0_0_12px_rgba(168,85,247,0.25)]">
