@@ -23,6 +23,21 @@ export default defineConfig({
     },
     build: {
       chunkSizeWarningLimit: 1000,
+      target: "esnext",
+      minify: "esbuild",
+      cssMinify: true,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes("node_modules/react") || id.includes("node_modules/react-dom")) {
+              return "react-vendor";
+            }
+            if (id.includes("node_modules/framer-motion")) {
+              return "framer-motion";
+            }
+          },
+        },
+      },
     },
   },
 });

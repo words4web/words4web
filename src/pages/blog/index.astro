@@ -5,6 +5,7 @@ import { CustomCursor } from '../../components/CustomCursor';
 import { Navbar } from '../../components/Navbar';
 import { Footer } from '../../components/Footer';
 import { allBlogPosts } from '../../data/blogs';
+import { Image } from 'astro:assets';
 
 const sortedPosts = [...allBlogPosts].sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -56,9 +57,11 @@ function formatDate(dateStr: string) {
                 
                 <div>
                   <div class="relative aspect-video w-full overflow-hidden bg-black/5 dark:bg-white/5">
-                    <img 
+                    <Image 
                       src={post.headerImage} 
                       alt={post.title}
+                      width={800}
+                      height={450}
                       class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />

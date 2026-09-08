@@ -28,7 +28,7 @@ const absoluteImageURL = new URL(image, Astro.url.href).href;
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Primary Meta Tags -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/logo/logo_purple.png" />
@@ -38,17 +38,34 @@ const absoluteImageURL = new URL(image, Astro.url.href).href;
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
 
-    <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
 
-    <!-- Open Graph / Facebook -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      />
+    </noscript>
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={absoluteImageURL} />
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
@@ -56,7 +73,6 @@ const absoluteImageURL = new URL(image, Astro.url.href).href;
     <meta property="twitter:image" content={absoluteImageURL} />
 
     <script is:inline>
-      // Inline script to prevent theme flickering on page load
       const stored = localStorage.getItem("words4web-theme");
       const theme =
         stored ||
@@ -70,14 +86,13 @@ const absoluteImageURL = new URL(image, Astro.url.href).href;
   <body>
     <slot />
     <script>
-      // Global smooth scroll for all local anchor links
+     
       document.addEventListener("click", (e) => {
         const anchor = (e.target as HTMLElement).closest("a");
         if (!anchor) return;
         let href = anchor.getAttribute("href");
         if (!href) return;
 
-        // Normalize root-relative anchors (e.g. /#services -> #services) on the home page
         if (href.startsWith("/#") && window.location.pathname === "/") {
           href = href.substring(1);
         }
@@ -101,10 +116,6 @@ const absoluteImageURL = new URL(image, Astro.url.href).href;
           }
         }
       });
-    </script>
-    <script>
-      import { inject } from "@vercel/analytics";
-      inject();
     </script>
   </body>
 </html>

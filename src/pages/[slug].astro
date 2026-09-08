@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 import { SmoothScroll } from "../components/SmoothScroll";
 import { CustomCursor } from "../components/CustomCursor";
 import { Navbar } from "../components/Navbar";
@@ -56,18 +57,18 @@ const pageDescription = service.description;
     <main
       class="py-10 md:py-12 px-4 max-w-7xl mx-auto flex flex-col gap-12 md:gap-24 relative z-10">
 
-      <!-- ═══════════════════════════════════════════════
-           HERO: Image top on mobile / side-by-side on lg
-      ════════════════════════════════════════════════ -->
       <section class="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-16 items-center">
         <!-- Hero Image — always first visually on mobile -->
         <div
           class="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl aspect-square lg:order-1 bg-black/[0.02] dark:bg-white/[0.02]">
-          <img
+          <Image
             src={service.image}
             alt={service.title}
+            width={800}
+            height={800}
             class="w-full h-full object-cover"
             loading="eager"
+            fetchpriority="high"
           />
           <!-- Gradient overlay -->
           <div
@@ -133,9 +134,6 @@ const pageDescription = service.description;
         </div>
       </section>
 
-      <!-- ═══════════════════════════════════════════════
-           CONTENT SECTIONS (from services.md)
-      ════════════════════════════════════════════════ -->
       {
         service.sections && service.sections.length > 0 && (
           <section class="flex flex-col gap-10 md:gap-14 border-t border-black/[0.08] dark:border-white/[0.08] pt-10 md:pt-20">
@@ -191,9 +189,6 @@ const pageDescription = service.description;
         )
       }
 
-      <!-- ═══════════════════════════════════════════════
-           RELATED SERVICES
-      ════════════════════════════════════════════════ -->
       <section
         class="border-t border-black/[0.08] dark:border-white/[0.08] pt-10 md:pt-20 flex flex-col gap-6 md:gap-10">
         <div class="text-center max-w-3xl mx-auto flex flex-col gap-2 md:gap-3">
@@ -239,9 +234,6 @@ const pageDescription = service.description;
         </div>
       </section>
 
-      <!-- ═══════════════════════════════════════════════
-           CTA BANNER
-      ════════════════════════════════════════════════ -->
       <section
         class="w-full p-[2px] rounded-2xl md:rounded-3xl bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 shadow-2xl relative overflow-hidden group">
         <div

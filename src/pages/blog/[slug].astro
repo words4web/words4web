@@ -4,6 +4,7 @@ import { SmoothScroll } from '../../components/SmoothScroll';
 import { CustomCursor } from '../../components/CustomCursor';
 import { Navbar } from '../../components/Navbar';
 import { Footer } from '../../components/Footer';
+import { Image } from 'astro:assets';
 import { allBlogPosts } from '../../data/blogs';
 
 export async function getStaticPaths() {
@@ -34,7 +35,11 @@ function formatDate(dateStr: string) {
 function parseMarkdown(text: string) {
   let html = text.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g, 
-    '<a href="$2" class="text-[var(--primary)] font-semibold hover:underline relative interactive">$1</a>'
+    (match, text, url) => {
+      const isExternal = url.startsWith('http://') || url.startsWith('https://');
+      const extraAttrs = isExternal ? ' target="_blank" rel="nofollow noopener noreferrer"' : '';
+      return `<a href="${url}"${extraAttrs} class="text-[var(--primary)] font-semibold hover:underline relative interactive">${text}</a>`;
+    }
   );
   html = html.replace(
     /\*\*([^*]+)\*\*/g, 
@@ -71,9 +76,13 @@ function parseMarkdown(text: string) {
 
       <div class="w-full max-w-[1200px] [@media(min-width:1400px)]:max-w-[80vw] mx-auto rounded-3xl overflow-hidden shadow-2xl mb-12 border border-black/5 dark:border-white/5 animate-pulse-glow">
         <div class="relative w-full" style="padding-top: 56.25%;">
-          <img 
+          <Image 
             src={post.headerImage} 
             alt={post.title} 
+            width={1200}
+            height={675}
+            loading="eager"
+            fetchpriority="high"
             class="absolute inset-0 w-full h-full object-cover"
           />
         </div>
@@ -109,9 +118,12 @@ function parseMarkdown(text: string) {
                   />
                 </div>
                 <div class="relative rounded-[14px] overflow-hidden bg-black/5 dark:bg-white/5 z-10">
-                  <img 
+                  <Image 
                     src={block.value} 
                     alt="Blog visual asset" 
+                    width={1000}
+                    height={600}
+                    loading="lazy"
                     class="w-full h-auto object-cover max-h-[600px]"
                   />
                 </div>
@@ -165,7 +177,7 @@ function parseMarkdown(text: string) {
             {post.citations.map((cite) => (
               <li class="flex items-start gap-3 text-sm text-[var(--text-secondary)]">
                 <span class="text-[var(--primary)] font-bold mt-0.5">•</span>
-                <a href={cite} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--primary)] hover:underline break-all transition-colors duration-200 interactive font-medium">
+                <a href={cite} target="_blank" rel="nofollow noopener noreferrer" class="text-[var(--primary)] font-semibold hover:underline break-all transition-colors duration-200 interactive">
                   {cite}
                 </a>
               </li>
