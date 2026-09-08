@@ -38,7 +38,6 @@ export function Contact() {
   return (
     <Section id="contact" hasBorderTop>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
-        {/* Left Column - Info & Image */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -65,10 +64,9 @@ export function Contact() {
             </p>
           </div>
 
-          {/* Representative Card Image */}
           <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative border border-[var(--text-secondary)]/10 group">
             <img
-              src="/contact/representative.jpg"
+              src="/contact/representative.webp"
               alt="Smiling support representative"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             />
@@ -76,7 +74,6 @@ export function Contact() {
           </div>
         </motion.div>
 
-        {/* Right Column - Form */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -92,7 +89,6 @@ export function Contact() {
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                  {/* Honeypot field — hidden from users, catches bots */}
                   <input
                     type="text"
                     name="website"
