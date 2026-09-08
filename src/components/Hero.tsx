@@ -58,16 +58,24 @@ export function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}>
-            <a href="#contact" className="w-full sm:w-auto inline-block min-h-[48px]">
-              <MagneticButton className="w-full sm:w-auto rounded-xl px-6 py-4 min-h-[48px] bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-base sm:text-sm text-white shadow-[0_0_20px_rgba(123,44,191,0.3)] border-none flex items-center justify-center">
-                Book a Free Strategy Call →
-              </MagneticButton>
-            </a>
-            <a href="#work" className="w-full sm:w-auto inline-block min-h-[48px]">
-              <MagneticButton className="w-full sm:w-auto rounded-xl px-6 py-4 min-h-[48px] glass-panel font-bold text-base sm:text-sm text-[var(--text-primary)] border border-white/10 hover:bg-white/5 transition-all flex items-center justify-center">
-                See Our Work →
-              </MagneticButton>
-            </a>
+            <MagneticButton
+              onClick={() => {
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="w-full sm:w-auto rounded-xl px-6 py-4 min-h-[48px] bg-gradient-to-r from-[var(--primary)] to-[#9d4edd] font-bold text-base sm:text-sm text-white shadow-[0_0_20px_rgba(123,44,191,0.3)] border-none flex items-center justify-center">
+              Book a Free Strategy Call →
+            </MagneticButton>
+            <MagneticButton
+              onClick={() => {
+                document
+                  .getElementById("work")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="w-full sm:w-auto rounded-xl px-6 py-4 min-h-[48px] glass-panel font-bold text-base sm:text-sm text-[var(--text-primary)] border border-white/10 hover:bg-white/5 transition-all flex items-center justify-center">
+              See Our Work →
+            </MagneticButton>
           </motion.div>
 
           <motion.p
