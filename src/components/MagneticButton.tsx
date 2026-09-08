@@ -17,18 +17,36 @@ export function MagneticButton({
   variant = "primary",
   ...props
 }: MagneticButtonProps) {
-  const ref = useRef<HTMLButtonElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const boundsRef = useRef<{
+    height: number;
+    width: number;
+    left: number;
+    top: number;
+  } | null>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
+  const handleMouseEnter = () => {
+    if (buttonRef.current) {
+      boundsRef.current = buttonRef.current.getBoundingClientRect();
+    }
+  };
+
   const handleMouse = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!boundsRef.current && buttonRef.current) {
+      boundsRef.current = buttonRef.current.getBoundingClientRect();
+    }
+    if (!boundsRef.current) return;
+
     const { clientX, clientY } = e;
-    const { height, width, left, top } = ref.current!.getBoundingClientRect();
+    const { height, width, left, top } = boundsRef.current;
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
     setPosition({ x: middleX * 0.2, y: middleY * 0.2 });
   };
 
   const reset = () => {
+    boundsRef.current = null;
     setPosition({ x: 0, y: 0 });
   };
 
@@ -43,7 +61,8 @@ export function MagneticButton({
 
   return (
     <motion.button
-      ref={ref}
+      ref={buttonRef}
+      onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
       animate={{ x: position.x, y: position.y }}

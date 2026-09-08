@@ -44,14 +44,10 @@ export function Hero() {
             </span>
           </motion.div>
 
-          <motion.h1
-            className="font-display font-bold text-4xl md:text-7xl tracking-tight leading-[1.1] mb-6 text-[var(--text-primary)]"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}>
+          <h1 className="font-display font-bold text-4xl md:text-7xl tracking-tight leading-[1.1] mb-6 text-[var(--text-primary)]">
             Build Your Brand <br />
             <span className="text-gradient">with Words4Web</span>
-          </motion.h1>
+          </h1>
 
           <motion.p
             className="text-base md:text-lg text-[var(--text-secondary)] max-w-2xl font-light mb-8 leading-relaxed"

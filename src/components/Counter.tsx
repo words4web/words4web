@@ -15,25 +15,27 @@ export function Counter({
 
   useEffect(() => {
     if (!isInView || typeof value !== "number") return;
-    let start = 0;
-    const end = value;
+    let startTime: number | null = null;
     const duration = 2000;
-    const steps = 60;
-    const stepValue = end / steps;
-    const stepTime = duration / steps;
-    let currentStep = 0;
+    const startVal = 0;
+    const endVal = value;
+    let animationFrameId: number;
 
-    const timer = setInterval(() => {
-      currentStep++;
-      if (currentStep >= steps) {
-        clearInterval(timer);
-        setCount(end);
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      setCount(Math.floor(startVal + (endVal - startVal) * progress));
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(step);
       } else {
-        setCount(Math.round(stepValue * currentStep));
+        setCount(endVal);
       }
-    }, stepTime);
+    };
 
-    return () => clearInterval(timer);
+    animationFrameId = requestAnimationFrame(step);
+
+    return () => cancelAnimationFrame(animationFrameId);
   }, [isInView, value]);
 
   const displayValue = typeof value === "number" ? count : value;
