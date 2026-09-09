@@ -124,11 +124,16 @@
     background-color: var(--background);
     color: var(--text-primary);
     font-family: var(--font-sans);
-    cursor: none; /* Custom cursor */
     overflow-x: hidden;
     transition:
       background-color 0.5s ease,
       color 0.5s ease;
+  }
+
+  @media (pointer: fine) {
+    body {
+      cursor: none;
+    }
   }
 }
 

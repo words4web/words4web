@@ -14,11 +14,12 @@ export function CustomCursor() {
   const [isEnabled, setIsEnabled] = useState(false);
 
   useEffect(() => {
-    // Check if the device matches a touch pointer (coarse) or has small screen width
+    // Check if the device matches a fine pointer (mouse/trackpad on desktop)
     const mediaQuery = window.matchMedia("(pointer: fine)");
-    setIsEnabled(mediaQuery.matches);
+    const hasFinePointer = mediaQuery.matches;
+    setIsEnabled(hasFinePointer);
 
-    if (!mediaQuery.matches) return;
+    if (!hasFinePointer) return;
 
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 16);
@@ -57,7 +58,7 @@ export function CustomCursor() {
       window.removeEventListener("mousemove", moveCursor);
       window.removeEventListener("mouseover", handleMouseOver);
     };
-  }, [cursorX, cursorY, isEnabled]);
+  }, [cursorX, cursorY]);
 
   if (!isEnabled) return null;
 
