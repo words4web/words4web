@@ -176,7 +176,7 @@ export function WhyChooseUs() {
                 className="w-32 h-auto object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.4)]"
               />
               <span className="text-[11px] font-bold uppercase tracking-widest text-purple-100 mt-2 filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
-                1 Team. ∞ Results.
+                1 Team ∞ Results
               </span>
             </div>
           </div>

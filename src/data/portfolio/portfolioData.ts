@@ -126,9 +126,9 @@ export const clientMapping: Record<string, string> = {
   "social-cgi-vepura-2": "Vepura",
   "vezyrouglou-farm-logo": "Vepura",
 
-  // Sartaaj
-  "mobileapp-sartaaj": "Sartaaj",
-  "amazon-sartaaj": "Sartaaj",
+  // Sartaj Foods
+  "mobileapp-sartaj": "Sartaj Foods",
+  "amazon-sartaj": "Sartaj Foods",
 
   // Grainful
   "grainful-exports": "Other Projects",
@@ -178,7 +178,7 @@ export const clientCategories = [
   "Hansons",
   "Filipe Carrera",
   "Vepura",
-  "Sartaaj",
+  "Sartaj Foods",
   "German QSR Brand",
   "Other Projects",
 ] as const;

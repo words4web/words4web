@@ -12,8 +12,8 @@ export const mobileAppData: PortfolioItem[] = [
     image: "/mobileapp/box2box.jpg",
   },
   {
-    id: "mobileapp-sartaaj",
+    id: "mobileapp-sartaj",
     category: "Mobile App Development",
-    image: "/mobileapp/sartaaj.jpg",
+    image: "/mobileapp/sartaj.jpg",
   },
 ];

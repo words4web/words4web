@@ -12,9 +12,9 @@ export const amazonData: PortfolioItem[] = [
     image: "/amazon/spicy-world.jpg",
   },
   {
-    id: "amazon-sartaaj",
+    id: "amazon-sartaj",
     category: "Amazon Marketing",
-    image: "/amazon/sartaaj.jpg",
+    image: "/amazon/sartaj.jpg",
   },
   {
     id: "amazon-dsf",
