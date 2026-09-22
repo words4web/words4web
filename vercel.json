@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/seo-services",
+      "destination": "/search-engine-optimization",
+      "permanent": true
+    },
+    {
+      "source": "/social-media-optimization",
+      "destination": "/social-media-optimisation",
+      "permanent": true
+    },
+    {
+      "source": "/web-designing-services",
+      "destination": "/web-development",
+      "permanent": true
+    },
+    {
+      "source": "/graphic-designing-services",
+      "destination": "/graphic-designing",
+      "permanent": true
+    }
+  ]
+}

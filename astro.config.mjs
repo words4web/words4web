@@ -9,6 +9,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   site: "https://www.words4web.com",
+  redirects: {
+    "/seo-services": "/search-engine-optimization",
+    "/social-media-optimization": "/social-media-optimisation",
+    "/web-designing-services": "/web-development",
+    "/graphic-designing-services": "/graphic-designing",
+  },
   integrations: [react(), sitemap()],
   build: {
     inlineStylesheets: "always",
@@ -32,7 +38,10 @@ export default defineConfig({
       rollupOptions: {
         output: {
           manualChunks(id) {
-            if (id.includes("node_modules/react") || id.includes("node_modules/react-dom")) {
+            if (
+              id.includes("node_modules/react") ||
+              id.includes("node_modules/react-dom")
+            ) {
               return "react-vendor";
             }
             if (id.includes("node_modules/framer-motion")) {
