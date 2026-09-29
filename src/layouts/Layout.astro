@@ -10,7 +10,7 @@ interface Props {
 const {
   title = "Words4Web | Web Development, SEO & Digital Marketing Agency",
   description = "Words4Web builds high-performance websites and runs goal-driven SEO, PPC, and digital marketing campaigns for businesses.",
-  image = "/logo/logo_purple.png",
+  image = "/logo/Words4Web-logo.png",
 } = Astro.props;
 
 let canonicalURL = new URL(
@@ -31,8 +31,8 @@ const absoluteImageURL = new URL(image, Astro.url.href).href;
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/logo/logo_purple.png" />
-    <link rel="preload" as="image" href="/logo/logo_purple.png" type="image/png" fetchpriority="high" />
+    <link rel="icon" type="image/png" href="/logo/Words4Web-logo.png" />
+    <link rel="preload" as="image" href="/logo/Words4Web-logo.png" type="image/png" fetchpriority="high" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -73,6 +73,54 @@ const absoluteImageURL = new URL(image, Astro.url.href).href;
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={absoluteImageURL} />
+
+    <!-- Local Business Schema -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Words4Web Digital Marketing Agency",
+        "image": "https://www.words4web.com/logo/Words4Web-logo.png",
+        "@id": "https://www.words4web.com/",
+        "url": "https://www.words4web.com/",
+        "telephone": "+917020207611",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "5037, SSRF, Near City Center Mall, Lavate Nagar",
+          "addressLocality": "Nashik",
+          "postalCode": "422002",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 19.9904239,
+          "longitude": 73.7615098
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "00:00",
+          "closes": "23:59"
+        },
+        "sameAs": [
+          "https://www.facebook.com/people/Words4Web/61577399276059/",
+          "https://www.instagram.com/words.4web/",
+          "https://www.youtube.com/@words.4web",
+          "https://in.linkedin.com/company/words-4-web",
+          "https://in.pinterest.com/words4web/",
+          "https://www.words4web.com/"
+        ]
+      })}
+    />
 
     <script is:inline>
       const stored = localStorage.getItem("words4web-theme");

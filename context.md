@@ -21,7 +21,7 @@ This repository contains the official codebase for the **words4web** official we
 
 - [**`assets/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/assets) - General styling, fonts, and helper media.
 - [**`contact/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/contact) - Assets specific to the Contact section.
-- [**`logo/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/logo) - Brand logo variations (`logo_purple.png`, `logo_black.png`, etc.).
+- [**`logo/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/logo) - Brand logo variations (`Words4Web-logo.png`, `Words4Web-logo-white.png`, `Words4Web-logo-black.png`).
 - [**`services/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/services) - Hero images for each service page (`web_development.jpg`, `mobile_app.jpg`, `seo.jpg`, etc.).
 - [**`tools/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/tools) - SVG icons for tools/technologies used in case studies (e.g., `canva.svg`, `translate-language.svg`).
 - [**`work/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/work) - High-resolution screenshots and visuals for selected work and case study projects (e.g., `box2box_web.webp`, `filipe_carrera.webp`, `isle_project.webp`).

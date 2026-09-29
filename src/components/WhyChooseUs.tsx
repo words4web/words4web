@@ -171,8 +171,8 @@ export function WhyChooseUs() {
             {/* Inner Content */}
             <div className="flex flex-col items-center justify-center text-center text-white z-10 px-4">
               <img
-                src="/logo/logo_white.png"
-                alt="Words4Web Logo"
+                src="/logo/Words4Web-logo-white.png"
+                alt="Words4Web Digital Marketing Agency"
                 className="w-32 h-auto object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.4)]"
               />
               <span className="text-[11px] font-bold uppercase tracking-widest text-purple-100 mt-2 filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">

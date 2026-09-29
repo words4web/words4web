@@ -115,8 +115,8 @@ export function Navbar() {
             href={isHome ? "#" : "/"}
             className="flex items-center interactive cursor-pointer">
             <img
-              src="/logo/logo_purple.png"
-              alt="words4web logo"
+              src="/logo/Words4Web-logo.png"
+              alt="Words4Web Digital Marketing Agency"
               width="250"
               height="96"
               fetchPriority="high"

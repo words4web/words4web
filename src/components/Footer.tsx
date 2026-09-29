@@ -23,8 +23,8 @@ export function Footer() {
           <div className="flex flex-col gap-6">
             <div className="flex items-center">
               <img
-                src="/logo/logo_purple.png"
-                alt="Words4Web logo"
+                src="/logo/Words4Web-logo.png"
+                alt="Words4Web Digital Marketing Agency"
                 style={{ height: "150px", width: "auto" }}
                 className="object-contain"
               />
