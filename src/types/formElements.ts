@@ -1,3 +1,5 @@
+import type { CountryCode } from "../data/homepage/countryCodes";
+
 export interface AnimatedInputProps {
   label: string;
   type?: string;
@@ -39,9 +41,7 @@ export interface PhoneInputProps {
   name?: string;
   value: string;
   onChange: (val: string) => void;
-  onCountryChange?: (
-    country: import("../data/countryCodes").CountryCode,
-  ) => void;
-  selectedCountry?: import("../data/countryCodes").CountryCode;
+  onCountryChange?: (country: CountryCode) => void;
+  selectedCountry?: CountryCode;
   variant?: "floating" | "box";
 }
