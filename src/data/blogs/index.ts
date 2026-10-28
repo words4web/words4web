@@ -10,6 +10,7 @@ import { mobileAppTrends2026Post } from "./mobile-app-trends-2026";
 import { aiMobileAppDevelopment2026Post } from "./ai-mobile-app-development-2026";
 import { flutterVsReactNative2026Post } from "./flutter-vs-react-native-2026";
 import { performanceMarketing2026Post } from "./performance-marketing-2026";
+import { howToChoosePerformanceMarketingAgencyPost } from "./how-to-choose-a-performance-marketing-agency";
 
 export const allBlogPosts = [
   keywordResearchSeoPost,
@@ -24,4 +25,5 @@ export const allBlogPosts = [
   aiMobileAppDevelopment2026Post,
   flutterVsReactNative2026Post,
   performanceMarketing2026Post,
+  howToChoosePerformanceMarketingAgencyPost,
 ];

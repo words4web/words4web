@@ -21,6 +21,7 @@ This repository contains the official codebase for the **words4web** official we
 
 - [**`assets/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/assets) - General styling, fonts, and helper media.
 - [**`contact/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/contact) - Assets specific to the Contact section.
+- [**`blog/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/blog) - Media assets and featured banners organized per blog article slug (e.g., `performance-marketing-agency/`, `agency-ai-tools/`).
 - [**`logo/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/logo) - Brand logo variations (`Words4Web-logo.png`, `Words4Web-logo-white.png`, `Words4Web-logo-black.png`).
 - [**`services/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/services) - Hero images for each service page (`web_development.jpg`, `mobile_app.jpg`, `seo.jpg`, etc.).
 - [**`tools/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/tools) - SVG icons for tools/technologies used in case studies (e.g., `canva.svg`, `translate-language.svg`).
@@ -85,6 +86,9 @@ The data layer is modularized into subdirectories to keep configurations organiz
   - Individual sub-tab category lists (`websiteDesignData.ts`, `brochureData.ts`, `catalogData.ts`, `logosData.ts`, `socialMediaData.ts`, `tataData.ts`, `amazonData.ts`, `mobileAppData.ts`, `packagingData.ts`).
 - [**`homepage/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/homepage)
   - Miscellaneous landing section items (`faqData.ts`, `founderData.ts`, `heroCardsData.ts`, `testimonialsData.ts`, `tickerData.ts`, `toolsData.ts`, `whyChooseUsData.tsx`, `industriesData.tsx`, `processData.tsx`, `statsData.tsx`, `countriesData.ts`, `countryCodes.ts`).
+- [**`blogs/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/blogs)
+  - `index.ts` - Master list aggregation exporting `allBlogPosts` sorted across the blog system.
+  - Dedicated TypeScript article posts typed as `BlogPostData` with structured content blocks, FAQs, and citations. Includes newest guides such as `how-to-choose-a-performance-marketing-agency.ts` and `performance-marketing-2026.ts`.
 
 ---
 
@@ -144,3 +148,4 @@ pnpm astro    # Run Astro CLI utility commands directly
 - **Vercel Web Analytics**: Bootstrapped in `Layout.astro` layout wrapper using `@vercel/analytics` module `inject()` call inside client script tags.
 - **WhatsApp Chat Integration**: Accessible through a custom `w-12 h-12` magnetic navbar bubble on desktop headers and an aligned horizontal magnetic CTA inside the mobile menu drawer.
 - **MagneticButton spanClassName**: Extended the custom button component to accept an optional `spanClassName` prop, allowing users to override flex container properties on nested spans without breaking defaults.
+- **Blog Content Pipeline**: Blog posts are defined statically in `src/data/blogs/` conforming to `BlogPostData` (`types/blog.ts`) with custom content blocks (`paragraph`, `heading`, `image`), collapsible FAQs, and citations. Each article is registered in `src/data/blogs/index.ts`, dynamically rendered via `pages/blog/[slug].astro` and listed on `pages/blog/index.astro`.
