@@ -4,7 +4,7 @@ export const howToChoosePerformanceMarketingAgencyPost: BlogPostData = {
   slug: "how-to-choose-a-performance-marketing-agency-7-tips",
   title: "How to Choose a Performance Marketing Agency: 7 Tips",
   author: "Words4Web",
-  date: "2026-10-28",
+  date: "2026-10-22",
   headerImage: "/blog/performance-marketing-agency/featured.webp",
   content: [
     {
