@@ -88,7 +88,7 @@ The data layer is modularized into subdirectories to keep configurations organiz
   - Miscellaneous landing section items (`faqData.ts`, `founderData.ts`, `heroCardsData.ts`, `testimonialsData.ts`, `tickerData.ts`, `toolsData.ts`, `whyChooseUsData.tsx`, `industriesData.tsx`, `processData.tsx`, `statsData.tsx`, `countriesData.ts`, `countryCodes.ts`).
 - [**`blogs/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/src/data/blogs)
   - `index.ts` - Master list aggregation exporting `allBlogPosts` sorted across the blog system.
-  - Dedicated TypeScript article posts typed as `BlogPostData` with structured content blocks, FAQs, and citations. Includes newest guides such as `how-to-reduce-cost-per-click.ts`, `how-to-choose-a-performance-marketing-agency.ts`, and `performance-marketing-2026.ts`.
+  - Dedicated TypeScript article posts typed as `BlogPostData` with structured content blocks, FAQs, and citations. Includes newest guides such as `google-ads-vs-meta-ads.ts`, `how-to-reduce-cost-per-click.ts`, `how-to-choose-a-performance-marketing-agency.ts`, and `performance-marketing-2026.ts`.
 
 ---
 

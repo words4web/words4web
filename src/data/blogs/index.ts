@@ -12,6 +12,7 @@ import { flutterVsReactNative2026Post } from "./flutter-vs-react-native-2026";
 import { performanceMarketing2026Post } from "./performance-marketing-2026";
 import { howToChoosePerformanceMarketingAgencyPost } from "./how-to-choose-a-performance-marketing-agency";
 import { howToReduceCostPerClickPost } from "./how-to-reduce-cost-per-click";
+import { googleAdsVsMetaAdsPost } from "./google-ads-vs-meta-ads";
 
 export const allBlogPosts = [
   keywordResearchSeoPost,
@@ -28,4 +29,5 @@ export const allBlogPosts = [
   performanceMarketing2026Post,
   howToChoosePerformanceMarketingAgencyPost,
   howToReduceCostPerClickPost,
+  googleAdsVsMetaAdsPost,
 ];
