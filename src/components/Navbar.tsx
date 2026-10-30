@@ -107,9 +107,9 @@ export function Navbar() {
           scrolled ? "py-2 navbar-glass" : "bg-transparent",
         )}
         style={{ border: "none" }}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
         <div className="w-full flex items-center justify-between">
           <a
             href={isHome ? "#" : "/"}

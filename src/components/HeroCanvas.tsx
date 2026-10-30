@@ -1,5 +1,4 @@
 import { Canvas } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
 import { ParticleSphere } from "./ParticleSphere";
 
 interface HeroCanvasProps {
@@ -8,10 +7,12 @@ interface HeroCanvasProps {
 
 export default function HeroCanvas({ theme }: HeroCanvasProps) {
   return (
-    <Canvas camera={{ position: [0, 0, 5], fov: 45 } as any}>
+    <Canvas
+      camera={{ position: [0, 0, 5], fov: 45 } as any}
+      gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
+      dpr={[1, 1.5]}>
       <ambientLight intensity={0.5} />
       <ParticleSphere theme={theme} />
-      <Environment preset="city" />
     </Canvas>
   );
 }
