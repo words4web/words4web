@@ -76,4 +76,10 @@ export const logosData: PortfolioItem[] = [
     category: "Logos",
     image: "/logos/entrenous-logo.jpg",
   },
+  {
+    id: "cosmic-fire-logo",
+    title: "Cosmic Fire",
+    category: "Logos",
+    image: "/logos/cosmic-fire-logo.png",
+  },
 ];

@@ -138,6 +138,10 @@ export const clientMapping: Record<string, string> = {
   "divine-aura-healing": "Other Projects",
   "divine-aura-logo": "Other Projects",
 
+  // Deol's Kitchen & Shelly Indian Foods
+  "deols-kitchen": "Other Projects",
+  "shelly-indian-foods": "Other Projects",
+
   // Live Constructions
   "live-constructions": "Other Projects",
   "live-constructions-logo": "Other Projects",
@@ -161,6 +165,7 @@ export const clientMapping: Record<string, string> = {
   "social-banner-quicksigner-3": "Other Projects",
   "social-logoanim-buneek": "Other Projects",
   "entrenous-logo": "Other Projects",
+  "cosmic-fire-logo": "Other Projects",
   "la-malle-logo": "Other Projects",
   "general-work-logo": "Other Projects",
   "work-3-logo": "Other Projects",

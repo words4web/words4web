@@ -44,7 +44,17 @@ export const websiteDesignData: PortfolioItem[] = [
   {
     id: "divine-aura-healing",
     category: "Website Design",
-    image: "/website/divine-aura-healing.webp",
+    image: "/website/Divine-Aura-Healing-Meopham-Kent.webp",
+  },
+  {
+    id: "deols-kitchen",
+    category: "Website Design",
+    image: "/website/Deol-s-Kitchen-UK.webp",
+  },
+  {
+    id: "shelly-indian-foods",
+    category: "Website Design",
+    image: "/website/Shelly-Indian-Foods-B2B.webp",
   },
   {
     id: "rkb-kent-concrete",
