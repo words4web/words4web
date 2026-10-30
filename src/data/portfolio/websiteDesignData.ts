@@ -71,4 +71,9 @@ export const websiteDesignData: PortfolioItem[] = [
     category: "Website Design",
     image: "/website/live-constructions.webp",
   },
+  {
+    id: "sartaj-foods-website",
+    category: "Website Design",
+    image: "/website/Sartaj-Foods-Japan-Website.webp",
+  },
 ];

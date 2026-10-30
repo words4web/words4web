@@ -129,6 +129,7 @@ export const clientMapping: Record<string, string> = {
   // Sartaj Foods
   "mobileapp-sartaj": "Sartaj Foods",
   "amazon-sartaj": "Sartaj Foods",
+  "sartaj-foods-website": "Sartaj Foods",
 
   // Grainful
   "grainful-exports": "Other Projects",
