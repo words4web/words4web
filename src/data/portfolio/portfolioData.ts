@@ -128,6 +128,10 @@ export const clientMapping: Record<string, string> = {
   // Vepura
   "social-acc-vepura": "Vepura",
   "social-reel-vepura": "Vepura",
+  "social-reel-vepura-2": "Vepura",
+  "social-reel-vepura-3": "Vepura",
+  "social-reel-vepura-4": "Vepura",
+  "social-reel-vepura-5": "Vepura",
   "social-motion-vepura": "Vepura",
   "social-cgi-vepura": "Vepura",
   "social-cgi-vepura-2": "Vepura",

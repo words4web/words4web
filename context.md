@@ -26,6 +26,9 @@ This repository contains the official codebase for the **words4web** official we
 - [**`services/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/services) - Hero images for each service page (`web_development.jpg`, `mobile_app.jpg`, `seo.jpg`, etc.).
 - [**`tools/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/tools) - SVG icons for tools/technologies used in case studies (e.g., `canva.svg`, `translate-language.svg`).
 - [**`work/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/work) - High-resolution screenshots and visuals for selected work and case study projects (e.g., `box2box_web.webp`, `filipe_carrera.webp`, `isle_project.webp`).
+- [**`social/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/social) - Social media creative deliverables including reels previews, static posts, motion graphics, banners, and account covers.
+- [**`packaging/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/packaging) - Product packaging visual deliverables and mockups.
+- [**`logos/`**](file:///home/mazahir/projects/work/Words4Web%20Project/word4web_website/public/logos) - Client identity and logo design showcases.
 
 ### 💻 Source Code (`/src/`)
 
@@ -149,3 +152,4 @@ pnpm astro    # Run Astro CLI utility commands directly
 - **WhatsApp Chat Integration**: Accessible through a custom `w-12 h-12` magnetic navbar bubble on desktop headers and an aligned horizontal magnetic CTA inside the mobile menu drawer.
 - **MagneticButton spanClassName**: Extended the custom button component to accept an optional `spanClassName` prop, allowing users to override flex container properties on nested spans without breaking defaults.
 - **Blog Content Pipeline**: Blog posts are defined statically in `src/data/blogs/` conforming to `BlogPostData` (`types/blog.ts`) with custom content blocks (`paragraph`, `heading`, `image`), collapsible FAQs, and citations. Each article is registered in `src/data/blogs/index.ts`, dynamically rendered via `pages/blog/[slug].astro` and listed on `pages/blog/index.astro`.
+- **Portfolio Deliverables & Media Format**: Deliverables in `src/data/portfolio/` (social media reels, packaging, logos, etc.) use high-efficiency `.webp` media formats stored in dedicated subdirectories under `/public/` (`/public/social/`, `/public/packaging/`, `/public/logos/`). When adding items to `socialMediaData.ts`, `packagingData.ts`, or `logosData.ts`, always ensure the corresponding IDs are registered in `portfolioData.ts` under `clientMapping` to display correctly within client tabs and category filters.
