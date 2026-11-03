@@ -228,6 +228,48 @@ export const socialMediaData: PortfolioItem[] = [
     image: "/social/reel-isle-5.webp",
     link: "https://www.instagram.com/reel/DaIpDq9KDtU/",
   },
+  {
+    id: "social-reel-sartaj-1",
+    category: "Social Media Marketing",
+    subCategory: "Reels",
+    image: "/social/reel-sartaj-1.webp",
+    link: "https://www.instagram.com/reel/Db0Cg2JTV90/",
+  },
+  {
+    id: "social-reel-sartaj-2",
+    category: "Social Media Marketing",
+    subCategory: "Reels",
+    image: "/social/reel-sartaj-2.webp",
+    link: "https://www.instagram.com/reel/DbNPPCETUVr/",
+  },
+  {
+    id: "social-reel-sartaj-3",
+    category: "Social Media Marketing",
+    subCategory: "Reels",
+    image: "/social/reel-sartaj-3.webp",
+    link: "https://www.instagram.com/reel/DfL4CB7TXzL/",
+  },
+  {
+    id: "social-reel-sartaj-4",
+    category: "Social Media Marketing",
+    subCategory: "Reels",
+    image: "/social/reel-sartaj-4.webp",
+    link: "https://www.instagram.com/reel/De0_DuAzx-P/",
+  },
+  {
+    id: "social-reel-sartaj-5",
+    category: "Social Media Marketing",
+    subCategory: "Reels",
+    image: "/social/reel-sartaj-5.webp",
+    link: "https://www.instagram.com/reel/DelxIrvJPen/",
+  },
+  {
+    id: "social-reel-sartaj-6",
+    category: "Social Media Marketing",
+    subCategory: "Reels",
+    image: "/social/reel-sartaj-6.webp",
+    link: "https://www.instagram.com/reel/DcrB_LozZ6M/",
+  },
   // Video uploads inside Reels
   {
     id: "social-video-1",
