@@ -179,6 +179,27 @@ export const socialMediaData: PortfolioItem[] = [
     image: "/social/reel-isle-2.jpg",
     link: "https://www.instagram.com/reel/DMnSy4tSCJV/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
   },
+  {
+    id: "social-reel-isle-3",
+    category: "Social Media Marketing",
+    subCategory: "Reels",
+    image: "/social/reel-isle-3.webp",
+    link: "https://www.instagram.com/reel/DepZX6DyocR",
+  },
+  {
+    id: "social-reel-isle-4",
+    category: "Social Media Marketing",
+    subCategory: "Reels",
+    image: "/social/reel-isle-4.webp",
+    link: "https://www.instagram.com/reel/Db2avnuKf0X",
+  },
+  {
+    id: "social-reel-isle-5",
+    category: "Social Media Marketing",
+    subCategory: "Reels",
+    image: "/social/reel-isle-5.webp",
+    link: "https://www.instagram.com/reel/DaIpDq9KDtU/",
+  },
   // Video uploads inside Reels
   {
     id: "social-video-1",

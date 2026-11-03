@@ -74,6 +74,9 @@ export const clientMapping: Record<string, string> = {
   "social-acc-isle": "EU Commission (ISLE)",
   "social-reel-isle": "EU Commission (ISLE)",
   "social-reel-isle-2": "EU Commission (ISLE)",
+  "social-reel-isle-3": "EU Commission (ISLE)",
+  "social-reel-isle-4": "EU Commission (ISLE)",
+  "social-reel-isle-5": "EU Commission (ISLE)",
   "social-logoanim-isle": "EU Commission (ISLE)",
 
   // Masala Guru
