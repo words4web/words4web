@@ -51,6 +51,10 @@ export const clientMapping: Record<string, string> = {
   "social-acc-rkb": "RKB",
   "social-reel-rkb-1": "RKB",
   "social-reel-rkb-2": "RKB",
+  "social-reel-rkb-3": "RKB",
+  "social-reel-rkb-4": "RKB",
+  "social-reel-rkb-5": "RKB",
+  "social-reel-rkb-6": "RKB",
   "social-logoanim-rkb": "RKB",
 
   // Dadoos
