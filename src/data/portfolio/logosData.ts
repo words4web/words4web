@@ -82,4 +82,9 @@ export const logosData: PortfolioItem[] = [
     category: "Logos",
     image: "/logos/cosmic-fire-logo.png",
   },
+  {
+    id: "work-16-logo",
+    category: "Logos",
+    image: "/logos/work-16-logo.webp",
+  },
 ];

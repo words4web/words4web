@@ -31,4 +31,19 @@ export const packagingData: PortfolioItem[] = [
     category: "Packaging",
     image: "/packaging/bombaychef.jpg",
   },
+  {
+    id: "packaging-work-13",
+    category: "Packaging",
+    image: "/packaging/packaging-work-13.webp",
+  },
+  {
+    id: "packaging-work-14",
+    category: "Packaging",
+    image: "/packaging/packaging-work-14.webp",
+  },
+  {
+    id: "packaging-work-15",
+    category: "Packaging",
+    image: "/packaging/packaging-work-15.webp",
+  },
 ];

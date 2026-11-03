@@ -161,6 +161,9 @@ export const clientMapping: Record<string, string> = {
   "amazon-spicy-world": "Other Projects",
   "packaging-bombaychef": "Other Projects",
   "packaging-couscous": "Other Projects",
+  "packaging-work-13": "Other Projects",
+  "packaging-work-14": "Other Projects",
+  "packaging-work-15": "Other Projects",
   "social-video-1": "Other Projects",
   "social-video-2": "Other Projects",
   "social-video-3": "Other Projects",
@@ -173,6 +176,7 @@ export const clientMapping: Record<string, string> = {
   "la-malle-logo": "Other Projects",
   "general-work-logo": "Other Projects",
   "work-3-logo": "Other Projects",
+  "work-16-logo": "Other Projects",
   "fmcg-mantra": "Other Projects",
 };
 
