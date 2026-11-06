@@ -3,6 +3,7 @@ import type { BlogPostData } from "../../types/blog";
 export const voiceSearchPost: BlogPostData = {
   slug: "voice-search",
   title: "How to Optimise Your Website for Voice Search in 2026?",
+  metaTitle: "Voice Search Optimisation: How to Rank in 2026 | Words4Web",
   description:
     "Learn how to get your website found by voice search in 2026. Simple steps: question keywords, fast mobile pages and short, clear answers.",
   author: "Words4Web",

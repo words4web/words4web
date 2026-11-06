@@ -28,6 +28,7 @@ export interface ProcessStep {
 export interface CaseStudyItem {
   slug: string;
   title: string;
+  metaTitle?: string;
   subtitle: string;
   services: string;
   description: string;

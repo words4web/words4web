@@ -3,6 +3,7 @@ import type { BlogPostData } from "../../types/blog";
 export const agencyAiToolsPost: BlogPostData = {
   slug: "agency-ai-tools",
   title: "Top AI tools every digital marketing agency should use in 2026",
+  metaTitle: "Top AI Tools for Marketing Agencies in 2026 | Words4Web",
   description:
     "The best AI tools for digital marketing agencies in 2026 for content, SEO, ads and reports, plus tips to use them without losing quality.",
   author: "Words4Web",

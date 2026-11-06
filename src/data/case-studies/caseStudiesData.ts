@@ -105,6 +105,7 @@ export const caseStudiesData: CaseStudyItem[] = [
   {
     slug: "words4web-rkb-website-application-development",
     title: "Words4Web × RKB Website and Application Development",
+    metaTitle: "RKB Website & Mobile App Development Case Study | Words4Web",
     subtitle: "Divine Go Operation Simplification",
     services: "Website Development + Mobile Application",
     description:

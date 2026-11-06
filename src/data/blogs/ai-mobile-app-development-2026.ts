@@ -3,6 +3,7 @@ import type { BlogPostData } from "../../types/blog";
 export const aiMobileAppDevelopment2026Post: BlogPostData = {
   slug: "how-ai-is-transforming-mobile-app-development-in-2026",
   title: "How AI Is Transforming Mobile App Development in 2026",
+  metaTitle: "AI in Mobile App Development: 2026 Guide | Words4Web",
   description:
     "See how AI is changing mobile app development in 2026, from faster coding and testing to apps that feel more personal to users.",
   author: "Words4Web",

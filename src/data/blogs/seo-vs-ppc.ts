@@ -3,6 +3,7 @@ import type { BlogPostData } from "../../types/blog";
 export const seoVsPpcPost: BlogPostData = {
   slug: "seo-vs-ppc",
   title: "SEO vs PPC: Which One is Better for Your Business in 2026?",
+  metaTitle: "SEO vs PPC in 2026: Which Is Better for You? | Words4Web",
   description:
     "SEO or PPC: which is better for your business in 2026? Compare cost, speed and results, and learn when to use one or both together.",
   author: "Words4Web",

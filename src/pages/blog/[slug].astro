@@ -49,7 +49,7 @@ function parseMarkdown(text: string) {
 }
 ---
 
-<Layout title={`${post.title} | Words4Web Blog`} description={post.description}>
+<Layout title={post.metaTitle || `${post.title} | Words4Web Blog`} description={post.description}>
   <SmoothScroll client:load />
   <CustomCursor client:load />
 

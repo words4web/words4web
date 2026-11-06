@@ -4,6 +4,7 @@ export const performanceMarketing2026Post: BlogPostData = {
   slug: "performance-marketing-services-in-2026",
   title:
     "Performance Marketing Services in 2026 – What Actually Drives ROI Now",
+  metaTitle: "Performance Marketing in 2026: What Drives ROI | Words4Web",
   description:
     "What is performance marketing and how does it work? See the channels and numbers that matter in 2026 so your ad spend brings measurable returns.",
   author: "Words4Web",
