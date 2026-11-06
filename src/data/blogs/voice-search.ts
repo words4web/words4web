@@ -123,7 +123,7 @@ export const voiceSearchPost: BlogPostData = {
     {
       type: "paragraph",
       value:
-        "From answering questions naturally to improving technical performance, every optimisation contributes to better visibility and engagement. Businesses that adapt early can strengthen their competitive position and connect with audiences more effectively. If you are ready to improve your digital presence with strategic voice SEO and conversational search solutions, partner with [Words4Web](https://www.words4web.com/#contact). Visit [words4web.com](https://www.words4web.com/#contact) to explore professional digital marketing services and build a website prepared for the future of Voice Search Optimisation that delivers measurable long-term results.",
+        "From answering questions naturally to improving technical performance, every optimisation contributes to better visibility and engagement. Businesses that adapt early can strengthen their competitive position and connect with audiences more effectively. If you are ready to improve your digital presence with strategic voice SEO and conversational search solutions, partner with [Words4Web](https://www.words4web.com/#contact). Visit [Words4Web](https://www.words4web.com/#contact) to explore professional digital marketing services and build a website prepared for the future of Voice Search Optimisation that delivers measurable long-term results.",
     },
   ],
   faqs: [],

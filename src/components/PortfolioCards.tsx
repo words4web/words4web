@@ -116,6 +116,50 @@ export function PortfolioCards({
   };
 
   if (isMasonry) {
+    const isQuickSignerBanner = (id?: string) =>
+      id === "social-banner-quicksigner-1" ||
+      id === "social-banner-quicksigner-2" ||
+      id === "social-banner-quicksigner-3";
+
+    const hasQuickSignerBanners = filteredItems?.some((item) =>
+      isQuickSignerBanner(item?.id),
+    );
+
+    if (hasQuickSignerBanners) {
+      const bannerItems = filteredItems?.filter((item) =>
+        isQuickSignerBanner(item?.id),
+      );
+      const nonBannerItems = filteredItems?.filter(
+        (item) => !isQuickSignerBanner(item?.id),
+      );
+
+      // We place the 3 banners in a centered full-width row at their position
+      const firstBannerIndex = filteredItems.findIndex((item) =>
+        isQuickSignerBanner(item?.id),
+      );
+      const beforeBanners = filteredItems
+        .slice(0, firstBannerIndex)
+        .filter((item) => !isQuickSignerBanner(item?.id));
+      const afterBanners = filteredItems
+        .slice(firstBannerIndex)
+        .filter((item) => !isQuickSignerBanner(item?.id));
+
+      return (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1200px] mx-auto w-full px-4 justify-items-center">
+          {beforeBanners.map(renderCard)}
+          <div className="col-span-full w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 justify-items-center items-center py-2">
+            {bannerItems?.map(renderCard)}
+          </div>
+          {afterBanners.map(renderCard)}
+          {(!filteredItems || filteredItems?.length === 0) && (
+            <div className="py-16 text-center text-[var(--text-secondary)] text-lg w-full col-span-full">
+              No projects in this category yet. Stay tuned!
+            </div>
+          )}
+        </div>
+      );
+    }
+
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1200px] mx-auto w-full px-4 justify-items-center">
         {filteredItems?.map(renderCard)}

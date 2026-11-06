@@ -164,7 +164,7 @@ export const howToChoosePerformanceMarketingAgencyPost: BlogPostData = {
     {
       type: "paragraph",
       value:
-        "Ready to see what better paid ads management could do for your business? Book a free strategy call today at [www.words4web.com](https://www.words4web.com), tell us about your goals, and let's build a plan that makes every single penny of your ad budget work harder. Your very next campaign could genuinely be the one that finally adds up.",
+        "Ready to see what better paid ads management could do for your business? Book a free strategy call today at [Words4Web](https://www.words4web.com), tell us about your goals, and let's build a plan that makes every single penny of your ad budget work harder. Your very next campaign could genuinely be the one that finally adds up.",
     },
   ],
   faqs: [

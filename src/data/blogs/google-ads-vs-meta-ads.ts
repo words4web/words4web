@@ -180,7 +180,7 @@ export const googleAdsVsMetaAdsPost: BlogPostData = {
     {
       type: "paragraph",
       value:
-        "If you are deciding which is better, Google Ads or Meta Ads, start with measurable goals. For a performance marketing platform comparison, review your website, audience and path before spending. Speak with Words4Web at [www.words4web.com](https://www.words4web.com/) to build an advertising plan around what you need. A strategy gives your budget direction and connects advertising to your plan.",
+        "If you are deciding which is better, Google Ads or Meta Ads, start with measurable goals. For a performance marketing platform comparison, review your website, audience and path before spending. Speak with [Words4Web](https://www.words4web.com/) to build an advertising plan around what you need. A strategy gives your budget direction and connects advertising to your plan.",
     },
   ],
   faqs: [],

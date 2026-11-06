@@ -92,7 +92,7 @@ export const keywordResearchSeoPost: BlogPostData = {
     {
       type: "paragraph",
       value:
-        "If you’d rather have experts handle your SEO keyword research and strategy from start to finish, [Words4Web](https://www.words4web.com/#contact) can help you find, target, and rank for the keywords that actually bring customers. Visit [www.words4web.com](https://www.words4web.com) to get started today.",
+        "If you’d rather have experts handle your SEO keyword research and strategy from start to finish, [Words4Web](https://www.words4web.com/#contact) can help you find, target, and rank for the keywords that actually bring customers. Visit [Words4Web](https://www.words4web.com) to get started today.",
     },
   ],
   faqs: [

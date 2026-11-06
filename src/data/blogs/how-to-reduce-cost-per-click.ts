@@ -214,7 +214,7 @@ export const howToReduceCostPerClickPost: BlogPostData = {
     {
       type: "paragraph",
       value:
-        "Keep monitoring performance and direct more budget towards activity that supports genuine enquiries, sales or other agreed goals. If you need a clearer strategy, Words4Web offers paid ads management focused on measurable ROI. Visit [www.words4web.com](https://www.words4web.com/) to discuss your business goals and build a campaign strategy that suits your needs and budget.",
+        "Keep monitoring performance and direct more budget towards activity that supports genuine enquiries, sales or other agreed goals. If you need a clearer strategy, Words4Web offers paid ads management focused on measurable ROI. Visit [Words4Web](https://www.words4web.com/) to discuss your business goals and build a campaign strategy that suits your needs and budget.",
     },
   ],
   faqs: [

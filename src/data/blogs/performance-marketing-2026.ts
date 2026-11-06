@@ -136,7 +136,7 @@ export const performanceMarketing2026Post: BlogPostData = {
     {
       type: "paragraph",
       value:
-        "If your business is ready to review its digital strategy, start by looking at your goals, current website, advertising activity, and the metrics that matter most. For any digital service, connect with Words4web or explore [www.https://www.words4web.com/](https://www.words4web.com/) and book your call.",
+        "If your business is ready to review its digital strategy, start by looking at your goals, current website, advertising activity, and the metrics that matter most. For any digital service, connect with [Words4Web](https://www.words4web.com/) and book your call.",
     },
   ],
   faqs: [
