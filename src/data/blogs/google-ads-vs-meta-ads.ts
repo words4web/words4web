@@ -3,6 +3,8 @@ import type { BlogPostData } from "../../types/blog";
 export const googleAdsVsMetaAdsPost: BlogPostData = {
   slug: "google-ads-vs-meta-ads-which-one-actually-wins-in-2026",
   title: "Google Ads vs Meta Ads: Which One Actually Wins in 2026?",
+  description:
+    "Google Ads vs Meta Ads in 2026: compare search intent vs audience discovery, cost per acquisition, and learn how to use both channels for maximum ROI.",
   author: "Words4Web",
   date: "2026-10-29",
   headerImage: "/blog/google-vs-meta-ads/featured.webp",

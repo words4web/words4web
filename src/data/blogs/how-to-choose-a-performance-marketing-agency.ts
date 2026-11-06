@@ -3,6 +3,8 @@ import type { BlogPostData } from "../../types/blog";
 export const howToChoosePerformanceMarketingAgencyPost: BlogPostData = {
   slug: "how-to-choose-a-performance-marketing-agency-7-tips",
   title: "How to Choose a Performance Marketing Agency: 7 Tips",
+  description:
+    "7 practical tips on choosing a performance marketing agency: audit expectations, reporting, pricing models, and how to spot a partner that actually drives ROI.",
   author: "Words4Web",
   date: "2026-10-22",
   headerImage: "/blog/performance-marketing-agency/featured.webp",

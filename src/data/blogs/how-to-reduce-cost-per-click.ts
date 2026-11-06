@@ -3,6 +3,8 @@ import type { BlogPostData } from "../../types/blog";
 export const howToReduceCostPerClickPost: BlogPostData = {
   slug: "how-to-reduce-cost-per-click-in-google-ads-7-practical-tips",
   title: "How to Reduce Cost per Click in Google Ads: 7 Practical Tips",
+  description:
+    "7 practical ways to reduce cost per click (CPC) in Google Ads without hurting leads: negative keywords, quality score, ad relevance, and landing page tips.",
   author: "Words4Web",
   date: "2026-10-28",
   headerImage: "/blog/cost-per-click/featured.webp",
