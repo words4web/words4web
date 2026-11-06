@@ -3,6 +3,8 @@ import type { BlogPostData } from "../../types/blog";
 export const flutterVsReactNative2026Post: BlogPostData = {
   slug: "flutter-vs-react-native-which-is-better-in-2026",
   title: "Flutter vs React Native: Which is Better in 2026?",
+  description:
+    "Flutter or React Native for your app in 2026? A simple comparison of speed, cost and ease of development to help you choose the right one.",
   author: "Words4Web",
   date: "2026-08-27",
   headerImage: "/blog/flutter-vs-react-native-2026/featured.webp",

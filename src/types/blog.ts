@@ -11,6 +11,7 @@ export interface FAQItem {
 export interface BlogPostData {
   slug: string;
   title: string;
+  description?: string;
   author: string;
   date: string;
   headerImage: string;

@@ -3,6 +3,8 @@ import type { BlogPostData } from "../../types/blog";
 export const understandingGoogleEeatPost: BlogPostData = {
   slug: "understanding-googles-eeat-and-why-it-matters-for-your-website",
   title: "Understanding Google's EEAT and Why It Matters for Your Website",
+  description:
+    "What is Google E-E-A-T and why does it matter for SEO? Learn simple ways to show experience and trust on your website and content.",
   author: "Words4Web",
   date: "2026-08-12",
   headerImage: "/blog/googles-eeat/eeat-banner.webp",

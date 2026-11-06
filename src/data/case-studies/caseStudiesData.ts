@@ -108,7 +108,7 @@ export const caseStudiesData: CaseStudyItem[] = [
     subtitle: "Divine Go Operation Simplification",
     services: "Website Development + Mobile Application",
     description:
-      "At Words4Web, we're proud to have an opportunity to work with RKB, a UK-based organisation, to bring their digital vision to life through a fully custom website and mobile application.",
+      "See how we built a custom website and mobile app for RKB in the UK using React Native, Node.js and AWS. Read the full case study.",
     image: "/work/rkb.webp",
     link: "/our-works/words4web-rkb-website-application-development",
     aboutText1:

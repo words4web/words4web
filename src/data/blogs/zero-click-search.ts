@@ -3,6 +3,8 @@ import type { BlogPostData } from "../../types/blog";
 export const zeroClickSearchPost: BlogPostData = {
   slug: "zero-click-search",
   title: "What Zero-Click Search Means for Your Blog Strategy in 2026?",
+  description:
+    "Zero-click searches mean fewer visits to your blog. Learn simple ways to adapt your content in 2026 and still get found and clicked.",
   author: "Words4Web",
   date: "2026-05-01",
   headerImage: "/blog/zero-click-search/zero-click-search-banner.webp",

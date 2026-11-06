@@ -3,6 +3,8 @@ import type { BlogPostData } from "../../types/blog";
 export const keywordResearchSeoPost: BlogPostData = {
   slug: "keyword-research-seo",
   title: "Keyword Research for SEO: How to Find High-Intent Keywords That Rank",
+  description:
+    "Learn keyword research for SEO step by step. Find easy-to-rank keywords with real search demand and use them on the right pages.",
   author: "Words4Web",
   date: "2026-07-29",
   headerImage: "/blog/keyword-research-seo/seo-keyword-research-banner.webp",

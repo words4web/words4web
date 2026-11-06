@@ -3,6 +3,8 @@ import type { BlogPostData } from "../../types/blog";
 export const croGuidePost: BlogPostData = {
   slug: "cro-guide",
   title: "What Is Conversion Rate Optimization (CRO) and Why It Matters?",
+  description:
+    "What is conversion rate optimization (CRO)? Learn it in simple words and see easy steps to turn more website visitors into paying customers.",
   author: "Words4Web",
   date: "2026-06-13",
   headerImage: "/blog/cro-guide/cro-guide-banner.webp",

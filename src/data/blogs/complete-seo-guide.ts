@@ -3,6 +3,8 @@ import type { BlogPostData } from "../../types/blog";
 export const completeSeoGuidePost: BlogPostData = {
   slug: "complete-seo-guide",
   title: "Complete SEO Guide: How to Rank Higher on Google in 2026",
+  description:
+    "A complete SEO guide for beginners in 2026. Learn technical, on-page and off-page SEO in simple steps to rank higher on Google.",
   author: "Words4Web",
   date: "2026-07-08",
   headerImage: "/blog/seo-guide/complete-seo-guide-banner.webp",

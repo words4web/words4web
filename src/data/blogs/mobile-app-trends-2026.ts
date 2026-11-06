@@ -3,6 +3,8 @@ import type { BlogPostData } from "../../types/blog";
 export const mobileAppTrends2026Post: BlogPostData = {
   slug: "mobile-app-development-trends-2026",
   title: "Mobile App Development Trends Leading the Industry in 2026",
+  description:
+    "The top mobile app development trends in 2026, from AI and Flutter to security and better user experience, explained in simple words.",
   author: "Words4Web",
   date: "2026-08-27",
   headerImage: "/blog/mobile-app-trends-2026/featured.webp",
